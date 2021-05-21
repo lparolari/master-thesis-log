@@ -1,5 +1,19 @@
 # Log
 
+# 20/05/2021
+
+- Lettura paper self-supervised
+- Lettura documento utilizzo cluster
+
+**Resources**
+
+- [A Gentle Introduction to Cross-Entropy for Machine Learning](https://machinelearningmastery.com/cross-entropy-for-machine-learning/)
+- [Cluster Usage](http://computing.math.unipd.it/highpc/clusterusage)
+
+# 19/05/2021
+
+Attivazione account per il cluster e lab tesisti.
+
 # 18/05/2021
 
 Riunione con Davide per discutere del suo paper e organizzarsi per il lavoro sul
