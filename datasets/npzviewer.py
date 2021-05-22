@@ -4,16 +4,12 @@ import numpy
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Show .npz content')
-    parser.add_argument(
-        '--id',
-        required=False,
-        default='1000092795',
-        type=str,
-        help='The ID of an example')
+    parser.add_argument('--file', required=False,
+                        default='1000092795.jpg.npz', type=str, help='The numpy-zipped file')
     args = parser.parse_args()
 
     # load numpy-zipped data
-    data = numpy.load(f'{args.id}.jpg.npz')
+    data = numpy.load(args.file)
 
     # lst is a list of keys
     lst = data.files

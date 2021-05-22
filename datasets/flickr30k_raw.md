@@ -1,18 +1,24 @@
-# flickr30k_raw
+# Raw data
 
-The _flick30k_raw_ folder contains two subfolders, namely _out_bu_ and
-_out_ewiser_ with information about images and text respectively.
+The _flick30k_raw_ and _referit_raw_ folders contain two subfolders, namely
+_out_bu_ and _out_ewiser_ with information about images extracted with bottom-up
+attention and text extracted with ewiser respectively.
+
+Both folders from _flick30k_raw_ and _referit_raw_ have more or less the same
+structure with very litte differences.
 
 ## out_bu
 
 This folder contains a numpy-zipped file for every example (i.e. for every
 image-sentence pair). Each example is identified by an unique identifier, e.g.
-`1000092795`. Obviously, each example is composed by an image and a sentence
-describing the image. (See [flickr30k.md](flickr30k.md) for more information).
+`1000092795` for flickr or `10000` for referit. Obviously, each example is
+described by an image and a caption (possibly more than one). (See
+[flickr30k.md](flickr30k.md) for more information).
 
 The numpy-zipped file containing information on image is named with the id of
-the example followed by `.jpg.npz`, e.g. `1000092795.jpg.npz`. The former
-contains a Python dictionray with following information:
+the example followed by `.jpg.npz`, e.g. `1000092795.jpg.npz` or `10000.jpg.npz`
+for flickr and referit respectively. This file contains a Python dictionray with
+following information:
 
 - `image_w`, scalar, represents image width;
 - `image_h`, scalar, represents image height;
@@ -25,6 +31,17 @@ contains a Python dictionray with following information:
 - `num_bbox`, scalar, number of extracted bounding box;
 - `x`, `(2048, 100)` matrix, features for each bounding box;
 
+You can see the content of the file with `npzviewer.py`, a simple program
+written for this purposes.
+
+```sh
+python npzviewer.py --file 1000092795.jpg.npz  # for flicker example
+python npzviewer.py --file 10000.jpg.npz       # for referit example
+```
+
+The code simply parses the argument, loads the file as a numpy zipped file and
+gets data from the dict.
+
 ```py
 # npzviewer.py
 
@@ -34,11 +51,11 @@ import numpy
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Show .npz content')
-    parser.add_argument('--id', required=False, default='1000092795', type=str, help='The ID of an example')
+    parser.add_argument('--file', required=False, default='1000092795.jpg.npz', type=str, help='The ID of an example')
     args = parser.parse_args()
 
     # load numpy-zipped data
-    data = numpy.load(f'{args.id}.jpg.npz')
+    data = numpy.load(args.id)
 
     # lst is a list of keys
     lst = data.files
@@ -49,7 +66,41 @@ if __name__ == '__main__':
         print(data[item])
 ```
 
-## out_ewiser
+Sample output ("`...`" means the numpy array, not reported for reading purposes)
+
+```sh
+# python npzviewer.py --file 10000.jpg.npz
+
+Item = image_w
+Shape = ()
+360
+
+Item = cls_prob
+Shape = (100, 1601)
+...
+
+Item = attr_prob
+Shape = (100, 401)
+...
+
+Item = bbox
+Shape = (100, 4)
+...
+
+Item = num_bbox
+Shape = ()
+100
+
+Item = image_h
+Shape = ()
+480
+
+Item = x
+Shape = (2048, 100)
+...
+```
+
+## out_ewiser (flickr)
 
 This folder contains a json file for each example, identified by its unique
 identifier (e.g. `1000092795`). The json file contains information about the
@@ -81,7 +132,7 @@ assuming you have python installed.
         "phrase_id": "1",
         "phrase_type": ["people"]
       }
-      // ...
+      // phrases ...
     ],
     "ewiser": [
       {
@@ -121,10 +172,76 @@ assuming you have python installed.
         ],
         "n_synsets": 10
       }
-      // ...
+      // noun-phrases ...
     ]
   }
 
-  // ...
+  // sentences ...
 ]
+```
+
+## out_ewiser (referit)
+
+For referit we have the same json file for representing captions and queries,
+but in this case, information for a single example is splitted in 5 different
+json files (one for caption).
+
+```json
+// cat 10000_1.json | python -m json.tool
+
+{
+  "img_id": "10000.jpg",
+  "ann_id": "10000_1",
+  "bbox": [0.0, 78.0, 360.0, 480.0],
+  "split": "test",
+  "query": ["the ground that's not grass"],
+  "ewiser": [
+    [
+      {
+        "chunk": "the ground",
+        "head": "ground",
+        "token_begin": 4,
+        "token_end": 10,
+        "synsets": [
+          "land.n.02",
+          "land.n.04",
+          "earth.n.02",
+          "soil.n.02",
+          "ground.n.09",
+          "turf.n.01",
+          "geological_formation.n.01",
+          "earth.v.02",
+          "growth.n.07",
+          "property.n.05"
+        ],
+        "offsets": [
+          "wn:09335240n",
+          "wn:09334396n",
+          "wn:14842992n",
+          "wn:14844693n",
+          "wn:03462747n",
+          "wn:09463919n",
+          "wn:09287968n",
+          "wn:01292727v",
+          "wn:09295338n",
+          "wn:04012260n"
+        ],
+        "scores": [
+          0.6774085164070129, 0.2569873034954071, 0.05609188228845596,
+          0.007190834265202284, 0.001118004904128611, 0.0004867452662438154,
+          0.00038822117494419217, 0.00015768763842061162, 9.171342389890924e-5,
+          7.901178469182923e-5
+        ],
+        "n_synsets": 10
+      }
+    ]
+  ]
+}
+```
+
+Try this on your own:
+
+```sh
+cat 10000_1.txt.json | python -m json.tool
+cat 10000_2.txt.json | python -m json.tool
 ```
