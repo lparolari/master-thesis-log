@@ -1,5 +1,15 @@
 # Log
 
+# 21/05/2021
+
+- Configurazione dell'ambiente sul cluster
+- Studio del codice di preprocessing del dataset per capire gli input del
+  modello
+
+**Resources**
+
+- [flickr30k_raw cheatsheet](datasets/flickr30k_raw.md)
+
 # 20/05/2021
 
 - Lettura paper self-supervised
