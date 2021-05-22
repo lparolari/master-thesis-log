@@ -1,3 +1,119 @@
+# Flickr30k
+
+Flickr30k is one of the main dataset for VT-grounding task.
+
+The dataset is organized as follows.
+
+- The `train.txt`, `test.txt` and `val.txt` files contain the identifier of the
+  examples to use respectively as train, test and validation dataset.
+
+- `UNRELATED_CAPTIONS` contains all unrelated captions wrt the examples:
+
+```
+# format: <imageID> <sentence number>
+129602216 5
+133010954 5
+153299765 2
+158388874 5
+200767661 5
+3367384342 2
+4671832284 1
+7638876050 5
+3652094744 1
+7017792809 5
+7052778829 5
+7232861768 5
+4901396689 5
+6154676236 5
+6442477951 5
+4351142771 5
+5096654568 5
+100759042 5
+5566135246 5
+2190899457 5
+180753784 3
+```
+
+- `Annotations` folder contains a list of `xml` files (e.g., `1000092795.xml`)
+  where each file has the annotaions, i.e. ground truth from bounding box to
+  query.
+
+```sh
+cat 1000092795.xml
+```
+
+```xml
+<annotation>
+	<filename>1000092795.jpg</filename>
+	<size>
+		<width>333</width>
+		<height>500</height>
+		<depth>3</depth>
+	</size>
+	<object>
+		<name>1</name>
+		<bndbox>
+			<xmin>159</xmin>
+			<ymin>125</ymin>
+			<xmax>219</xmax>
+			<ymax>335</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>4</name>
+		<bndbox>
+			<xmin>1</xmin>
+			<ymin>220</ymin>
+			<xmax>211</xmax>
+			<ymax>473</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>4</name>
+		<bndbox>
+			<xmin>276</xmin>
+			<ymin>215</ymin>
+			<xmax>332</xmax>
+			<ymax>337</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>1</name>
+		<name>6</name>
+		<bndbox>
+			<xmin>197</xmin>
+			<ymin>110</ymin>
+			<xmax>261</xmax>
+			<ymax>373</ymax>
+		</bndbox>
+	</object>
+  <!-- ... -->
+	<object>
+		<name>10</name>
+		<scene>0</scene>
+		<nobndbox>1</nobndbox>
+	</object>
+</annotation>
+```
+
+- `Sentences` folder contains a list of files with captions annotated with
+  queries.
+
+```
+cat 1000092795.txt
+```
+
+```
+[/EN#1/people Two young guys] with [/EN#2/bodyparts shaggy hair] look at [/EN#3/bodyparts their hands] while hanging out in [/EN#8/scene the yard] .
+[/EN#1/people Two young , White males] are outside near [/EN#4/scene many bushes] .
+[/EN#1/people Two men] in [/EN#5/clothing green shirts] are standing in [/EN#9/scene a yard] .
+[/EN#6/people A man] in [/EN#7/clothing a blue shirt] standing in [/EN#9/scene a garden] .
+[/EN#1/people Two friends] enjoy [/EN#10/other time] spent together .
+```
+
+Please note that _/EN#X/class_ is a shallow annotaiton on the type of the
+noun-query.
+
 # Raw data
 
 The _flick30k_raw_ and _referit_raw_ folders contain two subfolders, namely
