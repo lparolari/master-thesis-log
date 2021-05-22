@@ -1,5 +1,17 @@
 # Log
 
+# 22/05/2021
+
+Aggiunta delle descrizioni ed esempi per i _raw data_ su flickr e referit, più
+alcune info e riferimenti per i dataset _flickr_, _referit_ e l'ontologia
+_YAGO_.
+
+**Resources**
+
+- [Dataset Cheatsheet](datasets/README.md)
+- Generate a deliverable document from the dataset cheatsheet with
+  `pandoc README.md -o README.pdf`.
+
 # 21/05/2021
 
 - Configurazione dell'ambiente sul cluster
@@ -8,7 +20,7 @@
 
 **Resources**
 
-- [flickr30k_raw cheatsheet](datasets/flickr30k_raw.md)
+- [~~flickr30k_raw cheatsheet~~](datasets/flickr30k_raw.md)
 
 # 20/05/2021
 
