@@ -114,6 +114,11 @@ cat 1000092795.txt
 Please note that _/EN#X/class_ is a shallow annotaiton on the type of the
 noun-query.
 
+# Referit
+
+Please refer to their awesome
+[dataset REAMDE.md](https://github.com/lichengunc/refer/blob/master/data/README.md).
+
 # Raw data
 
 The _flick30k_raw_ and _referit_raw_ folders contain two subfolders, namely
