@@ -366,3 +366,7 @@ Try this on your own:
 cat 10000_1.txt.json | python -m json.tool
 cat 10000_2.txt.json | python -m json.tool
 ```
+
+# YAGO
+
+Please refer to their [repository](https://github.com/yago-naga/yago3).
