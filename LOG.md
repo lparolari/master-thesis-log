@@ -1,5 +1,10 @@
 # Log
 
+# 24/05/2021
+
+Studio di PyThorch e esperimenti su notebook colab seguendo i loro
+[tutorial](https://pytorch.org/tutorials/beginner/basics/intro.html).
+
 # 22/05/2021
 
 Aggiunta delle descrizioni ed esempi per i _raw data_ su flickr e referit, più
