@@ -1,5 +1,28 @@
 # Log
 
+# 26/05/2021 - 27/05/2021
+
+- Test del modello in locale (dati montati in locale)
+- Setup dei symlink su cluster
+- Debug di un file `.pickle`
+- Generazione dei file preprocessed tramite job sul cluster
+  `~/Jobs/vtg-make-dataset-cpu1.job`
+- Setup dell'ambiente di lavoro parallelo su lab tesisti
+- Prima esecuzione del modello (non completa, errore sul vocab)
+
+**Resources**
+
+- [.pickle viewer](resources/pickle_viewer/pickle_viewer.py)
+- [setup_storage.sh](resources/setup_storage/setup_storage.sh)
+- [mount.sh (locale)](resources/mount/mount.sh)
+- [vtg-make-dataset-cpu1.job](resources/jobs/vtg-make-dataset-cpu1.job)
+
+# 25/05/2021
+
+- Studio di PyTorch
+- Studio del codice di Davide
+- Incontro con Davide per paralre del codice
+
 # 24/05/2021
 
 Studio di PyThorch e esperimenti su notebook colab seguendo i loro
