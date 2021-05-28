@@ -1,5 +1,24 @@
 # Log
 
+# 28/05/2021
+
+- Setup zsh su lab tesisti
+- Setup dell'ambiente per lanciare il training su lab tesisti
+- Mail a Luca Righi per aggiornamento versione di CUDA 10.1 su lab tesisti così
+  da poter trainare il modello direttamente sul lab
+- [Approfondimento](model/text_embeddings.py) sulla funzione degli embedding per
+  il testo
+  [create_embeddings_network](https://github.com/lparolari/Loss_VT_Grounding/blob/0f5627dc9dda6edbe2be130b1eaf5a3fc98cc171/model_code/model.py#L165)
+- [Approfondimento su LSTM](model/lstm_embeddings.py)
+- [Approfondimento su tokenizer](model/text_tokenizer.py)
+
+**Resources**
+
+- [Compiling and installing Zsh without root privileges on Stanford's Sherlock (https://sherlock.stanford.edu) for use in tmux](https://gist.github.com/mgbckr/b8dc6d7d228e25325b6dfaa1c4018e78)
+- [text_embeddings.py](model/text_embeddings.py)
+- [lstm_embeddings.py](model/lstm_embeddings.py)
+- [text_tokenizer.py](model/text_tokenizer.py)
+
 # 26/05/2021 - 27/05/2021
 
 - Test del modello in locale (dati montati in locale)
