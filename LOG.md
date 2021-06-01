@@ -1,5 +1,13 @@
 # Log
 
+# 01/06/2021
+
+- Implementaizone dell'estrazione delle features per l'immagine
+
+**Resources**
+
+- [image_features.py](model/image_features.py)
+
 # 31/05/2021
 
 - Incontro con Davide per discutere la funzione
