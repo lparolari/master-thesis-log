@@ -1,5 +1,18 @@
 # Log
 
+# 31/05/2021
+
+- Incontro con Davide per discutere la funzione
+  [`apply_lstm_phrases`](https://github.com/lparolari/Loss_VT_Grounding/blob/0f5627dc9dda6edbe2be130b1eaf5a3fc98cc171/model_code/model.py#L117)
+  e più nello specifico del funzionamento di `torch.pack_padded_sequences`,
+  `torch.pad_packed_sequences` e `torch.gather`.
+
+**Resources**
+
+- [lstm_embeddings.py](model/lstm_embeddings.py)
+- [torch_gather.py](model/torch_gather.py)
+- [torch_sum.py](model/torch_sum.py)
+
 # 28/05/2021
 
 - Setup zsh su lab tesisti
