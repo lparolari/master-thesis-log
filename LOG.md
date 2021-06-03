@@ -1,8 +1,17 @@
 # Log
 
+# 03/06/2021
+
+- Implementazione del calcolo della classification e regression loss
+
+**Resources**
+
+- [losses.py](model/losses.py)
+
 # 01/06/2021
 
 - Implementaizone dell'estrazione delle features per l'immagine
+- Fix dello script `pickle_viewer`
 
 **Resources**
 
