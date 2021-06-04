@@ -1,0 +1,11 @@
+on: push
+name: log-toc
+jobs:
+  generate_toc:
+    name: table of contents generator
+    runs-on: ubuntu-latest
+    steps:
+      - uses: technote-space/toc-generator@v4
+        with:
+          TARGET_PATHS: LOG.md
+          FOLDING: true

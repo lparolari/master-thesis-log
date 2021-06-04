@@ -1,5 +1,8 @@
 # Log
 
+<!-- START doctoc -->
+<!-- END doctoc -->
+
 # 04/06/2021 (x)
 
 > Milestone: incontro per discussione sul lavoro vero e proprio
