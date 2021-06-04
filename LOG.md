@@ -1,5 +1,44 @@
 # Log
 
+# 04/06/2021 (x)
+
+> Milestone: incontro per discussione sul lavoro vero e proprio
+
+- Review del codice nuovo del modello e setup ambiene per nuovo repository
+- Incontro con Davide per nuovi obiettivi di lavoro (rendere il modello
+  weakly-supervised), si veda resoconto che segue
+- Email a Ballan con aggiornamenti ("Aggiornamenti sulla tesi", 04/06/2021
+  16:46)
+
+**Resoconto call con Davide**
+
+Dall'incontro è emerso che la parte del KG per le immagini estrae una sola
+entità (quella correlata alla classe) e per le query estrae una top-k di entità.
+Per un discorso di efficienza le tutte le entità rilevanti (ovvero quelle
+nominate nelle query e quelle delle classi delle proposal) sono allineate in
+fase di preprocessing con le classi e ne viene specificata la relazione
+(colegate, non collegate, relazione padre figlio...).
+
+Le entità nel modello sono utilizzate solamente tramite gli embedding. Si prende
+l'embedding della classe della proposal e top-k della query, si fa la
+concatenezione e si usano assieme al resto del modello.
+
+Per quanto riguarda rendere il modello weakly-supervised si è parlato invece
+dell'utilizzo dei chunk di ewiser come query assieme alle proposal dell'object
+detector per fare l'allenamento. Non avendo a disposizione la ground truth
+diventa difficile da fare anche la valutazione. Per questo motivo la valutazione
+va fatta collegando i chink alle query in qualche modo (per esempio lasciando
+stare gli allineamenti di chunk che non hanno query), ovvero, l'algoritmo
+inverso rispetto a quello che ha fatto Daivde.
+
+In più, per quanto riguarda la loss, bisogna pensare a qualcosa che lavora sulla
+ricostruzione e che sfrutta la repulsione delle feature nello spazio latente.
+Per questo motivo bisognerà pensre ad un campionamento di esempi random
+_negativi_ da includere in fase di training.
+
+Riassunto problemi principali individuati: valutazione del modello e
+campionamento esempi negativi.
+
 # 03/06/2021
 
 - Implementazione del calcolo della classification e regression loss
