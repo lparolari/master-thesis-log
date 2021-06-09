@@ -5,7 +5,10 @@
 <details>
 <summary>Table of Contents</summary>
 
-- [04/06/2021 (x)](#04062021-x)
+- [09/06/2021 - Modifica funzioni di padding e loss, flickr30k pico, github action](#09062021---modifica-funzioni-di-padding-e-loss-flickr30k-pico-github-action)
+- [08/06/2021 - Modifica dataloader e funzioni di padding](#08062021---modifica-dataloader-e-funzioni-di-padding)
+- [07/06/2021 - Progettazione modello Weakly-Supervised](#07062021---progettazione-modello-weakly-supervised)
+- [04/06/2021 (x) - Discussione sul lavoro da fare sul codice](#04062021-x---discussione-sul-lavoro-da-fare-sul-codice)
 - [03/06/2021](#03062021)
 - [01/06/2021](#01062021)
 - [31/05/2021](#31052021)
