@@ -1,8 +1,0 @@
-{
-  "name": "master-thesis-log",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "git@github.com:lparolari/master-thesis-log.git",
-  "author": "lparolari <luca.parolari23@gmail.com>",
-  "license": "MIT"
-}
