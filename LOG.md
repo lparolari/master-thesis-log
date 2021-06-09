@@ -33,7 +33,41 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# 04/06/2021 (x)
+# 09/06/2021 - Modifica funzioni di padding e loss, flickr30k pico, github action
+
+- Correzione del problema di matching forzato tra i chunk e le frasi gt del
+  modello: rigenerazione del nuovo dataset che non forza il matching tra i chunk
+  e le frasi (questo processo deve essere rovesciato in fase di validazione del
+  modello)
+- Modifica make_dataset e generazione del nuovo dataset sul cluster
+- Integrazione del modulo padder e inizio costruzione della funzione di loss
+- Creazione di _flickr30k_pico_
+  ([Google Drive](https://drive.google.com/file/d/1aMXIHGxoADGjSH0TvhIxXrCNpedEBdB3/view?usp=sharing),
+  ~ 80MB), un sottoinsieme di 10 esempi per train, test e validation
+- Creazione di una github action che esegue il modello su _flickr30k_pico_
+
+**Resources**
+
+- [flickr30k_pico (WIP)](resources/flickr30k_pico/go.sh)
+- [text_tokenizer_modularized.py](model/text_tokenizer_modularized.py)
+- [torch_argmax.py](model/torch_argmax.py)
+- [torch_view.py](model/torch_view.py)
+
+# 08/06/2021 - Modifica dataloader e funzioni di padding
+
+- Modifica della funzione `collate_fn` e per il supporto ai chunk
+  (positivi/negativi) di ewiser anzichè le query
+- Introduzione del modulo `padder` con funzioni di utilità per "paddare" tutto
+  (frasi, chunk positivi/negativi, entità yago) alla stessa lunghezza
+- Collezione del dataset "flickr30k pico" composto da 10 esempi per train, test
+  e validation
+
+# 07/06/2021 - Progettazione modello Weakly-Supervised
+
+- Plannig dei lavori da fare per il modello weakly-supervised
+- Identificazione delle porzioni di codice da modificare
+
+# 04/06/2021 (x) - Discussione sul lavoro da fare sul codice
 
 > Milestone: incontro per discussione sul lavoro vero e proprio
 
