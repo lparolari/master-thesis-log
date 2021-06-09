@@ -1,0 +1,718 @@
+[
+  {
+    "sentence": "Two young guys with shaggy hair look at their hands while hanging out in the yard .",
+    "phrases": [
+      {
+        "first_word_index": 0,
+        "phrase": "Two young guys",
+        "phrase_id": "1",
+        "phrase_type": [
+          "people"
+        ]
+      },
+      {
+        "first_word_index": 4,
+        "phrase": "shaggy hair",
+        "phrase_id": "2",
+        "phrase_type": [
+          "bodyparts"
+        ]
+      },
+      {
+        "first_word_index": 8,
+        "phrase": "their hands",
+        "phrase_id": "3",
+        "phrase_type": [
+          "bodyparts"
+        ]
+      },
+      {
+        "first_word_index": 14,
+        "phrase": "the yard",
+        "phrase_id": "8",
+        "phrase_type": [
+          "scene"
+        ]
+      }
+    ],
+    "ewiser": [
+      {
+        "chunk": "Two young guys",
+        "head": "guys",
+        "token_begin": 10,
+        "token_end": 14,
+        "synsets": [
+          "guy.n.01",
+          "fellow.n.06",
+          "chap.n.01",
+          "man.n.01",
+          "person.n.01",
+          "sod.n.04",
+          "bull.n.05",
+          "geezer.n.01",
+          "stiff.n.01",
+          "boy.n.04"
+        ],
+        "offsets": [
+          "wn:10153414n",
+          "wn:10083358n",
+          "wn:09908025n",
+          "wn:10287213n",
+          "wn:00007846n",
+          "wn:10621140n",
+          "wn:09879144n",
+          "wn:10123711n",
+          "wn:10656120n",
+          "wn:09637837n"
+        ],
+        "scores": [
+          0.9778424501419067,
+          0.010909358970820904,
+          0.005601717624813318,
+          0.002041282830759883,
+          0.0012267610291019082,
+          0.0006427642656490207,
+          0.0005990733043290675,
+          0.0004487264668568969,
+          0.0003800210834015161,
+          0.00030795257771387696
+        ],
+        "n_synsets": 10
+      },
+      {
+        "chunk": "shaggy hair",
+        "head": "hair",
+        "token_begin": 7,
+        "token_end": 11,
+        "synsets": null,
+        "offsets": null,
+        "scores": null,
+        "n_synsets": 0
+      },
+      {
+        "chunk": "their hands",
+        "head": "hands",
+        "token_begin": 6,
+        "token_end": 11,
+        "synsets": [
+          "hand.n.01",
+          "finger.n.01",
+          "right.n.05",
+          "arm.n.01",
+          "handle.v.04",
+          "hand_in_hand.r.02",
+          "hold.v.02",
+          "palm.n.01",
+          "left.n.03",
+          "knuckle.n.01"
+        ],
+        "offsets": [
+          "wn:05564590n",
+          "wn:05566504n",
+          "wn:05565337n",
+          "wn:05563770n",
+          "wn:01210737v",
+          "wn:00147597r",
+          "wn:01216670v",
+          "wn:05565696n",
+          "wn:05565548n",
+          "wn:05585205n"
+        ],
+        "scores": [
+          0.9728587865829468,
+          0.013281230814754963,
+          0.0036684484221041203,
+          0.002518782392144203,
+          0.0018936846172437072,
+          0.0016341053415089846,
+          0.001294134883210063,
+          0.0011300069745630026,
+          0.0008893645135685802,
+          0.0008312897407449782
+        ],
+        "n_synsets": 10
+      },
+      {
+        "chunk": "the yard",
+        "head": "yard",
+        "token_begin": 4,
+        "token_end": 8,
+        "synsets": [
+          "yard.n.02",
+          "backyard.n.01",
+          "field.n.01",
+          "dooryard.n.01",
+          "lawn.n.01",
+          "vacant_lot.n.01",
+          "playground.n.02",
+          "farmyard.n.01",
+          "front_yard.n.01",
+          "boatyard.n.01"
+        ],
+        "offsets": [
+          "wn:04610879n",
+          "wn:02772197n",
+          "wn:08569998n",
+          "wn:03224387n",
+          "wn:08591592n",
+          "wn:08676622n",
+          "wn:03963645n",
+          "wn:03323211n",
+          "wn:03399852n",
+          "wn:02859955n"
+        ],
+        "scores": [
+          0.7163622379302979,
+          0.13195881247520447,
+          0.03712210804224014,
+          0.03428845852613449,
+          0.022112147882580757,
+          0.020498251542448997,
+          0.010036536492407322,
+          0.009553286246955395,
+          0.009335607290267944,
+          0.008732684887945652
+        ],
+        "n_synsets": 10
+      }
+    ]
+  },
+  {
+    "sentence": "Two young , White males are outside near many bushes .",
+    "phrases": [
+      {
+        "first_word_index": 0,
+        "phrase": "Two young , White males",
+        "phrase_id": "1",
+        "phrase_type": [
+          "people"
+        ]
+      },
+      {
+        "first_word_index": 8,
+        "phrase": "many bushes",
+        "phrase_id": "4",
+        "phrase_type": [
+          "scene"
+        ]
+      }
+    ],
+    "ewiser": [
+      {
+        "chunk": "Two young , White males",
+        "head": "males",
+        "token_begin": 18,
+        "token_end": 23,
+        "synsets": [
+          "male.n.02",
+          "male.a.01",
+          "male.s.03",
+          "man.n.01",
+          "maleness.n.01",
+          "male_offspring.n.01",
+          "male.s.02",
+          "mother's_son.n.01",
+          "male_child.n.01",
+          "chap.n.01"
+        ],
+        "offsets": [
+          "wn:09624168n",
+          "wn:01476685a",
+          "wn:01477077s",
+          "wn:10287213n",
+          "wn:05008227n",
+          "wn:10285938n",
+          "wn:01483677s",
+          "wn:10333719n",
+          "wn:10285313n",
+          "wn:09908025n"
+        ],
+        "scores": [
+          0.2882988154888153,
+          0.22740507125854492,
+          0.18104396760463715,
+          0.12944971024990082,
+          0.09475965797901154,
+          0.04317034035921097,
+          0.020947767421603203,
+          0.008304893970489502,
+          0.0044654421508312225,
+          0.0021543134935200214
+        ],
+        "n_synsets": 10
+      },
+      {
+        "chunk": "many bushes",
+        "head": "bushes",
+        "token_begin": 5,
+        "token_end": 11,
+        "synsets": [
+          "shrub.n.01",
+          "brush.n.01",
+          "subshrub.n.01",
+          "scrub.n.01",
+          "cotton.n.03",
+          "bosky.s.01",
+          "underbrush.n.01",
+          "shrublet.n.01",
+          "bushy.s.02",
+          "shrubbery.n.02"
+        ],
+        "offsets": [
+          "wn:13112664n",
+          "wn:08437515n",
+          "wn:13118707n",
+          "wn:08438223n",
+          "wn:12175949n",
+          "wn:02573443s",
+          "wn:08439476n",
+          "wn:13118569n",
+          "wn:00613975s",
+          "wn:08439694n"
+        ],
+        "scores": [
+          0.943284273147583,
+          0.023052187636494637,
+          0.007370972074568272,
+          0.005128014367073774,
+          0.004801820497959852,
+          0.003983841743320227,
+          0.003980101086199284,
+          0.0038121617399156094,
+          0.0026356230955570936,
+          0.0019511620048433542
+        ],
+        "n_synsets": 10
+      }
+    ]
+  },
+  {
+    "sentence": "Two men in green shirts are standing in a yard .",
+    "phrases": [
+      {
+        "first_word_index": 0,
+        "phrase": "Two men",
+        "phrase_id": "1",
+        "phrase_type": [
+          "people"
+        ]
+      },
+      {
+        "first_word_index": 3,
+        "phrase": "green shirts",
+        "phrase_id": "5",
+        "phrase_type": [
+          "clothing"
+        ]
+      },
+      {
+        "first_word_index": 8,
+        "phrase": "a yard",
+        "phrase_id": "9",
+        "phrase_type": [
+          "scene"
+        ]
+      }
+    ],
+    "ewiser": [
+      {
+        "chunk": "Two men",
+        "head": "men",
+        "token_begin": 4,
+        "token_end": 7,
+        "synsets": [
+          "man.n.01",
+          "young_buck.n.01",
+          "work_force.n.01",
+          "middle-aged_man.n.01",
+          "guy.n.01",
+          "woman.n.01",
+          "male.n.02",
+          "serviceman.n.01",
+          "man.n.05",
+          "boy.n.02"
+        ],
+        "offsets": [
+          "wn:10287213n",
+          "wn:10804287n",
+          "wn:08212347n",
+          "wn:10314054n",
+          "wn:10153414n",
+          "wn:10787470n",
+          "wn:09624168n",
+          "wn:10582746n",
+          "wn:10289176n",
+          "wn:09870926n"
+        ],
+        "scores": [
+          0.9962581396102905,
+          0.0011979457922279835,
+          0.0004624993307515979,
+          0.0004290480865165591,
+          0.00036235994775779545,
+          0.0003527941007632762,
+          0.000285790185444057,
+          0.0002695160510484129,
+          0.0002200363960582763,
+          0.00016193842748180032
+        ],
+        "n_synsets": 10
+      },
+      {
+        "chunk": "green shirts",
+        "head": "shirts",
+        "token_begin": 6,
+        "token_end": 12,
+        "synsets": [
+          "shirt.n.01",
+          "shirt.v.01",
+          "polo_shirt.n.01",
+          "jersey.n.03",
+          "dress_shirt.n.01",
+          "habit.n.03",
+          "garment.n.01",
+          "hair_shirt.n.01",
+          "writ.n.01",
+          "notion.n.04"
+        ],
+        "offsets": [
+          "wn:04197391n",
+          "wn:00049007v",
+          "wn:03978966n",
+          "wn:03595614n",
+          "wn:03238879n",
+          "wn:03473966n",
+          "wn:03419014n",
+          "wn:03476542n",
+          "wn:06552984n",
+          "wn:03832799n"
+        ],
+        "scores": [
+          0.9571521878242493,
+          0.022237926721572876,
+          0.006307689473032951,
+          0.005219799000769854,
+          0.0025086798705160618,
+          0.0014995848760008812,
+          0.0014859028160572052,
+          0.0013575032353401184,
+          0.0011959969997406006,
+          0.0010347983334213495
+        ],
+        "n_synsets": 10
+      },
+      {
+        "chunk": "a yard",
+        "head": "yard",
+        "token_begin": 2,
+        "token_end": 6,
+        "synsets": [
+          "yard.n.01",
+          "foot.n.02",
+          "chain.n.06",
+          "playing_field.n.02",
+          "step.n.06",
+          "point.n.10",
+          "field.n.01",
+          "pocket.n.04",
+          "half_mile.n.01",
+          "yarder.n.01"
+        ],
+        "offsets": [
+          "wn:13650447n",
+          "wn:13650045n",
+          "wn:13652994n",
+          "wn:08570758n",
+          "wn:13762579n",
+          "wn:13610162n",
+          "wn:08569998n",
+          "wn:13911660n",
+          "wn:13651804n",
+          "wn:13650735n"
+        ],
+        "scores": [
+          0.6558036804199219,
+          0.1163320317864418,
+          0.05487615987658501,
+          0.03171136975288391,
+          0.02759871631860733,
+          0.02565937303006649,
+          0.025400251150131226,
+          0.02335241250693798,
+          0.02029610611498356,
+          0.01896982081234455
+        ],
+        "n_synsets": 10
+      }
+    ]
+  },
+  {
+    "sentence": "A man in a blue shirt standing in a garden .",
+    "phrases": [
+      {
+        "first_word_index": 0,
+        "phrase": "A man",
+        "phrase_id": "6",
+        "phrase_type": [
+          "people"
+        ]
+      },
+      {
+        "first_word_index": 3,
+        "phrase": "a blue shirt",
+        "phrase_id": "7",
+        "phrase_type": [
+          "clothing"
+        ]
+      },
+      {
+        "first_word_index": 8,
+        "phrase": "a garden",
+        "phrase_id": "9",
+        "phrase_type": [
+          "scene"
+        ]
+      }
+    ],
+    "ewiser": [
+      {
+        "chunk": "A man",
+        "head": "man",
+        "token_begin": 2,
+        "token_end": 5,
+        "synsets": [
+          "man.n.01",
+          "woman.n.01",
+          "young_buck.n.01",
+          "middle-aged_man.n.01",
+          "guy.n.01",
+          "man.n.03",
+          "male.n.02",
+          "cain.n.01",
+          "homo.n.02",
+          "chap.n.01"
+        ],
+        "offsets": [
+          "wn:10287213n",
+          "wn:10787470n",
+          "wn:10804287n",
+          "wn:10314054n",
+          "wn:10153414n",
+          "wn:10289039n",
+          "wn:09624168n",
+          "wn:09586994n",
+          "wn:02472293n",
+          "wn:09908025n"
+        ],
+        "scores": [
+          0.9911472201347351,
+          0.004053428303450346,
+          0.0017897029174491763,
+          0.0007607949082739651,
+          0.0006365621229633689,
+          0.0005860293167643249,
+          0.0004928310518153012,
+          0.0002188858634326607,
+          0.00016005299403332174,
+          0.00015436731337103993
+        ],
+        "n_synsets": 10
+      },
+      {
+        "chunk": "a blue shirt",
+        "head": "shirt",
+        "token_begin": 7,
+        "token_end": 12,
+        "synsets": [
+          "shirt.n.01",
+          "jersey.n.03",
+          "polo_shirt.n.01",
+          "dress_shirt.n.01",
+          "shirt.v.01",
+          "hair_shirt.n.01",
+          "tank_top.n.01",
+          "blouse.n.01",
+          "camise.n.01",
+          "kurta.n.01"
+        ],
+        "offsets": [
+          "wn:04197391n",
+          "wn:03595614n",
+          "wn:03978966n",
+          "wn:03238879n",
+          "wn:00049007v",
+          "wn:03476542n",
+          "wn:04390577n",
+          "wn:02854926n",
+          "wn:02943964n",
+          "wn:03629231n"
+        ],
+        "scores": [
+          0.969426691532135,
+          0.019885139539837837,
+          0.004923475906252861,
+          0.0026502422988414764,
+          0.001352733583189547,
+          0.0009469829383306205,
+          0.00038952488102950156,
+          0.00024760275846347213,
+          9.851774666458368e-05,
+          7.912002911325544e-05
+        ],
+        "n_synsets": 10
+      },
+      {
+        "chunk": "a garden",
+        "head": "garden",
+        "token_begin": 2,
+        "token_end": 8,
+        "synsets": [
+          "garden.n.01",
+          "garden.n.03",
+          "garden.n.02",
+          "kitchen_garden.n.01",
+          "flower_garden.n.01",
+          "garden.v.01",
+          "grove.n.02",
+          "rock_garden.n.01",
+          "formal_garden.n.01",
+          "landscaping.n.02"
+        ],
+        "offsets": [
+          "wn:03417345n",
+          "wn:03417749n",
+          "wn:08439808n",
+          "wn:03620443n",
+          "wn:03368637n",
+          "wn:01740969v",
+          "wn:03463832n",
+          "wn:04099854n",
+          "wn:03384706n",
+          "wn:03640288n"
+        ],
+        "scores": [
+          0.9002545475959778,
+          0.05475815013051033,
+          0.02863932028412819,
+          0.005002205725759268,
+          0.004607711918652058,
+          0.0032443238887935877,
+          0.0011989092454314232,
+          0.001062983414158225,
+          0.000693363428581506,
+          0.0005384256364777684
+        ],
+        "n_synsets": 10
+      }
+    ]
+  },
+  {
+    "sentence": "Two friends enjoy time spent together .",
+    "phrases": [
+      {
+        "first_word_index": 0,
+        "phrase": "Two friends",
+        "phrase_id": "1",
+        "phrase_type": [
+          "people"
+        ]
+      },
+      {
+        "first_word_index": 3,
+        "phrase": "time",
+        "phrase_id": "10",
+        "phrase_type": [
+          "other"
+        ]
+      }
+    ],
+    "ewiser": [
+      {
+        "chunk": "Two friends",
+        "head": "friends",
+        "token_begin": 4,
+        "token_end": 11,
+        "synsets": [
+          "friend.n.01",
+          "friendship.n.01",
+          "acquaintance.n.03",
+          "schoolmate.n.01",
+          "companion.n.01",
+          "light.n.08",
+          "schoolfriend.n.01",
+          "relative.n.01",
+          "mate.n.08",
+          "brother.n.04"
+        ],
+        "offsets": [
+          "wn:10112591n",
+          "wn:13931145n",
+          "wn:09763784n",
+          "wn:10560106n",
+          "wn:09945905n",
+          "wn:10276659n",
+          "wn:10559508n",
+          "wn:10235549n",
+          "wn:10300154n",
+          "wn:09877124n"
+        ],
+        "scores": [
+          0.6352828741073608,
+          0.12533678114414215,
+          0.10659942775964737,
+          0.062128156423568726,
+          0.019679797813296318,
+          0.013942401856184006,
+          0.013413776643574238,
+          0.0133871054276824,
+          0.006493608932942152,
+          0.003735999343916774
+        ],
+        "n_synsets": 10
+      },
+      {
+        "chunk": "time",
+        "head": "time",
+        "token_begin": 0,
+        "token_end": 4,
+        "synsets": [
+          "time.n.03",
+          "time.n.02",
+          "time.v.03",
+          "time.n.04",
+          "clock_time.n.01",
+          "time.v.04",
+          "times.n.01",
+          "timer.n.01",
+          "clock.v.01",
+          "time.n.01"
+        ],
+        "offsets": [
+          "wn:15122231n",
+          "wn:15270431n",
+          "wn:00702226v",
+          "wn:15245515n",
+          "wn:15129927n",
+          "wn:00297906v",
+          "wn:15120346n",
+          "wn:04438304n",
+          "wn:00490968v",
+          "wn:07309599n"
+        ],
+        "scores": [
+          0.38035935163497925,
+          0.24033649265766144,
+          0.0782732367515564,
+          0.06350825726985931,
+          0.05525460094213486,
+          0.041122276335954666,
+          0.0395108126103878,
+          0.037281278520822525,
+          0.03381919860839844,
+          0.03053455986082554
+        ],
+        "n_synsets": 10
+      }
+    ]
+  }
+]
