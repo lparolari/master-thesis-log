@@ -36,6 +36,15 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+# 10/06/2021 - Input negativi e loss discriminativa
+
+- Modifica al modello per il supporto all'input negativo
+- Embedding per il codice delle varie features di modo da poterle confrontare
+- Impiego della loss discriminativa (paper Xiao et al.)
+- Prova di esecuzione su lab tesisti, senza successo per via dell'utilizzo della
+  ram sempre crescente
+- Alcuni fix
+
 # 09/06/2021 - Modifica funzioni di padding e loss, flickr30k pico, github action
 
 - Correzione del problema di matching forzato tra i chunk e le frasi gt del
