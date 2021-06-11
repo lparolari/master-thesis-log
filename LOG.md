@@ -37,6 +37,14 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+# 11/06/2021 - Black friday: problema di memoria / problema chunk vuoti
+
+- Debug del problema di memoria che fa crashare il trianing: si è scoperto che
+  in totale a quanto pare servono più di 8 GB per il training, soprattutto se
+  nello stesso batch si caricano sia esempio negativo che positivo
+- Trovato un esempio con chunk vuoti, da investifare il motivo (vedere issue
+  github)
+
 # 10/06/2021 - Input negativi e loss discriminativa
 
 - Modifica al modello per il supporto all'input negativo
