@@ -39,7 +39,7 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# 16/06/2021
+# 16/06/2021 - Loss: IoU e accuracy
 
 - Fixato il problema del padder discusso nella issue #7
 - Altri test sull'utilizzo della memoria. E' emerso che davide con
