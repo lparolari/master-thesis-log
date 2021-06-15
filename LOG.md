@@ -38,6 +38,19 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+# 16/06/2021
+
+- Fixato il problema del padder discusso nella issue #7
+- Altri test sull'utilizzo della memoria. E' emerso che davide con
+  `num_workers=1` e `prefetch_factor=1` occupa al massimo 8GB di RAM, quindi il
+  problema proviene da qualche modifica nel mio codice. Da vedere le funzioni di
+  pytorch `detach` e `item`, dovrebbero servire a scollegare le strutture di
+  torch dal grafo delle computazioni e liberare memoria
+- Investigato il problema della loss negativa, non dovrebbe essere un errore
+- Ripristinato il calcolo del gradiente sulla loss calcolata da me
+- Aggiunto il codice per il calcolo dell'IoU e dell'accuracy (da terminare)
+- Inizio prove con il dataset referit e script per il download dei dataset
+
 # 11/06/2021 - Black friday: problema di memoria / problema chunk vuoti
 
 - Debug del problema di memoria che fa crashare il trianing: si è scoperto che
