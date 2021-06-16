@@ -5,6 +5,7 @@
 <details>
 <summary>Table of Contents</summary>
 
+- [17/06/2021 - Accuracy e Pointing Game Accuracy](#17062021---accuracy-e-pointing-game-accuracy)
 - [16/06/2021 - Loss: IoU e accuracy](#16062021---loss-iou-e-accuracy)
 - [11/06/2021 - Black friday: problema di memoria / problema chunk vuoti](#11062021---black-friday-problema-di-memoria--problema-chunk-vuoti)
 - [10/06/2021 - Input negativi e loss discriminativa](#10062021---input-negativi-e-loss-discriminativa)
