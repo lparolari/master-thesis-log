@@ -39,6 +39,15 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+# 17/06/2021 - Accuracy e Pointing Game Accuracy
+
+- Aggiunto il calcolo dell'accuracy
+- Aggiunto il calcolo della pointing game accuracy
+- Trovata una soluzione al problema della memoria (i.e., lanciare il training
+  con num_workers=1, prefetch_factor=1)
+- Fix phrases_2_crd tutto zeri (problema di tipo)
+- Lanciato il primo vero training su lab tesisti
+
 # 16/06/2021 - Loss: IoU e accuracy
 
 - Fixato il problema del padder discusso nella issue #7
