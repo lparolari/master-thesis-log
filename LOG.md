@@ -40,7 +40,13 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# 17/06/2021 - Accuracy e Pointing Game Accuracy
+# 17/06/2021 - Learning Unsupervised Visual Grounding Through Semantic Self-Supervision
+
+Create le slide per il paper "Learning Unsupervised Visual Grounding Through
+Semantic Self-Supervision" [[arxiv](https://arxiv.org/pdf/1803.06506.pdf)],
+studio del paper in questione e possibili problemi/domande.
+
+# 16/06/2021 - Accuracy e Pointing Game Accuracy
 
 - Aggiunto il calcolo dell'accuracy
 - Aggiunto il calcolo della pointing game accuracy
@@ -49,7 +55,7 @@
 - Fix phrases_2_crd tutto zeri (problema di tipo)
 - Lanciato il primo vero training su lab tesisti
 
-# 16/06/2021 - Loss: IoU e accuracy
+# 15/06/2021 - Loss: IoU e accuracy
 
 - Fixato il problema del padder discusso nella issue #7
 - Altri test sull'utilizzo della memoria. E' emerso che davide con
