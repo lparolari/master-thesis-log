@@ -5,8 +5,9 @@
 <details>
 <summary>Table of Contents</summary>
 
-- [17/06/2021 - Accuracy e Pointing Game Accuracy](#17062021---accuracy-e-pointing-game-accuracy)
-- [16/06/2021 - Loss: IoU e accuracy](#16062021---loss-iou-e-accuracy)
+- [17/06/2021 - Learning Unsupervised Visual Grounding Through Semantic Self-Supervision](#17062021---learning-unsupervised-visual-grounding-through-semantic-self-supervision)
+- [16/06/2021 - Accuracy e Pointing Game Accuracy](#16062021---accuracy-e-pointing-game-accuracy)
+- [15/06/2021 - Loss: IoU e accuracy](#15062021---loss-iou-e-accuracy)
 - [11/06/2021 - Black friday: problema di memoria / problema chunk vuoti](#11062021---black-friday-problema-di-memoria--problema-chunk-vuoti)
 - [10/06/2021 - Input negativi e loss discriminativa](#10062021---input-negativi-e-loss-discriminativa)
 - [09/06/2021 - Modifica funzioni di padding e loss, flickr30k pico, github action](#09062021---modifica-funzioni-di-padding-e-loss-flickr30k-pico-github-action)
