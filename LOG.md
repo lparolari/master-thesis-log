@@ -41,6 +41,11 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+# 18/06/2021 - Test Example Procedure
+
+Aggiustato la modalità test exaample per i miei requisiti e review di alcune
+parti di codice seguendo il paper (loss).
+
 # 17/06/2021 - Learning Unsupervised Visual Grounding Through Semantic Self-Supervision
 
 Create le slide per il paper "Learning Unsupervised Visual Grounding Through
