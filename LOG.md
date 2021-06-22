@@ -5,6 +5,8 @@
 <details>
 <summary>Table of Contents</summary>
 
+- [22/06/2021 - Inizio adattamento per referit](#22062021---inizio-adattamento-per-referit)
+- [21/06/2021 - Call per aggiornamento con il prof.](#21062021---call-per-aggiornamento-con-il-prof)
 - [18/06/2021 - Test Example Procedure](#18062021---test-example-procedure)
 - [17/06/2021 - Learning Unsupervised Visual Grounding Through Semantic Self-Supervision](#17062021---learning-unsupervised-visual-grounding-through-semantic-self-supervision)
 - [16/06/2021 - Accuracy e Pointing Game Accuracy](#16062021---accuracy-e-pointing-game-accuracy)
