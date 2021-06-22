@@ -42,6 +42,10 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+# 22/06/2021 - Inizio adattamento per referit
+
+# 21/06/2021 - Call per aggiornamento con il prof.
+
 # 18/06/2021 - Test Example Procedure
 
 Aggiustato la modalità test exaample per i miei requisiti e review di alcune
