@@ -44,6 +44,24 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+# 28/06/2021 - Risoluzione problemi referit / ottimizzazione loss
+
+- Troubleshoot dell'eccezione pickle "invalid key \x00"
+- Troubleshoot dell'eccezione pickle "memory error"
+
+Il problema è dato dalla generazione dei file pickle durante la fase make
+dataset. La soluzione è stata analizzare tutti i file e rigenerare quelli
+corrotti.
+
+Primo training completo di referit iniziato e completato con successo.
+
+**Resources**
+
+- Semantic Instance Segmentation with a Discriminative Loss Function
+  [[paper]](https://arxiv.org/pdf/1708.02551.pdf)
+  [[code]](https://github.com/nyoki-mtl/pytorch-discriminative-loss)
+- [A friendly introduction to Siamese Networks](https://towardsdatascience.com/a-friendly-introduction-to-siamese-networks-85ab17522942)
+
 # 22/06/2021 - Inizio adattamento per referit
 
 # 21/06/2021 - Call per aggiornamento con il prof.
