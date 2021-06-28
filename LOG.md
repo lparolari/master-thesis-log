@@ -5,6 +5,7 @@
 <details>
 <summary>Table of Contents</summary>
 
+- [28/06/2021 - Risoluzione problemi referit / ottimizzazione loss](#28062021---risoluzione-problemi-referit--ottimizzazione-loss)
 - [22/06/2021 - Inizio adattamento per referit](#22062021---inizio-adattamento-per-referit)
 - [21/06/2021 - Call per aggiornamento con il prof.](#21062021---call-per-aggiornamento-con-il-prof)
 - [18/06/2021 - Test Example Procedure](#18062021---test-example-procedure)
