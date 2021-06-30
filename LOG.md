@@ -5,6 +5,7 @@
 <details>
 <summary>Table of Contents</summary>
 
+- [29/06/2021 - Call con Davide per problemi sulle loss](#29062021---call-con-davide-per-problemi-sulle-loss)
 - [28/06/2021 - Risoluzione problemi referit / ottimizzazione loss](#28062021---risoluzione-problemi-referit--ottimizzazione-loss)
 - [22/06/2021 - Inizio adattamento per referit](#22062021---inizio-adattamento-per-referit)
 - [21/06/2021 - Call per aggiornamento con il prof.](#21062021---call-per-aggiornamento-con-il-prof)
