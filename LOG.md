@@ -45,6 +45,23 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+# 29/06/2021 - Call con Davide per problemi sulle loss
+
+- I logits sono calcolati prima dell'embedding semantico, che viene utilizzato
+  invece nella loss. Questo può dare problemi perché le rappresentazioni sono
+  diverse e il modello fa fatica ad apprendere
+
+- I pesi del layer linear che utilizzo come logits non sono mai modificati,
+  i.e., il modello non apprende
+
+- Selezionare la migliore bounding box non è corretto nel mio caso, non posso
+  assumerla come ground truth perché altrimenti il modello viene ottimizzato per
+  identificare come bb la prima che trova per via dell'inizializzazione causale
+  dei pesi
+
+- Possibile problema di overflow se si adottano le soluzioni ai problemi sopra
+  riportati
+
 # 28/06/2021 - Risoluzione problemi referit / ottimizzazione loss
 
 - Troubleshoot dell'eccezione pickle "invalid key \x00"
