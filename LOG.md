@@ -5,6 +5,7 @@
 <details>
 <summary>Table of Contents</summary>
 
+- [01/07/2021 - Implementazione loss](#01072021---implementazione-loss)
 - [29/06/2021 - Call con Davide per problemi sulle loss](#29062021---call-con-davide-per-problemi-sulle-loss)
 - [28/06/2021 - Risoluzione problemi referit / ottimizzazione loss](#28062021---risoluzione-problemi-referit--ottimizzazione-loss)
 - [22/06/2021 - Inizio adattamento per referit](#22062021---inizio-adattamento-per-referit)
