@@ -46,6 +46,16 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+# 01/07/2021 - Implementazione loss
+
+- Alcuni fix nelle loss e calcolo logits
+
+- Call con Davide per implementazione loss attrattiva-repulsiva presa dal paper
+  [Clustering-Oriented Representation Learning with Attractive-Repulsive Loss](https://arxiv.org/pdf/1812.07627.pdf)
+  con cosine similarity
+
+- Inizio scrittura test funzioni loss
+
 # 29/06/2021 - Call con Davide per problemi sulle loss
 
 - I logits sono calcolati prima dell'embedding semantico, che viene utilizzato
