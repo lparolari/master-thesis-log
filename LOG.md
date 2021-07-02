@@ -47,6 +47,8 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+# 02/07/2021 - Test Loss e Masking
+
 # 01/07/2021 - Implementazione loss
 
 - Alcuni fix nelle loss e calcolo logits
