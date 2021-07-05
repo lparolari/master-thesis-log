@@ -4,9 +4,9 @@
 
 | Id | Date | Loss (Epoch) | Accuracy (Epoch) | Params | Commit | Desc | Note |
 | -- | ---- | ------------ | ---------------- | ------ | ------ | ---- | ---- |
-| [#3](#2021-07-05---3-) | 2021-07-05 | -12.699196697316399 (9) | 3.856386132420709 (7) | | [ddb1d42](https://github.com/lparolari/VTKEL-solver/commit/ddb1d4226e51b7d017f2836a993887e51b631503) | repulsion with `n_falsy: 1` | |
-| [#2](#2021-07-05---2-) | 2021-07-05 | - | - | `batch_size: 128` | [20c765e](https://github.com/lparolari/VTKEL-solver/commit/20c765e483f0906d3718aa178293172573802644) | training with fix on arloss (minus) | interrupted |
-| [#1](#2021-07-03---1-) | 2021-07-03 | -49.29843537140736 (8) | 4.404956110724148 (15) | `batch_size: 128` | [d4232b1](https://github.com/lparolari/VTKEL-solver/commit/d4232b1720deaad7c1f8ceb3f2ce6f02795c6017) | fisrt complete training on referit | |
+| [#3](#2021-07-05-3) | 2021-07-05 | -12.70 (9) | 3.86 (7) | | [ddb1d42](https://github.com/lparolari/VTKEL-solver/commit/ddb1d4226e51b7d017f2836a993887e51b631503) | repulsion with `n_falsy: 1` | |
+| [#2](#2021-07-05-2) | 2021-07-05 | - | - | `batch_size: 128` | [20c765e](https://github.com/lparolari/VTKEL-solver/commit/20c765e483f0906d3718aa178293172573802644) | training with fix on arloss (minus) | interrupted |
+| [#1](#2021-07-03-1) | 2021-07-03 | -49.30 (8) | 4.40 (15) | `batch_size: 128` | [d4232b1](https://github.com/lparolari/VTKEL-solver/commit/d4232b1720deaad7c1f8ceb3f2ce6f02795c6017) | fisrt complete training on referit | |
 
 <!-- prettier-ignore-end -->
 
