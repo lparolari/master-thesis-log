@@ -49,7 +49,14 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# 05/08/2021 - Top-K repultion loss
+# 06/07/2021 - Similarity based attraction
+
+Calcolo della similarità tra il concetto di una frase e la classe predetta della
+bounding box per poter effettuare l'attrazione delle features scalata con questa
+similarità. Si veda [\#30](https://github.com/lparolari/VTKEL-solver/issues/30)
+su GitHub.
+
+# 05/07/2021 - Top-K repulsion loss
 
 # 02/07/2021 - Test Loss e Masking
 
