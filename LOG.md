@@ -50,6 +50,22 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+# 12/07/2021 - Modifica top-k loss e IndexError
+
+Call con davide per training che scende in termini di accuracy: modificata la
+strategia top-k per spostare le feature degli esempi più simili in favore di una
+strategia k-random.
+
+Investigato il problema IndexError ottenuto sul padding dei concetti
+all'epoca 4. Non si riesce a capire da cosa sia dato.
+
+# 09/07/2021 - Studio per utilizzo sentence nel modello
+
+# 08/07/2021 - Minor refactor and problem fixes
+
+Lanciato di nuovo il training del modello con 3 pulsioni e attrazioni, era
+crashato per un index out of bound.
+
 # 06/07/2021 - Similarity based attraction
 
 Calcolo della similarità tra il concetto di una frase e la classe predetta della
