@@ -4,7 +4,9 @@
 
 | Id | Date | Loss (Epoch)\* | Accuracy (Epoch)\* | Params\*\* | Commit | Desc | Note |
 | -- | ---- | ------------ | ---------------- | ------ | ------ | ---- | ---- |
-| [#4](#2021-07-06-4) | 2021-07-06 | -12.14 (5) | 8.49 (3) | `batch_size: 128` | [ddb1d42](https://github.com/lparolari/VTKEL-solver/commit/ddb1d4226e51b7d017f2836a993887e51b631503) | repulsion with `n_falsy: 1` on full dataset | training accuracy always increasing up to 5% in 10 epochs, interrupted at epoch 11 |
+| [#6](#2021-07-09-6) | 2021-07-09 | -0.038570 (3) | 10.0191 (2) | `batch_size: 128, n_falsy: 3, n_truthy: 3` | [48f28a1](https://github.com/lparolari/VTKEL-solver/commit/48f28a1cb1bdbdc6fcd39fa28722346b482b9a9d) | using similarity between bounding box classes and concepts from chunks | very long training (> 5h 30m) on referit using similarity between concepts and classes, crash at epoch 4 due to index error (see [#35]()) |
+| [#5](#2021-07-08-5) | 2021-07-08 | -0.080238 (5) | 10.0901 (1) | `batch_size: 128, n_falsy: 3, n_truthy: 3` | [d4232b1](https://github.com/lparolari/VTKEL-solver/commit/bfcceb0d46390310b2fc090fc8b0f4cc62b07a03) | training on referit with no similarity and 3 truthy/falsy in loss | interrupted due to connectivity issues at epoch 6  |
+| [#4](#2021-07-06-4) | 2021-07-06 | -12.14 (5) | 8.49 (3) | `batch_size: 128` | [bfcceb0](https://github.com/lparolari/VTKEL-solver/commit/ddb1d4226e51b7d017f2836a993887e51b631503) | repulsion with `n_falsy: 1` on full dataset | training accuracy always increasing up to 5% in 10 epochs, interrupted at epoch 11 |
 | [#3](#2021-07-05-3) | 2021-07-05 | -12.70 (9) | 3.86 (7) | `load_subset: 0.2, batch_size: 128` | [ddb1d42](https://github.com/lparolari/VTKEL-solver/commit/ddb1d4226e51b7d017f2836a993887e51b631503) | repulsion with `n_falsy: 1` | |
 | [#2](#2021-07-05-2) | 2021-07-05 | - | - | `load_subset: 0.2, batch_size: 128` | [20c765e](https://github.com/lparolari/VTKEL-solver/commit/20c765e483f0906d3718aa178293172573802644) | training with fix on arloss (minus) | interrupted |
 | [#1](#2021-07-03-1) | 2021-07-03 | -49.30 (8) | 4.40 (15) | `batch_size: 128` | [d4232b1](https://github.com/lparolari/VTKEL-solver/commit/d4232b1720deaad7c1f8ceb3f2ce6f02795c6017) | fisrt complete training on referit | |
@@ -15,6 +17,115 @@
 \*\* diff from defaults
 
 ## Blob
+
+### 2021-07-09 (#6)
+
+<details>
+<summary>History</summary>
+
+```
+Model started with the following parameters:
+{'mode': 0, 'dataset': 'referit', 'restore': None, 'suffix': 'default', 'develop': True, 'device': 'cuda', 'batch_size': 128, 'num_workers': 6, 'prefetch_factor': 2, 'load_subset': None, 'load_first': False, 'load_first_img': False, 'learning_rate': 0.001, 'grad_clipping': 1, 'scheduler_gamma': 0.9, 'n_epochs': 15, 'align_loss': 'kl-sem', 'align_loss_kl_threshold': 0.5, 'regression_loss': 'iou_c-sem', 'dropout_ratio': 0.3, 'loss_weight_pred': 1, 'loss_weight_reg': 1, 'loss_weight_entities': 0.001, 'n_falsy': 3, 'n_truthy': 3, 'embeddings_text': 'glove', 'embeddings_freeze': True, 'lstm_dim': 500, 'lstm_num_layers': 1, 'fusion_dim': 2053, 'text_emb_size': 300, 'yago_emb_size': 100, 'yago_fusion_size': 300, 'yago_n_entities': 2, 'semantic_space_size': 500, 'folder_img': '/aulahomes2/2/2019/lparolar/Thesis/VTKEL-solver/data/refer', 'folder_results': '/home/2/2019/lparolar/Downloads/results/referit', 'folder_data': '/aulahomes2/2/2019/lparolar/Thesis/VTKEL-solver/data/referit_raw/preprocessed', 'folder_idx_train': '/aulahomes2/2/2019/lparolar/Thesis/VTKEL-solver/data/referit_raw/train.txt', 'folder_idx_valid': '/aulahomes2/2/2019/lparolar/Thesis/VTKEL-solver/data/referit_raw/val.txt', 'folder_idx_test': '/aulahomes2/2/2019/lparolar/Thesis/VTKEL-solver/data/referit_raw/test.txt'}
+Loading training dataset.
+Loading validation dataset.
+Loading test dataset.
+------------- START MODEL TRAINING
+----- Epoch: 1
+--- Training completed.   Loss: -0.038099, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 10.4461, PAccuracy: 28.8278 .
+--- Validation completed.   Loss: -0.038435, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 9.9243, PAccuracy: 29.2963 .
+Saved model: /home/2/2019/lparolar/Downloads/results/referit/model_default_1.pth ..
+Epoch 1 completed in 5 hours, 51 minute and 48 seconds .
+----- Epoch: 2
+--- Training completed.   Loss: -0.038386, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 8.9772, PAccuracy: 27.6011 .
+--- Validation completed.   Loss: -0.038559, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 10.0191, PAccuracy: 28.4862 .
+Saved model: /home/2/2019/lparolar/Downloads/results/referit/model_default_2.pth ..
+Epoch 2 completed in 5 hours, 57 minute and 41 seconds .
+----- Epoch: 3
+--- Training completed.   Loss: -0.038287, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 8.4622, PAccuracy: 27.5597 .
+--- Validation completed.   Loss: -0.038570, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 9.1409, PAccuracy: 27.2342 .
+Saved model: /home/2/2019/lparolar/Downloads/results/referit/model_default_3.pth ..
+Epoch 3 completed in 5 hours, 27 minute and 30 seconds .
+----- Epoch: 4
+Traceback (most recent call last):g_loss: 0.000000, pred_loss: 0.000000, acc: 8.2990, pacc: 27.5099 | ETA: 00:01:12.
+  File "trainer.py", line 418, in <module>
+    trainer = Trainer(args.configs)
+  File "trainer.py", line 136, in __init__
+    self.train_model()
+  File "trainer.py", line 236, in train_model
+    train_loss, train_reg, train_pred, train_acc, train_pacc = self.execute_epoch(self.train_dataset, train=True)
+  File "trainer.py", line 165, in execute_epoch
+    for i, curr_batch in enumerate(data):
+  File "/home/2/2019/lparolar/.miniconda3/envs/vtkel/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 435, in __next__
+    data = self._next_data()
+  File "/home/2/2019/lparolar/.miniconda3/envs/vtkel/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1065, in _next_data
+    return self._process_data(data)
+  File "/home/2/2019/lparolar/.miniconda3/envs/vtkel/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1111, in _process_data
+    data.reraise()
+  File "/home/2/2019/lparolar/.miniconda3/envs/vtkel/lib/python3.8/site-packages/torch/_utils.py", line 428, in reraise
+    raise self.exc_type(msg)
+IndexError: Caught IndexError in DataLoader worker process 4.
+Original Traceback (most recent call last):
+  File "/home/2/2019/lparolar/.miniconda3/envs/vtkel/lib/python3.8/site-packages/torch/utils/data/_utils/worker.py", line 198, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/home/2/2019/lparolar/.miniconda3/envs/vtkel/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 47, in fetch
+    return self.collate_fn(data)
+  File "/aulahomes2/2/2019/lparolar/Thesis/VTKEL-solver/model_code/dataset/dataset.py", line 356, in collate_fn
+    concepts, concepts_mask = padder.get_padded_examples(indexed_concepts,
+  File "/aulahomes2/2/2019/lparolar/Thesis/VTKEL-solver/model_code/padder.py", line 80, in get_padded_examples
+    padded_tensor[ex, ph, idx] = idx_data
+IndexError: index 1 is out of bounds for dimension 2 with size 1
+```
+
+</details>
+
+### 2021-07-08 (#5)
+
+<details>
+<summary>History</summary>
+
+```
+python trainer.py --configs '{"device": "cuda", "batch_size": 128, "folder_results": "/home/2/2019/lparolar/Downloads/results/referit", "prefetch_factor": 3, "num_workers": 1, "dataset": "referit", "n_falsy": 3, "n_truthy": 3}'
+Model started with the following parameters:
+{'mode': 0, 'dataset': 'referit', 'restore': None, 'suffix': 'default', 'develop': True, 'device': 'cuda', 'batch_size': 128, 'num_workers': 1, 'prefetch_factor': 3, 'load_subset': None, 'load_first': False, 'load_first_img': False, 'learning_rate': 0.001, 'grad_clipping': 1, 'scheduler_gamma': 0.9, 'n_epochs': 15, 'align_loss': 'kl-sem', 'align_loss_kl_threshold': 0.5, 'regression_loss': 'iou_c-sem', 'dropout_ratio': 0.3, 'loss_weight_pred': 1, 'loss_weight_reg': 1, 'loss_weight_entities': 0.001, 'n_falsy': 3, 'n_truthy': 3, 'embeddings_text': 'glove', 'embeddings_freeze': True, 'lstm_dim': 500, 'lstm_num_layers': 1, 'fusion_dim': 2053, 'text_emb_size': 300, 'yago_emb_size': 100, 'yago_fusion_size': 300, 'yago_n_entities': 2, 'semantic_space_size': 500, 'folder_img': '/aulahomes2/2/2019/lparolar/Thesis/VTKEL-solver/data/refer', 'folder_results': '/home/2/2019/lparolar/Downloads/results/referit', 'folder_data': '/aulahomes2/2/2019/lparolar/Thesis/VTKEL-solver/data/referit_raw/preprocessed', 'folder_idx_train': '/aulahomes2/2/2019/lparolar/Thesis/VTKEL-solver/data/referit_raw/train.txt', 'folder_idx_valid': '/aulahomes2/2/2019/lparolar/Thesis/VTKEL-solver/data/referit_raw/val.txt', 'folder_idx_test': '/aulahomes2/2/2019/lparolar/Thesis/VTKEL-solver/data/referit_raw/test.txt'}
+Loading training dataset.
+Loading validation dataset.
+Loading test dataset.
+------------- START MODEL TRAINING
+----- Epoch: 1
+--- Training completed.   Loss: -0.076876, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 10.4305, PAccuracy: 28.7608 .
+--- Validation completed.   Loss: -0.077686, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 10.0901, PAccuracy: 29.3307 .
+Saved model: /home/2/2019/lparolar/Downloads/results/referit/model_default_1.pth ..
+Epoch 1 completed in 3 hours, 31 minute and 24 seconds .
+----- Epoch: 2
+--- Training completed.   Loss: -0.077304, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 8.9049, PAccuracy: 27.5741 .
+--- Validation completed.   Loss: -0.077639, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 9.9680, PAccuracy: 28.3535 .
+Saved model: /home/2/2019/lparolar/Downloads/results/referit/model_default_2.pth ..
+Epoch 2 completed in 3 hours, 21 minute and 51 seconds .
+----- Epoch: 3
+--- Training completed.   Loss: -0.077202, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 8.4411, PAccuracy: 27.5521 .
+--- Validation completed.   Loss: -0.077724, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 9.0556, PAccuracy: 27.0959 .
+Saved model: /home/2/2019/lparolar/Downloads/results/referit/model_default_3.pth ..
+Epoch 3 completed in 3 hours, 17 minute and 45 seconds .
+----- Epoch: 4
+--- Training completed.   Loss: -0.076805, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 8.2245, PAccuracy: 27.3891 .
+--- Validation completed.   Loss: -0.076908, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 8.8615, PAccuracy: 27.2516 .
+Saved model: /home/2/2019/lparolar/Downloads/results/referit/model_default_4.pth ..
+Epoch 4 completed in 3 hours, 14 minute and 6 seconds .
+----- Epoch: 5
+--- Training completed.   Loss: -0.077724, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 7.8191, PAccuracy: 27.3738 .
+--- Validation completed.   Loss: -0.080238, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 8.7610, PAccuracy: 27.4082 .
+Saved model: /home/2/2019/lparolar/Downloads/results/referit/model_default_5.pth ..
+Epoch 5 completed in 3 hours, 10 minute and 50 seconds .
+----- Epoch: 6
+--- Training completed.   Loss: -0.076868, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 7.6979, PAccuracy: 27.2867 .
+--- Validation completed.   Loss: -0.078058, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 8.4874, PAccuracy: 27.3763 .
+Saved model: /home/2/2019/lparolar/Downloads/results/referit/model_default_6.pth ..
+Epoch 6 completed in 7 hours, 58 minute and 8 seconds .
+----- Epoch: 7
+Train 275/460, loss: -0.076754, reg_loss: 0.000000, pred_loss: 0.000000, acc: 7.5382, pacc: 27.3972 | ETA: 00:06:10.
+```
+
+</details>
 
 ### 2021-07-06 (#4)
 
