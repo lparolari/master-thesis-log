@@ -5,6 +5,9 @@
 <details>
 <summary>Table of Contents</summary>
 
+- [12/07/2021 - Modifica top-k loss e IndexError](#12072021---modifica-top-k-loss-e-indexerror)
+- [09/07/2021 - Studio per utilizzo sentence nel modello](#09072021---studio-per-utilizzo-sentence-nel-modello)
+- [08/07/2021 - Minor refactor and problem fixes](#08072021---minor-refactor-and-problem-fixes)
 - [06/07/2021 - Similarity based attraction](#06072021---similarity-based-attraction)
 - [05/07/2021 - Top-K repulsion loss](#05072021---top-k-repulsion-loss)
 - [02/07/2021 - Test Loss e Masking](#02072021---test-loss-e-masking)
