@@ -53,6 +53,123 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+# 13/07/2021 - Problemi di training
+
+Il training non viene svolto in modo corretto (accuracy scende invece di
+aumentare) e abbiamo deciso di investigare il problema.
+
+(1) Avevo un bug nella collate*fn tale per cui mandavo avanti \_batch_size*
+esempi positivi e 1 esempio negativo, il resto sui negativi diventava padding.
+Questo problema è già stato risolto.
+
+(2) Sugli score (sia positivi che negativi) il minimo è sempre 0, mentre il
+massimo è corretto. Dopo aver calcolato la cosine similarity, l'unica cosa che
+faccio prima della stampa è una masked fill per applicare la maschera.
+Probabilmente devo controllare di aver fatto correttamente questa operazione,
+altrimenti non mi spiego quello 0 come minimo.
+
+(3) Non so se è dovuta al punto (2) ma osservando le statistiche per diversi
+batch ho notato che il modello tente a portare le due medie a valori vicini allo
+0, e direi che è il caso peggiore per il modello perché non impara.
+
+(4) La media degli score positivi e negativi è spesso molto vicina (scarto
+solitamente inferiore a 0.02), soprattutto dopo qualche batch. Mi viene da
+pensare che le immaigni abbiano più influenza dei chunk positivi e negativi nel
+calcolo della similarità.
+
+UPDATE 1
+
+Verso gli ultimi batch della prima epoca ho il min che a volte scende sotto lo
+0, però di pochissimo: -0.01, -0.006, e così via. Ho anche notato però che il
+max sia dei positivi che negativi è spesso vicino a 1 (>0.98).
+
+UPDATE 2
+
+Per il punto (2), la masked fill non influenza il min. Sicuramente maschera gran
+parte del tensore, ma min=0 significa comunque che gli score calcolati erano
+almeno 0, probabilmente maggiori di 0.
+
+Per i punti (3) e (4) invece, dando un'occhiata al primo batch dell'epoca 2
+abbiamo che, per gli score positivi nessuno ha valori molto negativi (< -0.5),
+non sono pochi invece quelli con valori molto positivi (> 0.5). Considerando
+solo il primo chunk (il batch era paddato a 5 chunk, ma ho preso in
+considerazione solo il primo per non fare confusione) su un batch di 128 esempi
+ne ho contati almeno 60 tali per cui la score è maggiore di 0.5 per 90 o più
+bounding box.
+
+Sugli esempi negativi, nessuna score ha valori molto negativi, mentre circa 30
+esempi hanno una score superiore a 0.5 per 90 o più bounding box, sempre tenendo
+conto solo del primo chunk.
+
+Secondo me questa cosa implica un bias positivo sulla similarità che calcolo, in
+qualche modo... La similarità viene calcolata sull'embedding dei chunk e delle
+immagini effettuato tramite due torch.nn.Linear separati. C'è da contare però
+che il layer delle immagini fa una riduzione effettiva delle features (da 2053 a
+500), quello del testo invece no (da 500 a 500).
+
+UPDATE 3
+
+Controllare leaky relu \
+Controllare feature bb con anche numeri negativi
+
+UPDATE 4 - Possibili miglioramenti dopo conclusione del training
+
+(1) se la parte delle feature delle bounding box è 2053 e sono tutte positive,
+serve una rete più potente per dare più espressività e in caso permettere anche
+valori negativi nelle trasformazioni successive di quelle features. Nel codice
+l'unica trasformazione è data dalla rete che proietta le features a
+dimensione 500. Qui c'è anche il problema che le features vengono mappate ad una
+dimensione molto più piccola, perdendo molto probabilmente informazione
+
+Questi due problemi assieme mi portano a pensare che forse è il caso di
+ingrandire la potenza della rete. Questo si può fare aggiungendo layers non
+Lineari con leaky relu oppure anche ingrandendo la dimensione di output.
+
+Il testo invece ha una dimensione di 500 in output dopo la lstm. Questa è la
+stessa che c'è nel layer che fa la proiezione. Dunque qui non credo ci siano
+problemi di perdita di informazione
+
+(2) poi ci sarebbe una parte minor su cui si potrebbe concentrarsi. Cioè le
+features delle bounding box hanno concatenato anche le features spaziali (5
+dimensioni). Queste sono molto importanti di solito in quanto dicono dove si
+trova la bounding box nello spazio dell'immagine
+
+Prova una cosa. Lascia andare il training con la versione random e vedi che
+risultato dà. Vediamo se ci sono altri errori e in caso vediamo che fare.
+Altrimenti è come andare alla ceca
+
+Inoltre, nota che la LSTM è veramente molto espressiva e probabilmente se togli
+l'ultimo layer di proiezione e usi direttamente l'output della rete, va meglio
+
+Per cui metteresti la proiezione solo per le bounding box. Chiamo proiezione la
+funzione dell'ultimo layer embed_phrases
+
+Ma comunque prima dobbiamo vedere fino ad ora come si comporta. Poi in caso fai
+delle modifiche, una alla volta, e vedi come si comporta. So che purtroppo è un
+problema il tempo di training e probabilmente ti viene da fare più modifiche al
+colpo, ma in pratica è meglio evitare
+
+UPDATE 5
+
+Certo, sono d'accordo e cercherò di spostare quantomeno le modifiche su branch
+separate così da non fare confusione. In caso le modifiche le provo a tempo
+perso sui pc del laboratorio.
+
+Per il punto (1) il paper [Weakly-supervised Visual Grounding of Phrases with
+Linguistic Features](https://arxiv.org/pdf/1705.01371.pdf) (quello da cui
+abbiamo preso la prima versione della loss) ha la dim delle feat testuali (LSTM)
+= 512, mentre per le feat visive applica un 2-layer perceptron e poi va a
+matchare la dimensione delle altre tramite batch normalization. Quindi
+tecnicamente ha una rete più potente di quella che ho implementato, anche se non
+spiega come è fatta internamente.
+
+Per il punto (2) invece suggeriresti di pesare maggiormente le ultime 5
+features?
+
+Per l'embedding dei chunk invece credo di aver assunto tempo fa che "non poteva
+che migliorare" perché la rete avrebbe potuto apprendere. Invece anche nel paper
+effettivamente usano direttamente le feat dell'LSTM.
+
 # 12/07/2021 - Modifica top-k loss e IndexError
 
 Call con davide per training che scende in termini di accuracy: modificata la
@@ -127,7 +244,7 @@ Primo training completo di referit iniziato e completato con successo.
 
 # 22/06/2021 - Inizio adattamento per referit
 
-# 21/06/2021 - Call per aggiornamento con il prof.
+# 21/06/2021 (x) - Call per aggiornamento con il prof.
 
 # 18/06/2021 - Test Example Procedure
 
