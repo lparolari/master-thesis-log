@@ -5,6 +5,7 @@
 <details>
 <summary>Table of Contents</summary>
 
+- [13/07/2021 - Problemi di training](#13072021---problemi-di-training)
 - [12/07/2021 - Modifica top-k loss e IndexError](#12072021---modifica-top-k-loss-e-indexerror)
 - [09/07/2021 - Studio per utilizzo sentence nel modello](#09072021---studio-per-utilizzo-sentence-nel-modello)
 - [08/07/2021 - Minor refactor and problem fixes](#08072021---minor-refactor-and-problem-fixes)
@@ -15,7 +16,7 @@
 - [29/06/2021 - Call con Davide per problemi sulle loss](#29062021---call-con-davide-per-problemi-sulle-loss)
 - [28/06/2021 - Risoluzione problemi referit / ottimizzazione loss](#28062021---risoluzione-problemi-referit--ottimizzazione-loss)
 - [22/06/2021 - Inizio adattamento per referit](#22062021---inizio-adattamento-per-referit)
-- [21/06/2021 - Call per aggiornamento con il prof.](#21062021---call-per-aggiornamento-con-il-prof)
+- [21/06/2021 (x) - Call per aggiornamento con il prof.](#21062021-x---call-per-aggiornamento-con-il-prof)
 - [18/06/2021 - Test Example Procedure](#18062021---test-example-procedure)
 - [17/06/2021 - Learning Unsupervised Visual Grounding Through Semantic Self-Supervision](#17062021---learning-unsupervised-visual-grounding-through-semantic-self-supervision)
 - [16/06/2021 - Accuracy e Pointing Game Accuracy](#16062021---accuracy-e-pointing-game-accuracy)
