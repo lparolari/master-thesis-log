@@ -4,7 +4,7 @@
 
 | Id | Date | Loss (Epoch)\* | Accuracy (Epoch)\* | Params\*\* | Commit | Desc | Note |
 | -- | ---- | -------------- | ------------------ | ---------- | ------ | ---- | ---- |
-| [#8](2021-07-13-8) | 2021-07-13 | **WIP** | **WIP** | **WIP** | **WIP** | train without semantic embedding for chunks, i.e., lstm_dim matches visual features size | **IN PROGRESS** |
+| [#8](2021-07-13-8) | 2021-07-13 | -0.194748 (7) | 6.9326 (2) | `lstm_dim: 2053`, `batch_size: 128`, `n_falsy: 3`, `n_truthy: 3`, `suffix: "feat-no-semantic-embedding"` | [b754c52](https://github.com/lparolari/VTKEL-solver/tree/b754c52dd8a298c346acf0846691d45fe4e4123b) | train without semantic embedding for chunks, i.e., lstm_dim matches visual features size | interrupted due to no interesting results: accuracy in training phase went down |
 | [#7](2021-07-13-7) | 2021-07-13 | - | - | `batch_size: 128`, `n_falsy: 3`, `n_truthy: 3`, `get_similar_positive: "random"`, `get_similar_negative: "random"`, `suffix: "d202107131008"`, `restore: "model_tmp_1.pth"` | [d4bb063](https://github.com/lparolari/VTKEL-solver/commit/d4bb0634bd639fa803606a3b54fb70240ecc60fb) (real training done on [06f91b0](https://github.com/lparolari/VTKEL-solver/commit/06f91b0f8d74d25d7e370ccb92fe91637c2036c0) which has logs) | training with verbose output (scores tensor, min, max, average) after fixing negative example forward. changed the strategy for picking k-similar example to attract or repuls: now we use randomized strategy with k=3 | **FAILED, REDO** |
 | [#6](#2021-07-09-6) | 2021-07-09 | -0.038570 (3) | 10.0191 (2) | `batch_size: 128, n_falsy: 3, n_truthy: 3` | [48f28a1](https://github.com/lparolari/VTKEL-solver/commit/48f28a1cb1bdbdc6fcd39fa28722346b482b9a9d) | using similarity between bounding box classes and concepts from chunks | very long training (> 5h 30m) on referit using similarity between concepts and classes, crash at epoch 4 due to index error (see [#35]()) |
 | [#5](#2021-07-08-5) | 2021-07-08 | -0.080238 (5) | 10.0901 (1) | `batch_size: 128, n_falsy: 3, n_truthy: 3` | [d4232b1](https://github.com/lparolari/VTKEL-solver/commit/bfcceb0d46390310b2fc090fc8b0f4cc62b07a03) | training on referit with no similarity and 3 truthy/falsy in loss | interrupted due to connectivity issues at epoch 6  |
@@ -20,13 +20,69 @@
 
 ## Blob
 
+### 2121-07-13 (#8)
+
+<details>
+<summary>History</summary>
+
+```
+Model started with the following parameters:
+{'mode': 0, 'dataset': 'referit', 'restore': None, 'suffix': 'feat-no-semantic-embedding', 'develop': True, 'device': 'cuda', 'batch_size': 64, 'num_workers': 1, 'prefetch_factor': 1, 'load_subset': None, 'load_first': False, 'load_first_img': False, 'learning_rate': 0.001, 'grad_clipping': 1, 'scheduler_gamma': 0.9, 'n_epochs': 15, 'align_loss': 'kl-sem', 'align_loss_kl_threshold': 0.5, 'regression_loss': 'iou_c-sem', 'dropout_ratio': 0.3, 'loss_weight_pred': 1, 'loss_weight_reg': 1, 'loss_weight_entities': 0.001, 'n_falsy': 3, 'n_truthy': 3, 'get_similar_positive': 'random', 'get_similar_negative': 'random', 'embeddings_text': 'glove', 'embeddings_freeze': True, 'lstm_dim': 2053, 'lstm_num_layers': 1, 'fusion_dim': 2053, 'text_emb_size': 300, 'yago_emb_size': 100, 'yago_fusion_size': 300, 'yago_n_entities': 2, 'semantic_space_size': 500, 'folder_img': '/aulahomes2/2/2019/lparolar/Thesis/VTKEL-solver-at-labinf05/data/refer', 'folder_results': '/home/2/2019/lparolar/Thesis/results/referit', 'folder_data': '/aulahomes2/2/2019/lparolar/Thesis/VTKEL-solver-at-labinf05/data/referit_raw/preprocessed', 'folder_idx_train': '/aulahomes2/2/2019/lparolar/Thesis/VTKEL-solver-at-labinf05/data/referit_raw/train.txt', 'folder_idx_valid': '/aulahomes2/2/2019/lparolar/Thesis/VTKEL-solver-at-labinf05/data/referit_raw/val.txt', 'folder_idx_test': '/aulahomes2/2/2019/lparolar/Thesis/VTKEL-solver-at-labinf05/data/referit_raw/test.txt'}
+Loading training dataset.
+Loading validation dataset.
+Loading test dataset.
+------------- START MODEL TRAINING
+----- Epoch: 1
+--- Training completed.   Loss: -0.183681, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 7.8283, PAccuracy: 28.8772 .
+--- Validation completed.   Loss: -0.188467, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 5.5741, PAccuracy: 29.2727 .
+Saved model: /home/2/2019/lparolar/Thesis/results/referit/model_feat-no-semantic-embedding_1.pth ..
+Epoch 1 completed in 2 hours, 45 minute and 30 seconds .
+----- Epoch: 2
+--- Training completed.   Loss: -0.188344, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 6.0805, PAccuracy: 28.8940 .
+--- Validation completed.   Loss: -0.190934, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 6.9326, PAccuracy: 30.1944 .
+Saved model: /home/2/2019/lparolar/Thesis/results/referit/model_feat-no-semantic-embedding_2.pth ..
+Epoch 2 completed in 2 hours, 36 minute and 42 seconds .
+----- Epoch: 3
+--- Training completed.   Loss: -0.190163, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 5.6753, PAccuracy: 28.8651 .
+--- Validation completed.   Loss: -0.192552, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 6.1727, PAccuracy: 30.8720 .
+Saved model: /home/2/2019/lparolar/Thesis/results/referit/model_feat-no-semantic-embedding_3.pth ..
+Epoch 3 completed in 2 hours, 31 minute and 57 seconds .
+----- Epoch: 4
+--- Training completed.   Loss: -0.191612, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 5.0403, PAccuracy: 28.7802 .
+--- Validation completed.   Loss: -0.191681, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 5.1080, PAccuracy: 30.0884 .
+Saved model: /home/2/2019/lparolar/Thesis/results/referit/model_feat-no-semantic-embedding_4.pth ..
+Epoch 4 completed in 2 hours, 30 minute and 14 seconds .
+----- Epoch: 5
+--- Training completed.   Loss: -0.191723, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 5.0756, PAccuracy: 28.7084 .
+--- Validation completed.   Loss: -0.191213, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 5.6316, PAccuracy: 30.2397 .
+Saved model: /home/2/2019/lparolar/Thesis/results/referit/model_feat-no-semantic-embedding_5.pth ..
+Epoch 5 completed in 2 hours, 32 minute and 46 seconds .
+----- Epoch: 6
+--- Training completed.   Loss: -0.191139, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 5.3402, PAccuracy: 28.9769 .
+--- Validation completed.   Loss: -0.191065, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 5.6212, PAccuracy: 30.2257 .
+Saved model: /home/2/2019/lparolar/Thesis/results/referit/model_feat-no-semantic-embedding_6.pth ..
+Epoch 6 completed in 2 hours, 30 minute and 37 seconds .
+----- Epoch: 7
+--- Training completed.   Loss: -0.191552, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 4.8244, PAccuracy: 28.7205 .
+--- Validation completed.   Loss: -0.194748, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 5.3666, PAccuracy: 30.9100 .
+Saved model: /home/2/2019/lparolar/Thesis/results/referit/model_feat-no-semantic-embedding_7.pth ..
+Epoch 7 completed in 3 hours, 15 minute and 40 seconds .
+----- Epoch: 8
+--- Training completed.   Loss: -0.193261, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 4.8904, PAccuracy: 28.9541 .
+--- Validation completed.   Loss: -0.189663, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 4.9850, PAccuracy: 30.2834 .
+Saved model: /home/2/2019/lparolar/Thesis/results/referit/model_feat-no-semantic-embedding_8.pth ..
+Epoch 8 completed in 2 hours, 20 minute and 28 seconds .
+```
+
+</details>
+
 ### 2021-07-13 (#7)
 
 <details>
 <summary>History</summary>
 
 ```
-
+NO DETAILS...
 ```
 
 </details>
