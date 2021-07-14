@@ -2,6 +2,15 @@
 
 <!-- prettier-ignore-start -->
 
+<!-- 
+
+TEMPLATE
+========
+
+| [#N](yyyy-MM-dd) | yyyy-MM-dd | loss (epoch) | acc (epoch) | params | commit | desc | note |
+
+-->
+
 | Id | Date | Loss (Epoch)\* | Accuracy (Epoch)\* | Params\*\* | Commit | Desc | Note |
 | -- | ---- | -------------- | ------------------ | ---------- | ------ | ---- | ---- |
 | [#8](2021-07-13-8) | 2021-07-13 | -0.194748 (7) | 6.9326 (2) | `lstm_dim: 2053`, `batch_size: 128`, `n_falsy: 3`, `n_truthy: 3`, `suffix: "feat-no-semantic-embedding"` | [b754c52](https://github.com/lparolari/VTKEL-solver/tree/b754c52dd8a298c346acf0846691d45fe4e4123b) | train without semantic embedding for chunks, i.e., lstm_dim matches visual features size | interrupted due to no interesting results: accuracy in training phase went down |
@@ -19,6 +28,24 @@
 \*\* diff from defaults
 
 ## Blob
+
+<!--
+
+TEMPLATE
+========
+
+### yyyy-MM-dd (#N)
+
+<details>
+<summary>History</summary>
+
+```
+
+```
+
+</details>
+
+-->
 
 ### 2121-07-13 (#8)
 
