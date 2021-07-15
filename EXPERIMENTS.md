@@ -13,6 +13,7 @@ TEMPLATE
 
 | Id | Date | Loss (Epoch)\* | Accuracy (Epoch)\* | Params\*\* | Commit | Desc | Note |
 | -- | ---- | -------------- | ------------------ | ---------- | ------ | ---- | ---- |
+| [#10](#2021-07-15-10) | 2021-07-15 | loss (epoch) | acc (epoch) | `n_falsy: 3`, `n_truthy: 3`, `suffix: "feat-no-semantic-embedding-for-chunks"` | [f3a8d1a](https://github.com/lparolari/VTKEL-solver/commit/f3a8d1a732fac0f9155b9f4cfde334e7cb2147b2) | directly use lstm output for chunks without embedding | **TODO** |
 | [#9](#2021-07-14-9) | 2021-07-14 | loss (epoch) | acc (epoch) | `n_falsy: 3`, `n_truthy: 3`, `suffix: "basic-random-k-3"` | [d4bb063](https://github.com/lparolari/VTKEL-solver/tree/d4bb0634bd639fa803606a3b54fb70240ecc60fb) | use random strategy for picking k-similar example to attract or repulse, fix negative example forward | **IN PROGRESS** |
 | [#8](#2021-07-13-8) | 2021-07-13 | -0.194748 (7) | 6.9326 (2) | `lstm_dim: 2053`, `n_falsy: 3`, `n_truthy: 3`, `suffix: "feat-no-semantic-embedding"` | [b754c52](https://github.com/lparolari/VTKEL-solver/tree/b754c52dd8a298c346acf0846691d45fe4e4123b) | train without semantic embedding for images, i.e., lstm_dim matches visual features size | interrupted due to no interesting results: accuracy in training phase went down |
 | [#7](#2021-07-13-7) | 2021-07-13 | - | - | `batch_size: 128`, `n_falsy: 3`, `n_truthy: 3`, `get_similar_positive: "random"`, `get_similar_negative: "random"`, `suffix: "d202107131008"`, `restore: "model_tmp_1.pth"` | [d4bb063](https://github.com/lparolari/VTKEL-solver/commit/d4bb0634bd639fa803606a3b54fb70240ecc60fb) (real training done on [06f91b0](https://github.com/lparolari/VTKEL-solver/commit/06f91b0f8d74d25d7e370ccb92fe91637c2036c0) which has logs) | training with verbose output (scores tensor, min, max, average) after fixing negative example forward. changed the strategy for picking k-similar example to attract or repuls: now we use randomized strategy with k=3 | FAILED (see [#9](#2021-07-14-9)) |
@@ -47,6 +48,17 @@ TEMPLATE
 </details>
 
 -->
+
+### 2021-07-15 (#10)
+
+<details>
+<summary>History</summary>
+
+```
+TODO
+```
+
+</details>
 
 ### 2021-07-14 (#9)
 
