@@ -7,27 +7,28 @@
 TEMPLATE
 ========
 
-| [#N](#yyyy-MM-dd) | yyyy-MM-dd | loss (epoch) | acc (epoch) | params | [commit](url) | desc | note |
+| [eN](#yyyy-MM-dd-eN) | yyyy-MM-dd | loss (epoch) | acc (epoch) | params | [commit](url) | desc | note |
 
 -->
 
-| Id | Date | Loss (Epoch)\* | Accuracy (Epoch)\* | Params\*\* | Commit | Desc | Note |
+| Id (DS\*) | Date | Loss (Epoch)\*\* | Accuracy (Epoch)\*\* | Params\*\*\* | Commit | Desc | Note |
 | -- | ---- | -------------- | ------------------ | ---------- | ------ | ---- | ---- |
-| [#10](#2021-07-15-10) | 2021-07-15 | loss (epoch) | acc (epoch) | `n_falsy: 3`, `n_truthy: 3`, `suffix: "feat-no-semantic-embedding-for-chunks"` | [f3a8d1a](https://github.com/lparolari/VTKEL-solver/commit/f3a8d1a732fac0f9155b9f4cfde334e7cb2147b2) | directly use lstm output for chunks without embedding | **TODO** |
-| [#9](#2021-07-14-9) | 2021-07-14 | loss (epoch) | acc (epoch) | `n_falsy: 3`, `n_truthy: 3`, `suffix: "basic-random-k-3"` | [d4bb063](https://github.com/lparolari/VTKEL-solver/tree/d4bb0634bd639fa803606a3b54fb70240ecc60fb) | use random strategy for picking k-similar example to attract or repulse, fix negative example forward | **IN PROGRESS** |
-| [#8](#2021-07-13-8) | 2021-07-13 | -0.194748 (7) | 6.9326 (2) | `lstm_dim: 2053`, `n_falsy: 3`, `n_truthy: 3`, `suffix: "feat-no-semantic-embedding"` | [b754c52](https://github.com/lparolari/VTKEL-solver/tree/b754c52dd8a298c346acf0846691d45fe4e4123b) | train without semantic embedding for images, i.e., lstm_dim matches visual features size | interrupted due to no interesting results: accuracy in training phase went down |
-| [#7](#2021-07-13-7) | 2021-07-13 | - | - | `batch_size: 128`, `n_falsy: 3`, `n_truthy: 3`, `get_similar_positive: "random"`, `get_similar_negative: "random"`, `suffix: "d202107131008"`, `restore: "model_tmp_1.pth"` | [d4bb063](https://github.com/lparolari/VTKEL-solver/commit/d4bb0634bd639fa803606a3b54fb70240ecc60fb) (real training done on [06f91b0](https://github.com/lparolari/VTKEL-solver/commit/06f91b0f8d74d25d7e370ccb92fe91637c2036c0) which has logs) | training with verbose output (scores tensor, min, max, average) after fixing negative example forward. changed the strategy for picking k-similar example to attract or repuls: now we use randomized strategy with k=3 | FAILED (see [#9](#2021-07-14-9)) |
-| [#6](#2021-07-09-6) | 2021-07-09 | -0.038570 (3) | 10.0191 (2) | `batch_size: 128, n_falsy: 3, n_truthy: 3` | [48f28a1](https://github.com/lparolari/VTKEL-solver/commit/48f28a1cb1bdbdc6fcd39fa28722346b482b9a9d) | using similarity between bounding box classes and concepts from chunks | very long training (> 5h 30m) on referit using similarity between concepts and classes, crash at epoch 4 due to index error (see [#35]()) |
-| [#5](#2021-07-08-5) | 2021-07-08 | -0.080238 (5) | 10.0901 (1) | `batch_size: 128, n_falsy: 3, n_truthy: 3` | [d4232b1](https://github.com/lparolari/VTKEL-solver/commit/bfcceb0d46390310b2fc090fc8b0f4cc62b07a03) | training on referit with no similarity and 3 truthy/falsy in loss | interrupted due to connectivity issues at epoch 6  |
-| [#4](#2021-07-06-4) | 2021-07-06 | -12.14 (5) | 8.49 (3) | `batch_size: 128` | [bfcceb0](https://github.com/lparolari/VTKEL-solver/commit/ddb1d4226e51b7d017f2836a993887e51b631503) | repulsion with `n_falsy: 1` on full dataset | training accuracy always increasing up to 5% in 10 epochs, interrupted at epoch 11 |
-| [#3](#2021-07-05-3) | 2021-07-05 | -12.70 (9) | 3.86 (7) | `load_subset: 0.2, batch_size: 128` | [ddb1d42](https://github.com/lparolari/VTKEL-solver/commit/ddb1d4226e51b7d017f2836a993887e51b631503) | repulsion with `n_falsy: 1` | |
-| [#2](#2021-07-05-2) | 2021-07-05 | - | - | `load_subset: 0.2, batch_size: 128` | [20c765e](https://github.com/lparolari/VTKEL-solver/commit/20c765e483f0906d3718aa178293172573802644) | training with fix on arloss (minus) | interrupted |
-| [#1](#2021-07-03-1) | 2021-07-03 | -49.30 (8) | 4.40 (15) | `batch_size: 128` | [d4232b1](https://github.com/lparolari/VTKEL-solver/commit/d4232b1720deaad7c1f8ceb3f2ce6f02795c6017) | fisrt complete training on referit | |
+| [e10](#2021-07-15-e10) (R) | 2021-07-15 | loss (epoch) | acc (epoch) | `n_falsy: 3`, `n_truthy: 3`, `suffix: "feat-no-semantic-embedding-for-chunks"` | [f3a8d1a](https://github.com/lparolari/VTKEL-solver/commit/f3a8d1a732fac0f9155b9f4cfde334e7cb2147b2) | directly use lstm output for chunks without embedding | **TODO** |
+| [e9](#2021-07-14-e9) (R) | 2021-07-14 | loss (epoch) | acc (epoch) | `n_falsy: 3`, `n_truthy: 3`, `suffix: "basic-random-k-3"` | [d4bb063](https://github.com/lparolari/VTKEL-solver/tree/d4bb0634bd639fa803606a3b54fb70240ecc60fb) | use random strategy for picking k-similar example to attract or repulse, fix negative example forward | **IN PROGRESS** |
+| [e8](#2021-07-13-e8) (R) | 2021-07-13 | -0.194748 (7) | 6.9326 (2) | `lstm_dim: 2053`, `n_falsy: 3`, `n_truthy: 3`, `suffix: "feat-no-semantic-embedding"` | [b754c52](https://github.com/lparolari/VTKEL-solver/tree/b754c52dd8a298c346acf0846691d45fe4e4123b) | train without semantic embedding for images, i.e., lstm_dim matches visual features size | interrupted due to no interesting results: accuracy in training phase went down |
+| [e7](#2021-07-13-e7) (R) | 2021-07-13 | - | - | `batch_size: 128`, `n_falsy: 3`, `n_truthy: 3`, `get_similar_positive: "random"`, `get_similar_negative: "random"`, `suffix: "d202107131008"`, `restore: "model_tmp_1.pth"` | [d4bb063](https://github.com/lparolari/VTKEL-solver/commit/d4bb0634bd639fa803606a3b54fb70240ecc60fb) (real training done on [06f91b0](https://github.com/lparolari/VTKEL-solver/commit/06f91b0f8d74d25d7e370ccb92fe91637c2036c0) which has logs) | training with verbose output (scores tensor, min, max, average) after fixing negative example forward. changed the strategy for picking k-similar example to attract or repuls: now we use randomized strategy with k=3 | FAILED (see [e9](#2021-07-14-9)) |
+| [e6](#2021-07-09-e6) (R) | 2021-07-09 | -0.038570 (3) | 10.0191 (2) | `batch_size: 128, n_falsy: 3, n_truthy: 3` | [48f28a1](https://github.com/lparolari/VTKEL-solver/commit/48f28a1cb1bdbdc6fcd39fa28722346b482b9a9d) | using similarity between bounding box classes and concepts from chunks | very long training (> 5h 30m) on referit using similarity between concepts and classes, crash at epoch 4 due to index error (see [#35]()) |
+| [e5](#2021-07-08-e5) (R) | 2021-07-08 | -0.080238 (5) | 10.0901 (1) | `batch_size: 128, n_falsy: 3, n_truthy: 3` | [d4232b1](https://github.com/lparolari/VTKEL-solver/commit/bfcceb0d46390310b2fc090fc8b0f4cc62b07a03) | training on referit with no similarity and 3 truthy/falsy in loss | interrupted due to connectivity issues at epoch 6  |
+| [e4](#2021-07-06-e4) (R) | 2021-07-06 | -12.14 (5) | 8.49 (3) | `batch_size: 128` | [bfcceb0](https://github.com/lparolari/VTKEL-solver/commit/ddb1d4226e51b7d017f2836a993887e51b631503) | repulsion with `n_falsy: 1` on full dataset | training accuracy always increasing up to 5% in 10 epochs, interrupted at epoch 11 |
+| [e3](#2021-07-05-e3) (R) | 2021-07-05 | -12.70 (9) | 3.86 (7) | `load_subset: 0.2, batch_size: 128` | [ddb1d42](https://github.com/lparolari/VTKEL-solver/commit/ddb1d4226e51b7d017f2836a993887e51b631503) | repulsion with `n_falsy: 1` | |
+| [e2](#2021-07-05-e2) (R) | 2021-07-05 | - | - | `load_subset: 0.2, batch_size: 128` | [20c765e](https://github.com/lparolari/VTKEL-solver/commit/20c765e483f0906d3718aa178293172573802644) | training with fix on arloss (minus) | interrupted |
+| [e1](#2021-07-03-e1) (R) | 2021-07-03 | -49.30 (8) | 4.40 (15) | `batch_size: 128` | [d4232b1](https://github.com/lparolari/VTKEL-solver/commit/d4232b1720deaad7c1f8ceb3f2ce6f02795c6017) | fisrt complete training on referit | |
 
 <!-- prettier-ignore-end -->
 
-\* on validation dataset \
-\*\* diff from defaults
+\* dataset, R=referit, F=flickr, C=mscoco\
+\*\* on validation dataset \
+\*\*\* diff from defaults
 
 ## Blob
 
@@ -36,7 +37,7 @@ TEMPLATE
 TEMPLATE
 ========
 
-### yyyy-MM-dd (#N)
+### yyyy-MM-dd (eN)
 
 <details>
 <summary>History</summary>
@@ -49,7 +50,7 @@ TEMPLATE
 
 -->
 
-### 2021-07-15 (#10)
+### 2021-07-15 (e10)
 
 <details>
 <summary>History</summary>
@@ -60,7 +61,7 @@ TODO
 
 </details>
 
-### 2021-07-14 (#9)
+### 2021-07-14 (e9)
 
 <details>
 <summary>History</summary>
@@ -71,7 +72,7 @@ IN PROGRESS
 
 </details>
 
-### 2121-07-13 (#8)
+### 2121-07-13 (e8)
 
 <details>
 <summary>History</summary>
@@ -127,7 +128,7 @@ Epoch 8 completed in 2 hours, 20 minute and 28 seconds .
 
 </details>
 
-### 2021-07-13 (#7)
+### 2021-07-13 (e7)
 
 <details>
 <summary>History</summary>
@@ -138,7 +139,7 @@ NO DETAILS...
 
 </details>
 
-### 2021-07-09 (#6)
+### 2021-07-09 (e6)
 
 <details>
 <summary>History</summary>
@@ -198,7 +199,7 @@ IndexError: index 1 is out of bounds for dimension 2 with size 1
 
 </details>
 
-### 2021-07-08 (#5)
+### 2021-07-08 (e5)
 
 <details>
 <summary>History</summary>
@@ -247,7 +248,7 @@ Train 275/460, loss: -0.076754, reg_loss: 0.000000, pred_loss: 0.000000, acc: 7.
 
 </details>
 
-### 2021-07-06 (#4)
+### 2021-07-06 (e4)
 
 <details>
 <summary>History</summary>
@@ -318,7 +319,7 @@ Epoch 11 completed in 3 hours, 19 minute and 28 seconds .
 
 </details>
 
-### 2021-07-05 (#3)
+### 2021-07-05 (e3)
 
 <details>
 <summary>History</summary>
@@ -412,7 +413,7 @@ Model training end.
 
 </details>
 
-### 2021-07-05 (#2)
+### 2021-07-05 (e2)
 
 <details>
 <summary>History</summary>
@@ -488,7 +489,7 @@ Epoch 12 completed in 0 hours, 14 minute and 55 seconds .
 
 </details>
 
-### 2021-07-03 (#1)
+### 2021-07-03 (e1)
 
 <details>
 <summary>History</summary>
