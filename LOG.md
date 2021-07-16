@@ -54,6 +54,18 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+# 16/0/2021 - Stop ssh torre, fix `get_iou_score` loss
+
+SSH torre down tutto il giorno.
+
+Fix `get_iou_score` bug: vedere
+[#43](https://github.com/lparolari/VTKEL-solver/issues/43) e
+[#43](https://github.com/lparolari/VTKEL-solver/issues/42).
+
+# 14-15/07/2021 - Run dei modelli e8, e9, e10
+
+Vedere tabella esperimenti num. 8, 9 e 10.
+
 # 13/07/2021 - Problemi di training
 
 Il training non viene svolto in modo corretto (accuracy scende invece di
@@ -156,11 +168,11 @@ Certo, sono d'accordo e cercherò di spostare quantomeno le modifiche su branch
 separate così da non fare confusione. In caso le modifiche le provo a tempo
 perso sui pc del laboratorio.
 
-Per il punto (1) il paper [Weakly-supervised Visual Grounding of Phrases with
-Linguistic Features](https://arxiv.org/pdf/1705.01371.pdf) (quello da cui
-abbiamo preso la prima versione della loss) ha la dim delle feat testuali (LSTM)
-= 512, mentre per le feat visive applica un 2-layer perceptron e poi va a
-matchare la dimensione delle altre tramite batch normalization. Quindi
+Per il punto (1) il paper
+[Weakly-supervised Visual Grounding of Phrases with Linguistic Features](https://arxiv.org/pdf/1705.01371.pdf)
+(quello da cui abbiamo preso la prima versione della loss) ha la dim delle feat
+testuali (LSTM) = 512, mentre per le feat visive applica un 2-layer perceptron e
+poi va a matchare la dimensione delle altre tramite batch normalization. Quindi
 tecnicamente ha una rete più potente di quella che ho implementato, anche se non
 spiega come è fatta internamente.
 
