@@ -5,6 +5,8 @@
 <details>
 <summary>Table of Contents</summary>
 
+- [16/0/2021 - Stop ssh torre, fix `get_iou_score` loss](#1602021---stop-ssh-torre-fix-get_iou_score-loss)
+- [14-15/07/2021 - Run dei modelli e8, e9, e10](#14-15072021---run-dei-modelli-e8-e9-e10)
 - [13/07/2021 - Problemi di training](#13072021---problemi-di-training)
 - [12/07/2021 - Modifica top-k loss e IndexError](#12072021---modifica-top-k-loss-e-indexerror)
 - [09/07/2021 - Studio per utilizzo sentence nel modello](#09072021---studio-per-utilizzo-sentence-nel-modello)
