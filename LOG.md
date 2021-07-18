@@ -56,7 +56,7 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# 16/0/2021 - Stop ssh torre, fix `get_iou_score` loss
+# 16/07/2021 (x) - Stop ssh torre, fix `get_iou_score` loss
 
 SSH torre down tutto il giorno.
 
