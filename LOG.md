@@ -56,6 +56,37 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+# 18/07/2021 - Problemi di maschere sulle loss?
+
+- Abbiamo notato un possibile problema sul "mascheramento" dei valori calcolati
+  dalla funzione `get_k_similar` in `losses.py`. La funzione `get_k_similar` con
+  strategia _random_ è implementata come segue:
+
+```py
+def get_k_random(tensor: torch.Tensor, mask: torch.Tensor, *, k: int, dim: int = -1, device=None):
+    """
+    Returns `k` uniform random sampled values from `tensor` on `dim`, and `mask`. The index tensor is allocated on
+    `device`.
+
+    :return: A tuple of tensors (Tensor, LongTensor)
+    """
+    size = tensor.size()
+    indices = torch.randint(size[-1], (*size[:-1], k), device=device)
+    values = torch.gather(tensor, dim, indices)
+    # noinspection PyTypeChecker
+    values = torch.masked_fill(values, mask == 0, value=0)
+    return values, mask
+```
+
+Si pensava ad un problema di mascheramento degli unici 3 (se k=3) valori
+ritornati. In realtà non succede perchè **per ogni** chunk estraiamo k indici a
+caso e poi la maschera è applicata ai chunk sintetici, quindi quelli non
+sintetici non possono vedersi mascherate le 3 bboxes estratte.
+
+- Aggiunta maschera per le bboxes gt
+
+- Aggiunta maschera per le bboxes predette
+
 # 16/07/2021 (x) - Stop ssh torre, fix `get_iou_score` loss
 
 SSH torre down tutto il giorno.
