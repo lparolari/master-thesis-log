@@ -1,0 +1,50 @@
+Model started with the following parameters:
+{'mode': 0, 'dataset': 'referit', 'restore': None, 'suffix': 'default', 'develop': True, 'device': 'cuda', 'batch_size': 128, 'num_workers': 6, 'prefetch_factor': 2, 'load_subset': None, 'load_first': False, 'load_first_img': False, 'learning_rate': 0.001, 'grad_clipping': 1, 'scheduler_gamma': 0.9, 'n_epochs': 15, 'align_loss': 'kl-sem', 'align_loss_kl_threshold': 0.5, 'regression_loss': 'iou_c-sem', 'dropout_ratio': 0.3, 'loss_weight_pred': 1, 'loss_weight_reg': 1, 'loss_weight_entities': 0.001, 'n_falsy': 3, 'n_truthy': 3, 'embeddings_text': 'glove', 'embeddings_freeze': True, 'lstm_dim': 500, 'lstm_num_layers': 1, 'fusion_dim': 2053, 'text_emb_size': 300, 'yago_emb_size': 100, 'yago_fusion_size': 300, 'yago_n_entities': 2, 'semantic_space_size': 500, 'folder_img': '/aulahomes2/2/2019/lparolar/Thesis/VTKEL-solver/data/refer', 'folder_results': '/home/2/2019/lparolar/Downloads/results/referit', 'folder_data': '/aulahomes2/2/2019/lparolar/Thesis/VTKEL-solver/data/referit_raw/preprocessed', 'folder_idx_train': '/aulahomes2/2/2019/lparolar/Thesis/VTKEL-solver/data/referit_raw/train.txt', 'folder_idx_valid': '/aulahomes2/2/2019/lparolar/Thesis/VTKEL-solver/data/referit_raw/val.txt', 'folder_idx_test': '/aulahomes2/2/2019/lparolar/Thesis/VTKEL-solver/data/referit_raw/test.txt'}
+Loading training dataset.
+Loading validation dataset.
+Loading test dataset.
+------------- START MODEL TRAINING
+----- Epoch: 1
+--- Training completed.   Loss: -0.038099, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 10.4461, PAccuracy: 28.8278 .
+--- Validation completed.   Loss: -0.038435, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 9.9243, PAccuracy: 29.2963 .
+Saved model: /home/2/2019/lparolar/Downloads/results/referit/model_default_1.pth ..
+Epoch 1 completed in 5 hours, 51 minute and 48 seconds .
+----- Epoch: 2
+--- Training completed.   Loss: -0.038386, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 8.9772, PAccuracy: 27.6011 .
+--- Validation completed.   Loss: -0.038559, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 10.0191, PAccuracy: 28.4862 .
+Saved model: /home/2/2019/lparolar/Downloads/results/referit/model_default_2.pth ..
+Epoch 2 completed in 5 hours, 57 minute and 41 seconds .
+----- Epoch: 3
+--- Training completed.   Loss: -0.038287, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 8.4622, PAccuracy: 27.5597 .
+--- Validation completed.   Loss: -0.038570, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 9.1409, PAccuracy: 27.2342 .
+Saved model: /home/2/2019/lparolar/Downloads/results/referit/model_default_3.pth ..
+Epoch 3 completed in 5 hours, 27 minute and 30 seconds .
+----- Epoch: 4
+Traceback (most recent call last):g_loss: 0.000000, pred_loss: 0.000000, acc: 8.2990, pacc: 27.5099 | ETA: 00:01:12.
+  File "trainer.py", line 418, in <module>
+    trainer = Trainer(args.configs)
+  File "trainer.py", line 136, in __init__
+    self.train_model()
+  File "trainer.py", line 236, in train_model
+    train_loss, train_reg, train_pred, train_acc, train_pacc = self.execute_epoch(self.train_dataset, train=True)
+  File "trainer.py", line 165, in execute_epoch
+    for i, curr_batch in enumerate(data):
+  File "/home/2/2019/lparolar/.miniconda3/envs/vtkel/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 435, in __next__
+    data = self._next_data()
+  File "/home/2/2019/lparolar/.miniconda3/envs/vtkel/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1065, in _next_data
+    return self._process_data(data)
+  File "/home/2/2019/lparolar/.miniconda3/envs/vtkel/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1111, in _process_data
+    data.reraise()
+  File "/home/2/2019/lparolar/.miniconda3/envs/vtkel/lib/python3.8/site-packages/torch/_utils.py", line 428, in reraise
+    raise self.exc_type(msg)
+IndexError: Caught IndexError in DataLoader worker process 4.
+Original Traceback (most recent call last):
+  File "/home/2/2019/lparolar/.miniconda3/envs/vtkel/lib/python3.8/site-packages/torch/utils/data/_utils/worker.py", line 198, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/home/2/2019/lparolar/.miniconda3/envs/vtkel/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 47, in fetch
+    return self.collate_fn(data)
+  File "/aulahomes2/2/2019/lparolar/Thesis/VTKEL-solver/model_code/dataset/dataset.py", line 356, in collate_fn
+    concepts, concepts_mask = padder.get_padded_examples(indexed_concepts,
+  File "/aulahomes2/2/2019/lparolar/Thesis/VTKEL-solver/model_code/padder.py", line 80, in get_padded_examples
+    padded_tensor[ex, ph, idx] = idx_data
+IndexError: index 1 is out of bounds for dimension 2 with size 1
