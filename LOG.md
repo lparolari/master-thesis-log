@@ -5,6 +5,7 @@
 <details>
 <summary>Table of Contents</summary>
 
+- [18/07/2021 - Problemi di maschere sulle loss?](#18072021---problemi-di-maschere-sulle-loss)
 - [16/07/2021 (x) - Stop ssh torre, fix `get_iou_score` loss](#16072021-x---stop-ssh-torre-fix-get_iou_score-loss)
 - [14-15/07/2021 - Run dei modelli e8, e9, e10](#14-15072021---run-dei-modelli-e8-e9-e10)
 - [13/07/2021 - Problemi di training](#13072021---problemi-di-training)
