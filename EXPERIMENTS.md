@@ -39,14 +39,8 @@ TEMPLATE
 
 ### yyyy-MM-dd (eN)
 
-<details>
-<summary>History</summary>
-
-```
-
-```
-
-</details>
+History: [\[Readable\]](experiments/eN.history.txt)
+[\[Full\]](experiments/eN.history.full.txt)
 
 -->
 
