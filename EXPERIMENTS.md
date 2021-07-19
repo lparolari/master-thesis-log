@@ -7,12 +7,13 @@
 TEMPLATE
 ========
 
-| [eN](#yyyy-MM-dd-eN) | yyyy-MM-dd | loss (epoch) | acc (epoch) | params | [commit](url) | desc | note |
+| [eN](#yyyy-MM-dd-eN) (R/F) | yyyy-MM-dd | loss (epoch) | acc (epoch) | params | [commit](url) | desc | note |
 
 -->
 
 | Id (DS\*) | Date | Loss (Epoch)\*\* | Accuracy (Epoch)\*\* | Params\*\*\* | Commit | Desc | Note |
 | -- | ---- | -------------- | ------------------ | ---------- | ------ | ---- | ---- |
+| [e11](#2021-07-18-e11) (R) | 2021-07-18 | -0.319394 (6) | 5.9834 (2) | `n_falsy: 3`, `n_truthy: 3`, `suffix: "main-fix-43"` | [a207c71](https://github.com/lparolari/VTKEL-solver/tree/a207c719abdd1f39a36b3c880a1adc9ff6746313) | train on referit after fixing [#43](https://github.com/lparolari/VTKEL-solver/issues/43), i.e., fix wrong masking on iou | interruped at epoch 9 doe to bad performace |
 | [e10](#2021-07-15-e10) (R) | 2021-07-15 | -0.316901 (6) | 7.5425 (1) | `n_falsy: 3`, `n_truthy: 3`, `suffix: "feat-no-semantic-embedding-for-chunks"` | [f3a8d1a](https://github.com/lparolari/VTKEL-solver/commit/f3a8d1a732fac0f9155b9f4cfde334e7cb2147b2) | directly use lstm output for chunks without embedding | interrupted at epoch 7 due to connection issues between working machine and data storage. accuracy gets worse from epoch to epoch but it's very smooth and values are usually better wrt other trainings |
 | [e9](#2021-07-14-e9) (R) | 2021-07-14 | -0.318937 (8) | 7.6239 (2) | `n_falsy: 3`, `n_truthy: 3`, `suffix: "basic-random-k-3"` | [d4bb063](https://github.com/lparolari/VTKEL-solver/tree/d4bb0634bd639fa803606a3b54fb70240ecc60fb) | use random strategy for picking k-similar example to attract or repulse, fix negative example forward | interrupted at epoch 9 due to its weakness: no learning during training neither validation |
 | [e8](#2021-07-13-e8) (R) | 2021-07-13 | -0.194748 (7) | 6.9326 (2) | `lstm_dim: 2053`, `n_falsy: 3`, `n_truthy: 3`, `suffix: "feat-no-semantic-embedding"` | [b754c52](https://github.com/lparolari/VTKEL-solver/tree/b754c52dd8a298c346acf0846691d45fe4e4123b) | train without semantic embedding for images, i.e., lstm_dim matches visual features size | interrupted due to no interesting results: accuracy in training phase went down |

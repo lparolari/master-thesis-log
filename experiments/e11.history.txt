@@ -1,0 +1,53 @@
+Model started with the following parameters:
+{'mode': 0, 'dataset': 'referit', 'restore': None, 'suffix': 'main-fix-43', 'develop': True, 'device': 'cuda', 'batch_size': 64, 'num_workers': 1, 'prefetch_factor': 1, 'load_subset': None, 'load_first': False, 'load_first_img': False, 'learning_rate': 0.001, 'grad_clipping': 1, 'scheduler_gamma': 0.9, 'n_epochs': 15, 'align_loss': 'kl-sem', 'align_loss_kl_threshold': 0.5, 'regression_loss': 'iou_c-sem', 'dropout_ratio': 0.3, 'loss_weight_pred': 1, 'loss_weight_reg': 1, 'loss_weight_entities': 0.001, 'n_falsy': 3, 'n_truthy': 3, 'get_similar_positive': 'random', 'get_similar_negative': 'random', 'embeddings_text': 'glove', 'embeddings_freeze': True, 'lstm_dim': 500, 'lstm_num_layers': 1, 'fusion_dim': 2053, 'text_emb_size': 300, 'yago_emb_size': 100, 'yago_fusion_size': 300, 'yago_n_entities': 2, 'semantic_space_size': 500, 'folder_img': '/aulahomes2/2/2019/lparolar/Thesis/VTKEL-solver-at-labinf05/data/refer', 'folder_results': '/home/2/2019/lparolar/Thesis/results/referit', 'folder_data': '/aulahomes2/2/2019/lparolar/Thesis/VTKEL-solver-at-labinf05/data/referit_raw/preprocessed', 'folder_idx_train': '/aulahomes2/2/2019/lparolar/Thesis/VTKEL-solver-at-labinf05/data/referit_raw/train.txt', 'folder_idx_valid': '/aulahomes2/2/2019/lparolar/Thesis/VTKEL-solver-at-labinf05/data/referit_raw/val.txt', 'folder_idx_test': '/aulahomes2/2/2019/lparolar/Thesis/VTKEL-solver-at-labinf05/data/referit_raw/test.txt'}
+Loading training dataset.
+Loading validation dataset.
+Loading test dataset.
+------------- START MODEL TRAINING
+----- Epoch: 1
+--- Training completed.   Loss: -0.271046, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 4.3690, PAccuracy: 32.2396 .
+--- Validation completed.   Loss: -0.299441, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 5.5464, PAccuracy: 38.1342 .
+Saved model: /home/2/2019/lparolar/Thesis/results/referit/model_main-fix-43_1.pth ..
+Epoch 1 completed in 2 hours, 26 minute and 56 seconds .
+----- Epoch: 2
+--- Training completed.   Loss: -0.303854, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 5.0505, PAccuracy: 35.8323 .
+--- Validation completed.   Loss: -0.302154, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 5.9834, PAccuracy: 39.0646 .
+Saved model: /home/2/2019/lparolar/Thesis/results/referit/model_main-fix-43_2.pth ..
+Epoch 2 completed in 2 hours, 30 minute and 31 seconds .
+----- Epoch: 3
+--- Training completed.   Loss: -0.312664, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 4.7831, PAccuracy: 36.0264 .
+--- Validation completed.   Loss: -0.302241, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 4.8321, PAccuracy: 37.6633 .
+Saved model: /home/2/2019/lparolar/Thesis/results/referit/model_main-fix-43_3.pth ..
+Epoch 3 completed in 2 hours, 31 minute and 3 seconds .
+----- Epoch: 4
+--- Training completed.   Loss: -0.317930, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 4.7625, PAccuracy: 36.2126 .
+--- Validation completed.   Loss: -0.313020, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 4.9021, PAccuracy: 38.8535 .
+Saved model: /home/2/2019/lparolar/Thesis/results/referit/model_main-fix-43_4.pth ..
+Epoch 4 completed in 2 hours, 27 minute and 3 seconds .
+----- Epoch: 5
+--- Training completed.   Loss: -0.320299, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 4.6497, PAccuracy: 36.1841 .
+--- Validation completed.   Loss: -0.311401, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 4.7865, PAccuracy: 37.5683 .
+Saved model: /home/2/2019/lparolar/Thesis/results/referit/model_main-fix-43_5.pth ..
+Epoch 5 completed in 2 hours, 22 minute and 40 seconds .
+----- Epoch: 6
+--- Training completed.   Loss: -0.323483, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 4.4836, PAccuracy: 36.0441 .
+--- Validation completed.   Loss: -0.319394, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 4.3768, PAccuracy: 38.1083 .
+Saved model: /home/2/2019/lparolar/Thesis/results/referit/model_main-fix-43_6.pth ..
+Epoch 6 completed in 2 hours, 22 minute and 8 seconds .
+----- Epoch: 7
+--- Training completed.   Loss: -0.328436, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 4.5443, PAccuracy: 36.2100 .
+--- Validation completed.   Loss: -0.313078, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 4.6620, PAccuracy: 37.7105 .
+Saved model: /home/2/2019/lparolar/Thesis/results/referit/model_main-fix-43_7.pth ..
+Epoch 7 completed in 2 hours, 17 minute and 19 seconds .
+----- Epoch: 8
+--- Training completed.   Loss: -0.329904, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 4.6181, PAccuracy: 36.1944 .
+--- Validation completed.   Loss: -0.318937, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 4.9008, PAccuracy: 38.2522 .
+Saved model: /home/2/2019/lparolar/Thesis/results/referit/model_main-fix-43_8.pth ..
+Epoch 8 completed in 2 hours, 16 minute and 26 seconds .
+----- Epoch: 9
+--- Training completed.   Loss: -0.329676, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 4.5431, PAccuracy: 35.9599 .
+--- Validation completed.   Loss: -0.312875, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 4.6029, PAccuracy: 38.2455 .
+Saved model: /home/2/2019/lparolar/Thesis/results/referit/model_main-fix-43_9.pth ..
+Epoch 9 completed in 2 hours, 12 minute and 18 seconds .
+----- Epoch: 10
+Train 566/920, loss: -0.332001, reg_loss: 0.000000, pred_loss: 0.000000, acc: 4.3362, pacc: 35.9793 | ETA: 00:35:24.%
