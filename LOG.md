@@ -57,6 +57,58 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+# 20/07/2021 - Problema bb attive fixed e padding bb
+
+Aggiustato il problema del campionamento sul padding delle bounding box fissando
+gli indici da campionare nel dataloader. Non è stato possibile farlo nella loss
+in modo facile perché `torch.randint` ha come parametro high un int e non un
+tensore di valori diversi. Tra le possibili soluzioni abbiamo valutato il modulo
+del'indice con high (biased) e fissare l'high al minimo num di bounding box non
+paddate su batch.
+
+Progrmamma bb_checker ci permette di andare a vedere quanti esempi hanno un
+numero X di bounding box.
+
+```
+Numero di esempi con 66 bounding box = 1
+Numero di esempi con 69 bounding box = 1
+Numero di esempi con 72 bounding box = 2
+Numero di esempi con 73 bounding box = 1
+Numero di esempi con 74 bounding box = 3
+Numero di esempi con 75 bounding box = 2
+Numero di esempi con 76 bounding box = 1
+Numero di esempi con 77 bounding box = 1
+Numero di esempi con 78 bounding box = 3
+Numero di esempi con 80 bounding box = 2
+Numero di esempi con 81 bounding box = 3
+Numero di esempi con 82 bounding box = 3
+Numero di esempi con 83 bounding box = 1
+Numero di esempi con 84 bounding box = 3
+Numero di esempi con 85 bounding box = 4
+Numero di esempi con 86 bounding box = 1
+Numero di esempi con 87 bounding box = 4
+Numero di esempi con 88 bounding box = 2
+Numero di esempi con 89 bounding box = 3
+Numero di esempi con 90 bounding box = 6
+Numero di esempi con 91 bounding box = 4
+Numero di esempi con 92 bounding box = 6
+Numero di esempi con 93 bounding box = 7
+Numero di esempi con 94 bounding box = 6
+Numero di esempi con 95 bounding box = 11
+Numero di esempi con 96 bounding box = 8
+Numero di esempi con 97 bounding box = 10
+Numero di esempi con 98 bounding box = 13
+Numero di esempi con 99 bounding box = 8
+Numero di esempi con 100 bounding box = 19875
+Totale = 19995
+```
+
+```
+lparolar at labsrv8 in ~/storage/VTKEL-solver/referit_raw/preprocessed
+$ ls | grep _img | wc
+19995   19995  333986
+```
+
 # 19/07/2021 - Altri problemi di maschere sulla loss
 
 Review del codice, trovato il problema issue
