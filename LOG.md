@@ -57,6 +57,66 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+# 19/07/2021 - Altri problemi di maschere sulla loss
+
+Review del codice, trovato il problema issue
+[#45](https://github.com/lparolari/VTKEL-solver/issues/45) e risolto. Nuova
+maschera da applicare alla validazione.
+
+Discussione delle probabili cause per score negativi non negativi:
+
+DR [19.07.21 16:06] \
+I motivi già accennati potrebbero essere:
+
+1. non abbiamo abbastanza potenza nella rete per cogliere le differenze
+2. si usano attivazioni come la "relu" che non permette valori negativi. Per
+   questo motivo la similarità è sicuramente sempre >= 0
+3. Unione dei due punti precedenti
+4. Bugs vari
+
+Discussione su come fissare le K bounding box prese per attrarre e allontare i
+chunk:
+
+LP, [19.07.21 17:56] \
+La prima domanda che mi sorge è se le K bounding box sono fissate su tutti i chunk
+oppure se sono K estratte a random per ogni chunk, nel caso, io sto facendo la seconda...
+
+DR, [19.07.21 17:59] \
+in entrambi i modi non dovrebbe essere sbagliato (anche se ci penso un attimo per
+darti la risposta definitiva) in quanto se ragioniamo a valore atteso, dovrebbe essere
+uguale. Tuttavia cambia sicuramente il training.
+
+DR, [19.07.21 18:01] \
+Supponiamo di avere la prima versione in cui fisso le K bounding box per tutti i
+chunk. Se inoltre supponiamo di avere un numero di chunk positivi e negativi uguali,
+allora:
+
+1. se il chunk è sia positivo che negativo (supponiamo formato da solo una
+   parola) allora la ci sarà una loss positiva e una loss negativa che si
+   bilanciano e dunque la rappresentazione dovrebbe rimanere uguale.
+2. se il chunk appare solo nella frase positivam, allora si avvicina
+3. viceversa se il chunk appare solo nella frase negativa
+
+DR, [19.07.21 18:02] \
+se abbiamo du chunk con le stesse parole ripetute nella stessa frase allora la loss
+totale sarebbe come moltiplicata per il numero delle occorrenze
+
+DR, [19.07.21 18:03] \
+il ragionamento vale anche (più o meno) se ci sono più chunk negativi di quelli positivi
+e viceversa.
+
+DR, [19.07.21 18:06] \
+Se invece ragioniamo che per ogni chunk estrai un set K disgiunto dagli altri, allora
+lo stesso chunk presente sia nella frase positiva che negativa contribuisce alla
+loss in entrambi i casi, per poi in caso essere corretto successivamente quando le
+frasi positive e negative si invertono (se avviene questo campionamento, fatto che
+in linea teorica se prendiamo tutte le coppie di frasi, dovrebbe accadere). Tuttavia
+il training cambia
+
+DR, [19.07.21 18:06] \
+Per cui io proverei ad implementare la modalità con K fissate per tutte e uguali.
+Non solo è più facile da implementare ma anche il training dovrebbe (spero migliorare)
+
 # 18/07/2021 - Problemi di maschere sulle loss?
 
 - Abbiamo notato un possibile problema sul "mascheramento" dei valori calcolati
