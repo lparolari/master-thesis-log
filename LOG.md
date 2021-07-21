@@ -59,6 +59,110 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+# 21/07/2021
+
+Peer review del codice riga per riga con il debugger assieme a Davide (2.5h!!).
+
+Problemi emersi:
+
+- HIGH PRIORITY: loss calcolata male (vedere
+  [#49](https://github.com/lparolari/VTKEL-solver/issues/49))
+
+- HIGH PRIORITY: `None` sulle word indicizzate calcolate nel padding (vedere
+  spiegazione di seguito)
+
+- MED PRIORITY: calcolare nel dataloader l'associazione chunk-frase e relativa
+  ground truth (passare direttamente le coordinate della bounding box
+  interessata) di modo da non dover forwardare le frasi e non perdere tempo
+  nella loss per il calcolo di questi match
+
+- MED PRIORITY: potenziare net immaigini (aggiungere un layer e vedere come va)
+
+- LOW PRIORITY: mascherare i logits ritornati dal modello con le maschere delle
+  bounding box (escludendo quelle che sono padding). Nella loss questo problema
+  è già risolto con il campionamento a priori degli indici delle BB tra quelle
+  non padding, ma dovremmo restituire anche dei logits con questa logica perché
+  la predizione finale del modello deve tenere conto di ciò
+
+- LOW PRIORITY: padding enorme e inutile. Tutto (sentence, frasi, chunk, chunk
+  negativi) è paddato alla stessa dimensione, ma questo è inutile e mai
+  utilizzato. Sarebbe meglio ripristinare la versione di Dadive e paddare tutto
+  normalmente.
+
+Analizzati tutti gli esempi del dataset referit per trovare la causa dei None
+che escono dal tokenizer. Il problema sta nel fatto che il tokenizer si comporta
+diversamente sulle "sentence" rispetto che sui "chunk" (output ewiser).
+
+Esempio incriminato:
+
+```py
+[['the hills', '/cliffs']]
+[[[1, 226], [None]]]
+```
+
+Esempio comportamento di spacy:
+
+```py
+>>> f = torchtext.data.utils.get_tokenizer("spacy", language="en_core_web_sm")
+>>> f("sentence aaa")
+['sentence', 'aaa']
+>>> f("any of the hills/cliffs")
+['any', 'of', 'the', 'hills', '/', 'cliffs']
+>>> f("hills/cliffs")
+['hills', '/', 'cliffs']
+>>> f("/cliffs")
+['/cliffs']
+```
+
+`/cliffs` non è presente nel vocabolario e questo restituisce `None`, quindi
+durante il padding `idx_data` (ovvero l'indice della parola) è `None`.
+
+Esempi affetti da questo problema:
+
+```py
+[
+  '/home/lparolar/Projects/VTKEL-solver/data/referit_raw/preprocessed/10443_2_0.pickle',
+  '/home/lparolar/Projects/VTKEL-solver/data/referit_raw/preprocessed/11292_7_1.pickle',
+  '/home/lparolar/Projects/VTKEL-solver/data/referit_raw/preprocessed/12984_2_0.pickle',
+  '/home/lparolar/Projects/VTKEL-solver/data/referit_raw/preprocessed/4087_6_0.pickle',
+  '/home/lparolar/Projects/VTKEL-solver/data/referit_raw/preprocessed/32840_2_1.pickle',
+  '/home/lparolar/Projects/VTKEL-solver/data/referit_raw/preprocessed/15679_4_0.pickle',
+  '/home/lparolar/Projects/VTKEL-solver/data/referit_raw/preprocessed/35655_4_0.pickle',
+  '/home/lparolar/Projects/VTKEL-solver/data/referit_raw/preprocessed/10778_1_4.pickle',
+  '/home/lparolar/Projects/VTKEL-solver/data/referit_raw/preprocessed/30681_5_0.pickle',
+  '/home/lparolar/Projects/VTKEL-solver/data/referit_raw/preprocessed/19182_8_0.pickle',
+  '/home/lparolar/Projects/VTKEL-solver/data/referit_raw/preprocessed/1113_1_0.pickle',
+  '/home/lparolar/Projects/VTKEL-solver/data/referit_raw/preprocessed/15901_4_0.pickle',
+  '/home/lparolar/Projects/VTKEL-solver/data/referit_raw/preprocessed/24108_6_0.pickle',
+  '/home/lparolar/Projects/VTKEL-solver/data/referit_raw/preprocessed/2819_4_7.pickle',
+  '/home/lparolar/Projects/VTKEL-solver/data/referit_raw/preprocessed/1184_5_0.pickle',
+  '/home/lparolar/Projects/VTKEL-solver/data/referit_raw/preprocessed/1026_5_0.pickle',
+  '/home/lparolar/Projects/VTKEL-solver/data/referit_raw/preprocessed/12521_3_0.pickle',
+  '/home/lparolar/Projects/VTKEL-solver/data/referit_raw/preprocessed/4719_10_1.pickle',
+  '/home/lparolar/Projects/VTKEL-solver/data/referit_raw/preprocessed/7031_6_1.pickle',
+  '/home/lparolar/Projects/VTKEL-solver/data/referit_raw/preprocessed/15635_9_1.pickle',
+  '/home/lparolar/Projects/VTKEL-solver/data/referit_raw/preprocessed/9778_3_0.pickle',
+  '/home/lparolar/Projects/VTKEL-solver/data/referit_raw/preprocessed/1220_6_0.pickle',
+  '/home/lparolar/Projects/VTKEL-solver/data/referit_raw/preprocessed/9872_10_0.pickle',
+  '/home/lparolar/Projects/VTKEL-solver/data/referit_raw/preprocessed/11434_3_0.pickle',
+  '/home/lparolar/Projects/VTKEL-solver/data/referit_raw/preprocessed/23354_12_0.pickle',
+  '/home/lparolar/Projects/VTKEL-solver/data/referit_raw/preprocessed/15341_3_0.pickle',
+  '/home/lparolar/Projects/VTKEL-solver/data/referit_raw/preprocessed/20350_4_7.pickle',
+  '/home/lparolar/Projects/VTKEL-solver/data/referit_raw/preprocessed/37181_3_0.pickle',
+  '/home/lparolar/Projects/VTKEL-solver/data/referit_raw/preprocessed/19058_2_0.pickle',
+  '/home/lparolar/Projects/VTKEL-solver/data/referit_raw/preprocessed/1348_3_0.pickle',
+  '/home/lparolar/Projects/VTKEL-solver/data/referit_raw/preprocessed/30881_4_0.pickle',
+  '/home/lparolar/Projects/VTKEL-solver/data/referit_raw/preprocessed/16330_7_0.pickle',
+  '/home/lparolar/Projects/VTKEL-solver/data/referit_raw/preprocessed/18121_1_0.pickle',
+  '/home/lparolar/Projects/VTKEL-solver/data/referit_raw/preprocessed/7199_1_0.pickle',
+  '/home/lparolar/Projects/VTKEL-solver/data/referit_raw/preprocessed/8938_2_0.pickle',
+  '/home/lparolar/Projects/VTKEL-solver/data/referit_raw/preprocessed/826_1_0.pickle',
+  '/home/lparolar/Projects/VTKEL-solver/data/referit_raw/preprocessed/4495_5_0.pickle',
+  '/home/lparolar/Projects/VTKEL-solver/data/referit_raw/preprocessed/11433_4_0.pickle',
+  '/home/lparolar/Projects/VTKEL-solver/data/referit_raw/preprocessed/30398_3_0.pickle'
+]
+```
+
 # 20/07/2021 - Problema bb attive fixed e padding bb
 
 Aggiustato il problema del campionamento sul padding delle bounding box fissando
