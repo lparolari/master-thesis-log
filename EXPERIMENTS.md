@@ -13,7 +13,8 @@ TEMPLATE
 
 | Id (DS\*) | Date | Loss (Epoch)\*\* | Accuracy (Epoch)\*\* | Params\*\*\* | Commit | Desc | Note |
 | -- | ---- | -------------- | ------------------ | ---------- | ------ | ---- | ---- |
-| [e13](#2021-07-19-e13) (R) | 2021-07-19 | -0.316901 (5/5) | 5.9278 (1/5) | `n_falsy: 3`, `n_truthy: 3`, `suffix: "no-semantic-embedding-for-chunks-fix-45"` | [57ce6f3](https://github.com/lparolari/VTKEL-solver/tree/57ce6f3a5048829e1c171b021f73286d0149b961) | train on referit after fixing [#45](https://github.com/lparolari/VTKEL-solver/issues/45), i.e., bug on how we computed mask among chunk-query matching introduced. please note that this mask was not used until commit [4bb13bd](https://github.com/lparolari/VTKEL-solver/commit/4bb13bd20ceff4daf1c598f82b0ce7fb8daf094d). in this training we use LSTM output for chunks semantic embedding | note |
+| [e14](#2021-07-19-e14) (R) | 2021-07-19 | -0.302241 (3/3) | 5.9834 (2/3) | `n_falsy: 3`, `n_truthy: 3`, `suffix: "main-fix-45"` | [8d08e39](https://github.com/lparolari/VTKEL-solver/tree/8d08e39775d5028844c170541d86fdd613020436) | (same as e13 with full semantic embedding) train on referit after fixing [#45](https://github.com/lparolari/VTKEL-solver/issues/45) | bad performance |
+| [e13](#2021-07-19-e13) (R) | 2021-07-19 | -0.316901 (5/5) | 5.9278 (1/5) | `n_falsy: 3`, `n_truthy: 3`, `suffix: "no-semantic-embedding-for-chunks-fix-45"` | [57ce6f3](https://github.com/lparolari/VTKEL-solver/tree/57ce6f3a5048829e1c171b021f73286d0149b961) | train on referit after fixing [#45](https://github.com/lparolari/VTKEL-solver/issues/45), i.e., bug on how we computed mask among chunk-query matching introduced. please note that this mask was not used until commit [4bb13bd](https://github.com/lparolari/VTKEL-solver/commit/4bb13bd20ceff4daf1c598f82b0ce7fb8daf094d). in this training we use LSTM output for chunks semantic embedding | bad performance |
 | [e12](#2021-07-18-e12) (R) | 2021-07-18 | -0.316901 (5/5) | 7.5425 (1/5) | `n_falsy: 3`, `n_truthy: 3`, `suffix: "no-semantic-embedding-for-chunks-fix-43"` | [d851a47](https://github.com/lparolari/VTKEL-solver/tree/d851a470bf3a0e6a3e3d472ffbaee501978b719b) | same as [e11](#2021-07-18-e11) (after mask fix) but with semantic embedding for chunks as LSTM output  | interrupted due to donwtranding performance. overall high accuracy |
 | [e11](#2021-07-18-e11) (R) | 2021-07-18 | -0.319394 (6) | 5.9834 (2) | `n_falsy: 3`, `n_truthy: 3`, `suffix: "main-fix-43"` | [a207c71](https://github.com/lparolari/VTKEL-solver/tree/a207c719abdd1f39a36b3c880a1adc9ff6746313) | train on referit after fixing [#43](https://github.com/lparolari/VTKEL-solver/issues/43), i.e., fix wrong masking on iou | interruped at epoch 9 due to bad performace |
 | [e10](#2021-07-15-e10) (R) | 2021-07-15 | -0.316901 (6) | 7.5425 (1) | `n_falsy: 3`, `n_truthy: 3`, `suffix: "feat-no-semantic-embedding-for-chunks"` | [f3a8d1a](https://github.com/lparolari/VTKEL-solver/commit/f3a8d1a732fac0f9155b9f4cfde334e7cb2147b2) | directly use lstm output for chunks without embedding | interrupted at epoch 7 due to connection issues between working machine and data storage. accuracy gets worse from epoch to epoch but it's very smooth and values are usually better wrt other trainings |
@@ -46,6 +47,11 @@ History: [\[Readable\]](experiments/eN.history.txt)
 [\[Full\]](experiments/eN.history.full.txt)
 
 -->
+
+### 2021-07-19 (e14)
+
+History: [\[Readable\]](experiments/e14.history.txt)
+[\[Full\]](experiments/e14.history.full.txt)
 
 ### 2021-07-19 (e13)
 
