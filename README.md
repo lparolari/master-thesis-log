@@ -4,6 +4,10 @@
 
 A trace of what done day by day with references and resources.
 
+# [⚛️ Model](model)
+
+Some proof of concepts written in Python, and model architecture.
+
 # [💾 Datasets](datasets/readme.md)
 
 A description of datasets used as input for the model.
