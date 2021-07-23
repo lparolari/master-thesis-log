@@ -5,7 +5,9 @@
 <details>
 <summary>Table of Contents</summary>
 
-- [21/07/2021](#21072021)
+- [23/07/2021 - Branch per i training e esecuzione sul cluster (CPU)](#23072021---branch-per-i-training-e-esecuzione-sul-cluster-cpu)
+- [22/07/2021 - Fix problemi evidenziati nella call](#22072021---fix-problemi-evidenziati-nella-call)
+- [21/07/2021 (x) - Review del codice con Daivide](#21072021-x---review-del-codice-con-daivide)
 - [20/07/2021 - Problema bb attive fixed e padding bb](#20072021---problema-bb-attive-fixed-e-padding-bb)
 - [19/07/2021 - Altri problemi di maschere sulla loss](#19072021---altri-problemi-di-maschere-sulla-loss)
 - [18/07/2021 - Problemi di maschere sulle loss?](#18072021---problemi-di-maschere-sulle-loss)
