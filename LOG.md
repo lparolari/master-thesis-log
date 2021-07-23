@@ -60,7 +60,18 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# 21/07/2021
+# 23/07/2021 - Branch per i training e esecuzione sul cluster (CPU)
+
+- branch no repulsion tensor \*\* 2
+- branch no semantic embedding
+- branch two layer image semantic embedding
+
+# 22/07/2021 - Fix problemi evidenziati nella call
+
+Fixati i problemi evidenziati nella call del 21/07/2021. Lab tesisti non
+accessibile.
+
+# 21/07/2021 (x) - Review del codice con Daivide
 
 Peer review del codice riga per riga con il debugger assieme a Davide (2.5h!!).
 
