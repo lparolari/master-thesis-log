@@ -13,6 +13,8 @@ TEMPLATE
 
 | Id (DS\*) | Date | Loss (Epoch)\*\* | Accuracy (Epoch)\*\* | Params\*\*\* | Commit | Desc | Note |
 | -- | ---- | -------------- | ------------------ | ---------- | ------ | ---- | ---- |
+| [e16](#2021-07-23-e16) (R) | 2021-07-23 | -0.640112 (13/15) | 5.0746 (1/15) | `device: "cpu"`, `batch_size: 128`, `prefetch_factor: 4`, `num_workers: 20`, `suffix: "feat-double-layer-v0_8"` | [d6fb5b5](https://github.com/lparolari/VTKEL-solver/tree/d6fb5b59267235ccf1e4a6950e548e6a97853792) | two layer image semantic embedding | bad performace even for training |
+| [e15](#2021-07-23-e15) (R) | 2021-07-23 | -0.639098 (12/15) | 5.8659 (3/15) | `device: "cpu"`, `batch_size: 128`, `prefetch_factor: 4`, `num_workers: 20`, `suffix: "main-fix-v0_8"` | [3863ef0](https://github.com/lparolari/VTKEL-solver/tree/3863ef00005d575651fe6eba5234ce9a082d9501) | fixed [#50](https://github.com/lparolari/VTKEL-solver/issues/50), [#51](https://github.com/lparolari/VTKEL-solver/issues/51), [#53](https://github.com/lparolari/VTKEL-solver/issues/53) and [#55](https://github.com/lparolari/VTKEL-solver/issues/55) | bad performace even for training |
 | [e14](#2021-07-19-e14) (R) | 2021-07-19 | -0.302241 (3/3) | 5.9834 (2/3) | `n_falsy: 3`, `n_truthy: 3`, `suffix: "main-fix-45"` | [8d08e39](https://github.com/lparolari/VTKEL-solver/tree/8d08e39775d5028844c170541d86fdd613020436) | (same as e13 with full semantic embedding) train on referit after fixing [#45](https://github.com/lparolari/VTKEL-solver/issues/45) | bad performance |
 | [e13](#2021-07-19-e13) (R) | 2021-07-19 | -0.316901 (5/5) | 5.9278 (1/5) | `n_falsy: 3`, `n_truthy: 3`, `suffix: "no-semantic-embedding-for-chunks-fix-45"` | [57ce6f3](https://github.com/lparolari/VTKEL-solver/tree/57ce6f3a5048829e1c171b021f73286d0149b961) | train on referit after fixing [#45](https://github.com/lparolari/VTKEL-solver/issues/45), i.e., bug on how we computed mask among chunk-query matching introduced. please note that this mask was not used until commit [4bb13bd](https://github.com/lparolari/VTKEL-solver/commit/4bb13bd20ceff4daf1c598f82b0ce7fb8daf094d). in this training we use LSTM output for chunks semantic embedding | bad performance |
 | [e12](#2021-07-18-e12) (R) | 2021-07-18 | -0.316901 (5/5) | 7.5425 (1/5) | `n_falsy: 3`, `n_truthy: 3`, `suffix: "no-semantic-embedding-for-chunks-fix-43"` | [d851a47](https://github.com/lparolari/VTKEL-solver/tree/d851a470bf3a0e6a3e3d472ffbaee501978b719b) | same as [e11](#2021-07-18-e11) (after mask fix) but with semantic embedding for chunks as LSTM output  | interrupted due to donwtranding performance. overall high accuracy |
@@ -47,6 +49,16 @@ History: [\[Readable\]](experiments/eN.history.txt)
 [\[Full\]](experiments/eN.history.full.txt)
 
 -->
+
+### 2021-07-23 (e16)
+
+History: [\[Readable\]](experiments/e16.history.txt)
+[\[Full\]](experiments/e16.history.full.txt)
+
+### 2021-07-23 (e15)
+
+History: [\[Readable\]](experiments/e15.history.txt)
+[\[Full\]](experiments/e15.history.full.txt)
 
 ### 2021-07-19 (e14)
 
