@@ -1,0 +1,91 @@
+Host di esecuzione: dellsrv0
+Data: Tue Aug 3 18:16:32 CEST 2021
+Directory: /home/lparolar
+Questo job viene eseguito sui seguenti nodi:
+dellsrv0 dellsrv0 dellsrv0 dellsrv0 dellsrv0 dellsrv0 dellsrv0 dellsrv0 dellsrv0 dellsrv0 dellsrv0 dellsrv0 dellsrv0 dellsrv0 dellsrv0 dellsrv0 dellsrv0 dellsrv0 dellsrv0 dellsrv0
+PBS_WORKDIR=
+Model started with the following parameters: 
+{'mode': 0, 'dataset': 'referit', 'restore': None, 'suffix': 'loss-without-square-v0_8', 'develop': True, 'device': 'cpu', 'batch_size': 128, 'num_workers': 20, 'prefetch_factor': 4, 'load_subset': None, 'load_first': False, 'load_first_img': False, 'learning_rate': 0.001, 'grad_clipping': 1, 'scheduler_gamma': 0.9, 'n_epochs': 15, 'align_loss': 'kl-sem', 'align_loss_kl_threshold': 0.5, 'regression_loss': 'iou_c-sem', 'dropout_ratio': 0.3, 'loss_weight_pred': 1, 'loss_weight_reg': 1, 'loss_weight_entities': 0.001, 'n_active_box': 3, 'embeddings_text': 'glove', 'embeddings_freeze': True, 'lstm_dim': 500, 'lstm_num_layers': 1, 'fusion_dim': 2053, 'text_emb_size': 300, 'yago_emb_size': 100, 'yago_fusion_size': 300, 'yago_n_entities': 2, 'semantic_space_size': 500, 'folder_img': '/home/lparolar/Projects/VTKEL-solver_mirror-2/data/refer', 'folder_results': '/home/lparolar/Downloads/results/referit', 'folder_data': '/home/lparolar/Projects/VTKEL-solver_mirror-2/data/referit_raw/preprocessed', 'folder_idx_train': '/home/lparolar/Projects/VTKEL-solver_mirror-2/data/referit_raw/train.txt', 'folder_idx_valid': '/home/lparolar/Projects/VTKEL-solver_mirror-2/data/referit_raw/val.txt', 'folder_idx_test': '/home/lparolar/Projects/VTKEL-solver_mirror-2/data/referit_raw/test.txt'}
+
+Loading training dataset.
+Loading validation dataset.
+Loading test dataset.
+------------- START MODEL TRAINING
+----- Epoch: 1
+--- Training completed.   Loss: -0.355730, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 4.0858, PAccuracy: 31.5528 .
+--- Validation completed.   Loss: -0.465914, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 4.4704, PAccuracy: 35.4212 .
+Saved model: /home/lparolar/Downloads/results/referit/model_loss-without-square-v0_8_1.pth ..
+Epoch 1 completed in 0 hours, 17 minute and 28 seconds .
+----- Epoch: 2
+--- Training completed.   Loss: -0.472355, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 3.9376, PAccuracy: 32.7929 .
+--- Validation completed.   Loss: -0.488974, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 3.9801, PAccuracy: 34.8775 .
+Saved model: /home/lparolar/Downloads/results/referit/model_loss-without-square-v0_8_2.pth ..
+Epoch 2 completed in 0 hours, 16 minute and 6 seconds .
+----- Epoch: 3
+--- Training completed.   Loss: -0.497208, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 3.6883, PAccuracy: 32.2389 .
+--- Validation completed.   Loss: -0.485754, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 3.7457, PAccuracy: 34.6462 .
+Saved model: /home/lparolar/Downloads/results/referit/model_loss-without-square-v0_8_3.pth ..
+Epoch 3 completed in 0 hours, 16 minute and 8 seconds .
+----- Epoch: 4
+--- Training completed.   Loss: -0.509144, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 3.5633, PAccuracy: 31.8763 .
+--- Validation completed.   Loss: -0.492024, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 4.7458, PAccuracy: 34.8721 .
+Saved model: /home/lparolar/Downloads/results/referit/model_loss-without-square-v0_8_4.pth ..
+Epoch 4 completed in 0 hours, 16 minute and 12 seconds .
+----- Epoch: 5
+--- Training completed.   Loss: -0.514042, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 3.8291, PAccuracy: 32.0215 .
+--- Validation completed.   Loss: -0.503193, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 3.7589, PAccuracy: 34.1502 .
+Saved model: /home/lparolar/Downloads/results/referit/model_loss-without-square-v0_8_5.pth ..
+Epoch 5 completed in 0 hours, 16 minute and 7 seconds .
+----- Epoch: 6
+--- Training completed.   Loss: -0.519483, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 3.5056, PAccuracy: 31.6309 .
+--- Validation completed.   Loss: -0.520364, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 4.3519, PAccuracy: 33.5327 .
+Saved model: /home/lparolar/Downloads/results/referit/model_loss-without-square-v0_8_6.pth ..
+Epoch 6 completed in 0 hours, 16 minute and 0 seconds .
+----- Epoch: 7
+--- Training completed.   Loss: -0.525861, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 3.6600, PAccuracy: 31.8499 .
+--- Validation completed.   Loss: -0.513647, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 4.1160, PAccuracy: 33.0675 .
+Saved model: /home/lparolar/Downloads/results/referit/model_loss-without-square-v0_8_7.pth ..
+Epoch 7 completed in 0 hours, 16 minute and 20 seconds .
+----- Epoch: 8
+--- Training completed.   Loss: -0.525771, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 3.8346, PAccuracy: 31.4450 .
+--- Validation completed.   Loss: -0.507328, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 4.5158, PAccuracy: 32.7631 .
+Saved model: /home/lparolar/Downloads/results/referit/model_loss-without-square-v0_8_8.pth ..
+Epoch 8 completed in 0 hours, 16 minute and 11 seconds .
+----- Epoch: 9
+--- Training completed.   Loss: -0.537314, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 3.7542, PAccuracy: 31.1034 .
+--- Validation completed.   Loss: -0.511050, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 3.9760, PAccuracy: 32.6383 .
+Saved model: /home/lparolar/Downloads/results/referit/model_loss-without-square-v0_8_9.pth ..
+Epoch 9 completed in 0 hours, 16 minute and 20 seconds .
+----- Epoch: 10
+--- Training completed.   Loss: -0.529859, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 3.9053, PAccuracy: 30.9332 .
+--- Validation completed.   Loss: -0.514742, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 4.0084, PAccuracy: 33.2826 .
+Saved model: /home/lparolar/Downloads/results/referit/model_loss-without-square-v0_8_10.pth ..
+Epoch 10 completed in 0 hours, 16 minute and 23 seconds .
+----- Epoch: 11
+--- Training completed.   Loss: -0.540108, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 3.6672, PAccuracy: 30.7164 .
+--- Validation completed.   Loss: -0.504965, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 4.1976, PAccuracy: 32.8925 .
+Saved model: /home/lparolar/Downloads/results/referit/model_loss-without-square-v0_8_11.pth ..
+Epoch 11 completed in 0 hours, 16 minute and 2 seconds .
+----- Epoch: 12
+--- Training completed.   Loss: -0.540414, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 3.7767, PAccuracy: 30.7148 .
+--- Validation completed.   Loss: -0.523784, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 4.1695, PAccuracy: 31.9744 .
+Saved model: /home/lparolar/Downloads/results/referit/model_loss-without-square-v0_8_12.pth ..
+Epoch 12 completed in 0 hours, 16 minute and 19 seconds .
+----- Epoch: 13
+--- Training completed.   Loss: -0.545213, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 3.7604, PAccuracy: 30.2207 .
+--- Validation completed.   Loss: -0.510961, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 4.0716, PAccuracy: 31.8145 .
+Saved model: /home/lparolar/Downloads/results/referit/model_loss-without-square-v0_8_13.pth ..
+Epoch 13 completed in 0 hours, 15 minute and 56 seconds .
+----- Epoch: 14
+--- Training completed.   Loss: -0.544278, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 3.8114, PAccuracy: 30.0110 .
+--- Validation completed.   Loss: -0.514913, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 4.0370, PAccuracy: 31.9811 .
+Saved model: /home/lparolar/Downloads/results/referit/model_loss-without-square-v0_8_14.pth ..
+Epoch 14 completed in 0 hours, 16 minute and 22 seconds .
+----- Epoch: 15
+--- Training completed.   Loss: -0.550718, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 3.7378, PAccuracy: 29.8375 .
+--- Validation completed.   Loss: -0.522988, Reg_loss: 0.000000, Pred_loss: 0.000000, Accuracy: 4.1110, PAccuracy: 32.1116 .
+Saved model: /home/lparolar/Downloads/results/referit/model_loss-without-square-v0_8_15.pth ..
+Epoch 15 completed in 0 hours, 16 minute and 15 seconds .
+Best hist loss at epoch 12: -0.5237839645953911 .
+Best hist accuracy at epoch 4: 4.745843125274589 .
+Model training end.

@@ -13,6 +13,9 @@ TEMPLATE
 
 | Id (DS\*) | Date | Loss (Epoch)\*\* | Accuracy (Epoch)\*\* | Params\*\*\* | Commit | Desc | Note |
 | -- | ---- | -------------- | ------------------ | ---------- | ------ | ---- | ---- |
+| [e19](#2021-08-04-e19) (R) | 2021-08-04 | -0.642159 (13/15) | 5.641087 (2/15) | `dataset: "referit"`, `suffix: "main-v0_8-bs8"`, `batch_size: 8`, `num_workers: 8`, `prefetch_factor: 4` | [4f547a8](https://github.com/lparolari/VTKEL-solver/tree/4f547a89270aa9444a5503da8841e02fcb29accc) | small batch size = 8 | *nothing* |
+| [e18](#2021-08-04-e18) (R) | 2021-08-04 | -0.639919 (10/15) | 6.003413 (1/15) | `dataset: "referit"`, `suffix: "main-v0_8-bs32"`, `batch_size: 32`, `num_workers: 8`, `prefetch_factor: 4` | [4f547a8](https://github.com/lparolari/VTKEL-solver/tree/4f547a89270aa9444a5503da8841e02fcb29accc) | small batch size = 32 | *nothing* |
+| [e17](#2021-08-04-e17) (R) | 2021-08-04 | -0.523784 (12/15) | 4.745843 (4/15) | `dataset: "referit"`, `suffix: "loss-without-square-v0_8"`, `batch_size: 128`, `num_workers: 20`, `prefetch_factor: 4` | [79651c9](https://github.com/lparolari/VTKEL-solver/tree/79651c9978e67873f6ff8dc55f0c2c1b3365c51f) | no square repulsion tensor | < 4% accuracy on training |
 | [e16](#2021-07-23-e16) (R) | 2021-07-23 | -0.640112 (13/15) | 5.0746 (1/15) | `device: "cpu"`, `batch_size: 128`, `prefetch_factor: 4`, `num_workers: 20`, `suffix: "feat-double-layer-v0_8"` | [d6fb5b5](https://github.com/lparolari/VTKEL-solver/tree/d6fb5b59267235ccf1e4a6950e548e6a97853792) | two layer image semantic embedding | bad performace even for training |
 | [e15](#2021-07-23-e15) (R) | 2021-07-23 | -0.639098 (12/15) | 5.8659 (3/15) | `device: "cpu"`, `batch_size: 128`, `prefetch_factor: 4`, `num_workers: 20`, `suffix: "main-fix-v0_8"` | [3863ef0](https://github.com/lparolari/VTKEL-solver/tree/3863ef00005d575651fe6eba5234ce9a082d9501) | fixed [#50](https://github.com/lparolari/VTKEL-solver/issues/50), [#51](https://github.com/lparolari/VTKEL-solver/issues/51), [#53](https://github.com/lparolari/VTKEL-solver/issues/53) and [#55](https://github.com/lparolari/VTKEL-solver/issues/55) | bad performace even for training |
 | [e14](#2021-07-19-e14) (R) | 2021-07-19 | -0.302241 (3/3) | 5.9834 (2/3) | `n_falsy: 3`, `n_truthy: 3`, `suffix: "main-fix-45"` | [8d08e39](https://github.com/lparolari/VTKEL-solver/tree/8d08e39775d5028844c170541d86fdd613020436) | (same as e13 with full semantic embedding) train on referit after fixing [#45](https://github.com/lparolari/VTKEL-solver/issues/45) | bad performance |
@@ -49,6 +52,21 @@ History: [\[Readable\]](experiments/eN.history.txt)
 [\[Full\]](experiments/eN.history.full.txt)
 
 -->
+
+### 2021-08-04 (e19)
+
+History: [\[Readable\]](experiments/e19.history.txt)
+[\[Full\]](experiments/e19.history.full.txt)
+
+### 2021-08-04 (e18)
+
+History: [\[Readable\]](experiments/e18.history.txt)
+[\[Full\]](experiments/e18.history.full.txt)
+
+### 2021-08-03 (e17)
+
+History: [\[Readable\]](experiments/e17.history.txt)
+[\[Full\]](experiments/e17.history.full.txt)
 
 ### 2021-07-23 (e16)
 
