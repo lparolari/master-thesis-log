@@ -5,9 +5,12 @@
 <details>
 <summary>Table of Contents</summary>
 
+- [05/08/2021 - Validazione del modello: ricerca e codice](#05082021---validazione-del-modello-ricerca-e-codice)
+- [04/08/2021 - Problema della validazione del modello: matching chunk-query](#04082021---problema-della-validazione-del-modello-matching-chunk-query)
+- [03/08/2021 (x) - Riunione per aggiornamenti](#03082021-x---riunione-per-aggiornamenti)
 - [23/07/2021 - Branch per i training e esecuzione sul cluster (CPU)](#23072021---branch-per-i-training-e-esecuzione-sul-cluster-cpu)
 - [22/07/2021 - Fix problemi evidenziati nella call](#22072021---fix-problemi-evidenziati-nella-call)
-- [21/07/2021 (x) - Review del codice con Daivide](#21072021-x---review-del-codice-con-daivide)
+- [21/07/2021 (x) - Review del codice con Davide](#21072021-x---review-del-codice-con-davide)
 - [20/07/2021 - Problema bb attive fixed e padding bb](#20072021---problema-bb-attive-fixed-e-padding-bb)
 - [19/07/2021 - Altri problemi di maschere sulla loss](#19072021---altri-problemi-di-maschere-sulla-loss)
 - [18/07/2021 - Problemi di maschere sulle loss?](#18072021---problemi-di-maschere-sulle-loss)
