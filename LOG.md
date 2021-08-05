@@ -62,6 +62,25 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+# 04/08/2021 - Problema della validazione del modello: matching chunk-query
+
+Identificato un piccolo problema sul matching delle query più logico che
+tecnico. Durante la validazione, dovrebbero essere le query che guidano tutto:
+se una query non ha chunk associato errore, se ne ha più di uno bene, si sceglie
+quello migliore. Attualmente viene fatto il contrario: i chunk guidano la
+validazione e si valutano quelli con le associazioni.
+
+Bisogna capire come fanno gli altri: trovati diversi paper su "papers with code"
+ma nessuno di questi entra veramente nel dettaglio. Il paper
+[Contrastive Learning for Weakly Supervised Phrase Grounding](https://arxiv.org/pdf/2006.09920.pdf)
+è l'unico con una [buona codebase](https://github.com/BigRedT/info-ground)
+nell'ambito grounding weakly supervised.
+
+# 03/08/2021 (x) - Riunione per aggiornamenti
+
+Aggiornamento su stato del lavoro e principali problemi del codice. Risoluzione
+del problema "accesso a cluster e lab".
+
 # 23/07/2021 - Branch per i training e esecuzione sul cluster (CPU)
 
 - branch no repulsion tensor \*\* 2
@@ -73,7 +92,7 @@
 Fixati i problemi evidenziati nella call del 21/07/2021. Lab tesisti non
 accessibile.
 
-# 21/07/2021 (x) - Review del codice con Daivide
+# 21/07/2021 (x) - Review del codice con Davide
 
 Peer review del codice riga per riga con il debugger assieme a Davide (2.5h!!).
 
