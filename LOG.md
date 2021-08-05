@@ -62,6 +62,94 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+# 05/08/2021 - Validazione del modello: ricerca e codice
+
+Inviata email riassuntiva dopo call del 3 agosto.
+
+> Buongiorno Prof.,
+>
+> in copia legge anche Davide.
+>
+> Sono riuscito a recuperare l'accesso al cluster e visualizzare i risultati dei
+> training.
+>
+> Allego due screenshot che mostrano i grafici di due training del modello
+> attuale, il primo per flickr30k e l'altro per referit. Riporto anche un terzo
+> screenshot con i grafici dei due esperimenti sovrapposti, per una più facile
+> comparazione.
+>
+> I grafici riportano loss, accuracy e pointing game accuracy per train e
+> validation, rispettivamente riga in alto e riga in basso.
+>
+> In entrambi i casi si può notare come la loss sia sul training set che sul
+> validation set (anche se in modo più irregolare) scenda. Lo stesso succede
+> però anche per l'accuracy sia su training (!!) che su validation set.
+>
+> Confrontando questi risultati con altre run, confermo che l'accuracy migliore
+> sul validation set si ottiene quasi sempre alla prima o alla seconda epoca: in
+> sostanza, il training peggiora le cose.
+>
+> Lo stesso fenomeno lo si osserva anche su altri training dove cambio parti del
+> modello: ad esempio, ho provato a non utilizzare nessun tipo di embedding per
+> calcolare la similarità tra immagine e query (i.e., # feat immagine = 2053 e #
+> feat lstm = 2053). Idem per il training dove ho potenziato la rete di
+> embedding delle immagini (che pensavamo potesse essere poco espressiva)
+> portando il numero di layer da 1 a 2.
+>
+> Per risolvere il problema, attualmente sto lavorando sulla validazione del
+> modello che è una fase abbastanza critica e assieme a Davide sto cercando di
+> aggiustare quanto sviluppato. La validazione del modello, ora come ora, è
+> guidata dai chunk: ad ogni chunk associo una query la cui similarità con il
+> chunk è massima (maggior numero di parole in comune) e utilizzo la bounding
+> box associata alla query come ground truth per il calcolo dell'IoU e di
+> conseguenza dell'accuracy.
+>
+> (Nota: chunk = noun-phrase estratto da ewiser, query = noun-phrase annotata su
+> flickr.)
+>
+> Ci siamo resi conto che così facendo però si può introdurre un bias: se si
+> trovano meno chunk rispetto al numero di query, le rimanenti query senza match
+> non sono contate come errore e abbiamo pensato quindi far guidare la
+> validazione dalle query: per ogni query associo il chunk con similarità
+> massima e calcolo IoU e accuracy.
+>
+> Prima di implementare questa modifica abbiamo controllato sui paper di
+> riferimento (quelli che avevo presentato tempo fa) come viene implementata la
+> validazione, ma nessuno di questi specifica esattamente il processo seguito.
+> In particolare, per alcuni paper (https://arxiv.org/pdf/1908.07553.pdf,
+> https://arxiv.org/pdf/1803.03879.pdf) non si capisce se vengono utilizzati i
+> chunk (estratti da un parser) o direttamente le query dalle annotazioni, per
+> altri (https://arxiv.org/pdf/1903.11649v2.pdf) che invece utilizzano il parser
+> non si capisce come calcolano il match tra chunk e query (che serve in quanto
+> chunk e query possono differire) per ottenere la bounding box ground truth.
+>
+> La nostra idea sarebbe di chiedere tramite email ad almeno due gruppi di
+> autori come affrontano questo problema. In particolare per Align2Ground
+> (https://arxiv.org/pdf/1903.11649v2.pdf) dove dicono esplicitamente di
+> calcolare i chunk tramite il parser, non riusciamo a spiegarci come facciano a
+> fare la valutazione.
+>
+> Che ne pensa?
+>
+> Cordiali saluti,\
+> Luca Parolari
+
+Investigato ulteriormente il problema della validazione. Studiato il paper
+[](https://arxiv.org/pdf/2010.05379.pdf) e il relativo codice: **non** usano
+chunk ma direttamente le query. Per gli altri paper non si capisce bene e quelli
+con il parser che generano chunks non dicono come fanno la validazione.
+
+Lanciato un training su referit utilizzato le frasi (annotazioni di flickr) al
+posto dei chunk (ewiser). Accuracy va meglio ma comunque in downtrend.
+
+Presa la decisione di reimplementare il modello da zero con meno modifiche
+possibile. Sono state portate sul branch redemption/redemption-active le uniche
+modifiche che rendono il modello weakly + la repulsione su 3 camptioni e non su
+tutte e 100 le bounding box.
+
+Lanciati i training per validare i risultati (e bug) sulla vecchia
+implementazione.
+
 # 04/08/2021 - Problema della validazione del modello: matching chunk-query
 
 Identificato un piccolo problema sul matching delle query più logico che
