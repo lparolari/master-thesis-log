@@ -5,6 +5,8 @@
 <details>
 <summary>Table of Contents</summary>
 
+- [10/08/2021 - Altri problemi evidenziati da Davide](#10082021---altri-problemi-evidenziati-da-davide)
+- [06/08/2021 - Sviluppo parallelo di una codebase nuova](#06082021---sviluppo-parallelo-di-una-codebase-nuova)
 - [05/08/2021 - Validazione del modello: ricerca e codice](#05082021---validazione-del-modello-ricerca-e-codice)
 - [04/08/2021 - Problema della validazione del modello: matching chunk-query](#04082021---problema-della-validazione-del-modello-matching-chunk-query)
 - [03/08/2021 (x) - Riunione per aggiornamenti](#03082021-x---riunione-per-aggiornamenti)
