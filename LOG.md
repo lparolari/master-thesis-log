@@ -65,6 +65,64 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+# 10/08/2021 - Altri problemi evidenziati da Davide
+
+1. Mumero di bounding box troppo grande, può creare rumore. Provare con un
+   numero inferiore di bounding box. Attenzione: le bounding box sono ordinate
+   in ordine di rilevanza, quindi è possibile banalmente fare lo slice di una
+   lista per mantenere le top-N bounding box e non server applicare l'algoritmo
+   di no maximum suppresion.
+
+2. Mascheramento di bounding box errato. Di fatto c'è un errore di mascheramento
+   per le bounding box:
+
+> Per quanto riguarda il dataloader, credo vada bene così com'è. Per quanto
+> riguarda il modello (model.py) devo "pulire" gli score di output (punti 1, 2,
+> 3 e 4). Per quanto riguarda le loss (losses.py) in input ho gli score dove le
+> frasi paddate contano 0 e le bounding box paddate contano -1 o 1 a seconda che
+> sia score positivi o negativi. Di conseguenza mi basta calcolare la loss come
+> sempre fatto (punto 5). Il calcolo dell'accuracy di suo ignora le bounding box
+> paddate perché non va a prendere quelle con similarità -1 per via dell'argmax,
+> mentre le frasi paddate sono gestite direttamente dalla maschera (punto 6).
+>
+> Non mi è chiaro invece come gestire il calcolo del gradiente.
+>
+> —-
+>
+> (1) annullare il contributo delle bounding box di padding sugli score di
+> similarità positivi (maschero con -1, valore più piccolo di similarità).
+>
+> (2) annullare il contributo del frasi di padding sugli score di similarità
+> positivi (maschero con 0)
+>
+> (3) annullare il contributo delle bounding box di padding sugli score negativi
+> anche se meno rilevante (maschero con 1, valore di similarità max)
+>
+> (4) annullare il contributo delle frasi di padding sugli score di similarità
+> negativi (maschero con 0)
+>
+> (5) calcolo della loss
+>
+> loss_attraction = pred_score_positive.sum() / mask.sum() loss_repulsion =
+> pred_score_negative.sum() / negative_mask.sum()
+>
+> (6) calcolo dell'accuracy
+>
+> accuracy = torch.sum(accuracy) / mask.sum()
+
+3. Il numero di query positive e negative non è uguale. Questo potrebbe influire
+   sulle prestazione se siamo sfortunati e il caricamento è molto sbilanciato in
+   favore dell'uno o dell'altro. (da vedere successivamente)
+
+4. Modificare l'embedding delle immagini per fare si che non sia così compresso.
+   Una soluzione potrebbe essere mettere l'embedding simile al numero di classi
+   dell'obj detector (o leggermente inferiore dato che non tutte le bb sono
+   utilizzate). Per esempio l'out dell'emebdding potrebbe essere 1300. LSTM deve
+   essere modificato e portato anche lui a 1300 anche se non è la cosa migliore
+   (glove è solo 300).
+
+# 06/08/2021 - Sviluppo parallelo di una codebase nuova
+
 # 05/08/2021 - Validazione del modello: ricerca e codice
 
 Inviata email riassuntiva dopo call del 3 agosto.
