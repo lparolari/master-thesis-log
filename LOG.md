@@ -67,6 +67,86 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+# 13/08/2021 (x) - Accuracy sul training/valid crescente!
+
+**TODO**
+
+- [ ] score negativi praticamente mai < 0, i.e. c'è sempre una similarità
+      abbastanza forte con l'immagine (bias)
+- [ ] poca espressività (??? da declinare...)
+- [ ] accuracy di partenza molto bassa, si può lavorare sull'inizializzazione?
+- [ ] l'emebedding del testo è freezato, ma l'LSTM si muove con i valori o è
+      freezato anch'esso?
+- [ ] su referit gli attributi (right, top, colori vari...) non sono mai presi
+      in considerazione e anzi, vengono spesso sbagliati
+
+**Finalmente funziona!**
+
+Dopo aver sistemato alcuni problemi sulla nuova codebase, l'accuracy sul
+training e sul validation ha iniziato ad aumentare. C'era un bug grosso sul tipo
+delle bounding box gt, che discrettizzava a 0 o a 1 i valori float
+([89f7419](https://github.com/lparolari/weakvtg/commit/89f7419b7353eebd18d58e339974d0d807768751)).
+Purtroppo l'accuracy ottenuta rimane ancora bassa: ~7/8% su referit, ma
+finalmente segue curve crescenti e non più oscillanti.
+
+**Learning rate**
+
+Tramite alcuni test si è evenidenziato il fatto che un learning rate un po' più
+basso come 0.0001 e 0.00001 rispetto al default 0.001 porta a risultati un po'
+migliori.
+
+**Dimensione embedding semantico (text e img) ~= numero di classi?**
+
+Un test sta evidenziando che la dimensione dell'embedding semantico delle
+immagini (e di conseguenza anche del testo) a circa quella delle classi (1300)
+non aggiunge altro potere espressivo al network. Accuracy ottenuta è circa del
+6% su training e 7% su valid.
+
+**Upperbound accucary**
+
+E' stato eseguito anche il controlo dell'upperbound accuracy fissando un certo
+numero di bounding box (da 10 a 100, step di 10). Si evidenzia come il miglior
+tradeoff tra numero di bounding box e max accuracy ottenibile sia a TODO
+bounding box.
+([upperbound_accuracy.py](resources/upperbound_accuracy/upperbound_accuracy.py)).
+
+```
+INFO:root:total_match=[66504, 91898, 103957, 109773, 113200, 115326, 116711, 117764, 118540, 119125]
+INFO:root:total_examples=[130355, 130355, 130355, 130355, 130355, 130355, 130355, 130355, 130355, 130355]
+INFO:root:accuracy=[51.01760576886195, 70.49825476583177, 79.74914656131334, 84.21080894480457, 86.83978366767673, 88.4707145870891, 89.53319780599132, 90.34099190671627, 90.93628936366078, 91.38506386406353]
+
+With 10 bounding box the upperbound accuracy is 51.017606
+With 20 bounding box the upperbound accuracy is 70.498255
+With 30 bounding box the upperbound accuracy is 79.749147
+With 40 bounding box the upperbound accuracy is 84.210809
+With 50 bounding box the upperbound accuracy is 86.839784
+With 60 bounding box the upperbound accuracy is 88.470715
+With 70 bounding box the upperbound accuracy is 89.533198
+With 80 bounding box the upperbound accuracy is 90.340992
+With 90 bounding box the upperbound accuracy is 90.936289
+With 100 bounding box the upperbound accuracy is 91.385064
+```
+
+**Top-k bounding box predette e visualizzazione esempi**
+
+Implementata la visualizzazione delle top-k bounding box predette sugli esempi.
+Si è notato (sui pochi campioni in locale) che la union box delle 3 top-k
+predette coincide più spesso con la ground truth. Si potrebbe implementare una
+strategia di creazione union box tra le top-3 o top-5 bb, attenzion comunque a
+non esagerare con la dimensione delle box.
+
+Possibili strategie di union box:
+
+- naive (unisco le top-k bb, k=3, k=5)
+- union solo con overlap (prendo le top-k bb e unisco solamente quelle che si
+  overlappano con una certa IoU, possibili test IoU > 0, IoU > 0.3, IoU > 0.5,
+  IoU > 0.7 magari scegliendo più "top-k" con valori più stringenti di IoU)
+
+**Problema attuale: muro al 6%**
+
+Bisognerebbe capire come mai non si riesce a sfondare il muro del 6% accuracy...
+(vedi TODO!)
+
 # 10/08/2021 - Altri problemi evidenziati da Davide
 
 1. Mumero di bounding box troppo grande, può creare rumore. Provare con un
