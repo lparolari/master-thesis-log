@@ -68,6 +68,78 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+# 15/08/2021
+
+**Impatto del numero di bounding box sulle performance**
+
+(_referit only_)
+
+Migliori performance (fino a 13% accuracy) ottenute con un numero di bounding
+box piccolo (10). Diversi lavori usano 30 bounding box come base, nel nostro
+caso sembra che 10 sia il migliore, ma dagli esempi si nota che per elementi di
+contorno, date le poche bounding box, le performance sono basse.
+
+Con più bounding box sembra che il modello tenda a focalizzarsi su bounding box
+piccole: dovrebbe essere penalizzato tramite la loss. Altre strategie più
+brutali potrebbero consistere nel prendere la bb più grande tra le prime 3, ad
+esempio.
+
+_Test \#1: restore del modello
+"[effortless-armadillo-36](https://wandb.ai/vtkel-solver/weakvtg/runs/b43m7osq)"
+all'epoca 6 (allenato su 10 bounding box per immagine)_
+
+| n box | loss       | accuracy  | p. accuracy |
+| ----- | ---------- | --------- | ----------- |
+| 10    | -1.897776  | 13.942839 | 45.176062   |
+| 20    | -3.741061  | 10.911101 | 45.255013   |
+| 30    | -5.628141  | 8.305700  | 44.244434   |
+| 40    | -7.317301  | 7.310911  | 43.897047   |
+| 50    | -9.129672  | 6.647718  | 44.054950   |
+| 60    | -11.056762 | 6.284541  | 43.597031   |
+| 70    | -12.916825 | 6.316122  | 43.265435   |
+| 80    | -14.459056 | 5.352913  | 42.902258   |
+| 90    | -16.396386 | 5.179220  | 43.060161   |
+| 100   | -18.103661 | 5.289752  | 43.012790   |
+
+_Test \#2": restore del modello
+"[quiet-serenity-23](https://wandb.ai/vtkel-solver/weakvtg/runs/23x31n5j)"
+all'epoca 10 (allenato su 100 bounding box per immagine)_
+
+| n box | loss       | accuracy  | p. accuracy |
+| ----- | ---------- | --------- | ----------- |
+| 10    | -2.033332  | 13.843936 | 42.587167   |
+| 20    | -4.050939  | 11.414152 | 43.723827   |
+| 30    | -6.086038  | 10.012118 | 43.835806   |
+| 40    | -8.083521  | 9.143900  | 43.883358   |
+| 50    | -10.110158 | 8.484300  | 43.932445   |
+| 60    | -12.157627 | 8.007240  | 43.976929   |
+| 70    | -14.156891 | 7.530181  | 43.986133   |
+| 80    | -16.188678 | 7.309291  | 44.044423   |
+| 90    | -18.204253 | 7.155896  | 44.047491   |
+| 100   | -20.258124 | 6.931938  | 44.045957   |
+
+_Plot delle prediction sullo stesso esempio utilizzando 10 e 100 bounding box,
+restore del modello
+[effortless-armadillo-36](https://wandb.ai/vtkel-solver/weakvtg/runs/b43m7osq)
+epoca 6_
+
+| esempio   | 10                                                               | 100                                                               |
+| --------- | ---------------------------------------------------------------- | ----------------------------------------------------------------- |
+| 10002_1_0 | ![10002_1_0.png](resources/nbox10_vs_nbox100/bb10/10002_1_0.png) | ![10002_1_0.png](resources/nbox10_vs_nbox100/bb100/10002_1_0.png) |
+| 10002_2_0 | ![10002_2_0.png](resources/nbox10_vs_nbox100/bb10/10002_2_0.png) | ![10002_2_0.png](resources/nbox10_vs_nbox100/bb100/10002_2_0.png) |
+| 10002_3_0 | ![10002_3_0.png](resources/nbox10_vs_nbox100/bb10/10002_3_0.png) | ![10002_3_0.png](resources/nbox10_vs_nbox100/bb100/10002_3_0.png) |
+| 10002_4_0 | ![10002_4_0.png](resources/nbox10_vs_nbox100/bb10/10002_4_0.png) | ![10002_4_0.png](resources/nbox10_vs_nbox100/bb100/10002_4_0.png) |
+| 10002_4_1 | ![10002_4_1.png](resources/nbox10_vs_nbox100/bb10/10002_4_1.png) | ![10002_4_1.png](resources/nbox10_vs_nbox100/bb100/10002_4_1.png) |
+
+**Idee**
+
+- [ ] seguendo il paper
+      [Phrase Localization Without Paired Training Examples](https://arxiv.org/pdf/1908.07553.pdf)
+      si potrebbe fare una scrematura delle bounding box (per evitare rumore)
+      tenendo conto della similarità delle stesse con la query. Questo
+      permetterebbe di mantenere bounding box più sensate per la localizzazione
+      che bisogna fare.
+
 # 13/08/2021 (x) - Accuracy sul training/valid crescente!
 
 **TODO**
