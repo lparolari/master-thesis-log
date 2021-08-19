@@ -126,6 +126,12 @@ if __name__ == "__main__":
             caption_data_list = [load_pickle(os.path.join(data_dir, filename))[
                 "phrases_2_crd"] for filename in caption_files_with_idx]
 
+            # note: on flick3k we may have more than one ground truth bounding
+            # box per example linked with given image, so we need to flatten the list
+            # in order to create the following numpy array without truble.
+            caption_data_list = (
+                [item for sublist in caption_data_list for item in sublist])
+
             boxes = np.array(img_data["pred_boxes"])
             boxes_gt = np.array(caption_data_list)
 
@@ -133,7 +139,13 @@ if __name__ == "__main__":
 
             boxes_xywh = xyxy2xywh(boxes)  # [n_boxes, 4]
             # [n_caption * n_query, 4]
-            boxes_gt_xywh = xyxy2xywh(boxes_gt).reshape(-1, 4)
+            try:
+                boxes_gt_xywh = xyxy2xywh(boxes_gt)
+            except IndexError:
+                print()
+                print(
+                    f"Oh god, got IndexError for example with index {idx}. Continuing...")
+                continue
 
             n_boxes = boxes_xywh.shape[0]
             n_gt = boxes_gt_xywh.shape[0]
