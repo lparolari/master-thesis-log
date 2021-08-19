@@ -69,7 +69,137 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# 15/08/2021
+# 18/08/2021 - Call post Ferragosto
+
+**TODO**
+
+- [ ] Prepare email ai paper
+- [ ] Raccogliere dati sui paper approfonditi
+- [ ] Preparare slide per meeting di settimana prossima
+
+**Problemi evidenziati e nuovi dati da raccogliere**
+
+- Problema del gradiente. Frasi paddate e bounding box paddate, anche se con
+  valori corretti negli score di modo da non influire sui risultati portano il
+  gradiente a fare ottimizzazioni errate. Per le frasi è quindi stato deciso di
+  togliere completamente quelle non paddate dal tensore e fare il calcolo della
+  loss con questo. Per le bounding box si è deciso di lasciarle negli score ma
+  mascherarle a 1 e -1 a seconda se con coppia positiva o negativa, di modo che
+  il gradiente essendo già un esempio giusto non vada a spostare quelle coppia
+  img-frase.
+
+- Fissare dimnsione semantica a 1000 sia per testo che per immagini. 1 solo
+  layer LSTM.
+
+- Calcolare upperbound accuracy anche su flickr e scegliere un numbero di
+  bounding box da fissare per il problema. E' stato scelto `n_box = 30`
+  (migliore trade-off).
+
+- Query o chunk? Questo è il dilemma. Bisogna mandare mail ai paper VT-grounding
+  weakly-supervised per capire come si sono mossi.
+
+- Per ogni lavoro approfondito, raccogliere specifiche del tipo: cosa usa tra
+  query e chunk, object detector, n di box (se esplicitato).
+
+**Upperbound accuracy su flickr30k**
+
+Per qualche strano motivo tre esempi (indice 2652311904, 3923857105, 4797050581)
+non sono stati conteggiati nel calcolo per via di un index error. Probabilmente
+non hanno frasi e/o hanno valori nulli all'interno nel file dati.
+
+```
+Progress: [------>             ] 35 % (11271)
+Oh god, got IndexError for example with index 2652311904. Continuing...
+Progress: [------------->      ] 71 % (22667)
+Oh god, got IndexError for example with index 3923857105. Continuing...
+Progress: [-------------->     ] 76 % (24179)
+Oh god, got IndexError for example with index 4797050581. Continuing...
+INFO:root:total_match=[246080, 339773, 379790, 399316, 409733, 415953, 419913, 422616, 424690, 426162]
+INFO:root:total_examples=[456140, 456140, 456140, 456140, 456140, 456140, 456140, 456140, 456140, 456140]
+INFO:root:accuracy=[53.948349191037835, 74.48875345288727, 83.26171789362915, 87.54242118647784, 89.82614986626912, 91.18976629982023, 92.05792081378524, 92.65050203884772, 93.10518700399, 93.42789494453457]
+
+With 10 bounding box the upperbound accuracy is 53.948349
+With 20 bounding box the upperbound accuracy is 74.488753
+With 30 bounding box the upperbound accuracy is 83.261718
+With 40 bounding box the upperbound accuracy is 87.542421
+With 50 bounding box the upperbound accuracy is 89.826150
+With 60 bounding box the upperbound accuracy is 91.189766
+With 70 bounding box the upperbound accuracy is 92.057921
+With 80 bounding box the upperbound accuracy is 92.650502
+With 90 bounding box the upperbound accuracy is 93.105187
+With 100 bounding box the upperbound accuracy is 93.427895
+```
+
+**Email di aggiornamento sui progressi di ferragosto**
+
+> In questa email vorrei racchiudere gli aggiornamenti delle ultime due
+> settimane circa.
+>
+> All'ultimo aggiornamento la situazione era la seguente: il training del
+> modello andava molto male, nel senso che la loss scendeva ma nel contempo
+> facevano lo stesso sia l'accuracy sul training set, sia l'accuracy sul
+> validation set. Questo di fatto poteva essere sintomo di un bug a livello
+> dell'implementazione oppure di un problema grosso nel modello/dati del
+> problema.
+>
+> Abbiamo quindi deciso di fare la prova del nove e di escludere il bug a
+> livello di programmazione riscrivendo il codice. Sono state necessarie due
+> riscritture. La prima è stata effettuata partendo dalla codebase di Davide,
+> cercando di effettuare meno modifiche possibili per portare il suo modello da
+> fully a weakly-supervised. Vari test lanciati su questa versione però hanno
+> manifestato lo stesso problema del codice precedente. La seconda riscrittura
+> invece è stata effettuata partendo da zero, ma comunque orientata a introdurre
+> meno punti di rottura possibile e scrivendo i test (di unità) per le funzioni
+> più critiche. [^1] Fortunatamente i test su quest'ultima codebase hanno
+> mostrato un training buono: l'accuracy sul training set ha iniziato a salire e
+> di pari passo anche l'accuracy sul validation.
+>
+> [^1]:
+>     abbiamo deciso di utilizzare direttamente le query dalla ground truth
+>     rispetto ai chunk estratti da ewiser per evitare di fare ulteriori
+>     modifiche che potessero creare problemi al training, e di procedere con lo
+>     stesso setting anche per test successivi.
+>
+> Il processo di training, seppur buono, non ha mostrato risultati eclatanti: si
+> è raggiunto un massimo del ~ 6% e 7% di accuracy rispettivamente su training e
+> validation set sia per flickr che per referit.
+>
+> In una call con Davide abbiamo provato ragionare su altri problemi legati alle
+> performance così ridotte:
+>
+> 1. Poca espressività del modello dovuta alla compressione delle feature delle
+>    immagini da ~ 2000 a 500 tramite un singolo layer lineare.
+>
+> 2. Problema di mascheramento. Il modello prende in input sia query con padding
+>    che bounding bounding box con padding e al momento del calcolo della loss e
+>    della bounding box predetta vanno prese in considerazione e rimosse dal
+>    risultato.
+>
+> 3. Numero di bounding box in uso troppo elevato. Il modello, per eredità dal
+>    setting supervised, utilizza 100 bounding box per immagine e questo può
+>    creare rumore.
+>
+> Dagli esperimenti è emerso che aumentare l'espressività del modello non
+> influisce in modo importante sulle performance, mentre il numero di bounding
+> box influisce eccome: l'accuracy più alta per entrambi i dataset sia in
+> training che in validation la si ottiene fissando il numero di bounding box
+> per immagine a 10!
+>
+> Dato questo fatto, una prima analisi dei dati evidenzia che il modello avendo
+> a disposizione 100 bounding box si focalizza spesso su quelle di dimensione
+> minore nella zona della ground truth, portando così la IoU a essere inferiore
+> a 0.5 con conseguente conteggio come esempio errato per l'accuracy. Questo
+> fenomeno crediamo sia dovuto alla loss che stiamo utilizzando.
+>
+> Ad ogni modo, non pretendo di essere stato esaustivo, anzi, avremmo altri dati
+> da mostrare (soprattutto in relazione all'ultima parte), alcuni ancora da
+> raccogliere e delle domande da porre. In particolare abbiamo in programma
+> ancora un paio di esperimenti per correggere alcuni problemi legati al punto
+> (2) di cui sopra, e altre prove minori. Per questo motivo vorremmo chiedere se
+> settimana prossima ci fosse la disponibilità di fare una riunione per
+> discutere di tutto questo.
+
+# 15/08/2021 - Analisi impatto del numero di bounding box
 
 **Impatto del numero di bounding box sulle performance**
 
@@ -180,8 +310,8 @@ non aggiunge altro potere espressivo al network. Accuracy ottenuta è circa del
 
 E' stato eseguito anche il controlo dell'upperbound accuracy fissando un certo
 numero di bounding box (da 10 a 100, step di 10). Si evidenzia come il miglior
-tradeoff tra numero di bounding box e max accuracy ottenibile sia a TODO
-bounding box.
+tradeoff tra numero di bounding box e max accuracy ottenibile sia a 30 bounding
+box.
 ([upperbound_accuracy.py](resources/upperbound_accuracy/upperbound_accuracy.py)).
 
 ```
@@ -352,12 +482,13 @@ Inviata email riassuntiva dopo call del 3 agosto.
 > Luca Parolari
 
 Investigato ulteriormente il problema della validazione. Studiato il paper
-[](https://arxiv.org/pdf/2010.05379.pdf) e il relativo codice: **non** usano
-chunk ma direttamente le query. Per gli altri paper non si capisce bene e quelli
-con il parser che generano chunks non dicono come fanno la validazione.
+[MAF: Multimodal Alignment Framework for Weakly-Supervised Phrase Grounding](https://arxiv.org/pdf/2010.05379.pdf)
+e il relativo codice: **non** usano chunk ma direttamente le query. Per gli
+altri paper non si capisce bene e quelli con il parser che generano chunks non
+dicono come fanno la validazione.
 
-Lanciato un training su referit utilizzato le frasi (annotazioni di flickr) al
-posto dei chunk (ewiser). Accuracy va meglio ma comunque in downtrend.
+Lanciato un training su referit utilizzato le frasi (annotazioni) al posto dei
+chunk (ewiser). Accuracy va meglio ma comunque in downtrend.
 
 Presa la decisione di reimplementare il modello da zero con meno modifiche
 possibile. Sono state portate sul branch redemption/redemption-active le uniche
