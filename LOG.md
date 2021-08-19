@@ -5,7 +5,8 @@
 <details>
 <summary>Table of Contents</summary>
 
-- [15/08/2021](#15082021)
+- [18/08/2021 - Call post Ferragosto](#18082021---call-post-ferragosto)
+- [15/08/2021 - Analisi impatto del numero di bounding box](#15082021---analisi-impatto-del-numero-di-bounding-box)
 - [13/08/2021 (x) - Accuracy sul training/valid crescente!](#13082021-x---accuracy-sul-trainingvalid-crescente)
 - [10/08/2021 - Altri problemi evidenziati da Davide](#10082021---altri-problemi-evidenziati-da-davide)
 - [06/08/2021 - Sviluppo parallelo di una codebase nuova](#06082021---sviluppo-parallelo-di-una-codebase-nuova)
