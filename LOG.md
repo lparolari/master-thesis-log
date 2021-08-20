@@ -5,6 +5,7 @@
 <details>
 <summary>Table of Contents</summary>
 
+- [20/08/2021 - Loss + approfondimenti](#20082021---loss--approfondimenti)
 - [18/08/2021 - Call post Ferragosto](#18082021---call-post-ferragosto)
 - [15/08/2021 - Analisi impatto del numero di bounding box](#15082021---analisi-impatto-del-numero-di-bounding-box)
 - [13/08/2021 (x) - Accuracy sul training/valid crescente!](#13082021-x---accuracy-sul-trainingvalid-crescente)
