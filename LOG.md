@@ -70,6 +70,53 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+# 20/08/2021 - Loss + approfondimenti
+
+**Loss**
+
+- Probabilmente `masked_fill` blocca il graduente sugli elementi fillati, me è
+  necessario verificare meglio.
+
+- Aggiunta la media sulle bounding box tenendono conto del padding.
+
+**Email validazione agli autori di Align2Ground**
+
+> Dear S. Datta, K. Sikka, A. Roy, K. Ahuja, D. Parikh, A. Divakaran,
+>
+> This email is carbon copied to my supervisor, D. Rigoni.
+>
+> I'm Luca Parolari, a master's degree student in computer science at the
+> University of Padua, Italy.
+>
+> I'm working on weakly-supervised visual textual grounding for my thesis and I
+> found your awesome paper "Align2Ground: Weakly Supervised Phrase Grounding
+> Guided by Image-Caption Alignment" (https://arxiv.org/pdf/1903.11649v2.pdf).
+>
+> I would like to ask you a question on how you evaluate the model on the
+> visual-textual grounding task.
+>
+> In the paper you wrote: "Note that we operate in a weakly supervised regime
+> i.e. during training, we do not assume ground-truth correspondences between
+> image regions and phrases in the caption. During inference, our primary aim is
+> to perform visual grounding. Given a query phrase p and an image I, the
+> learned model identifies the RoI that best matches with the query.".
+>
+> My question is: during inference, the phrase p you refer to is the one
+> extracted by the parser from the caption c?
+>
+> If not, this implies that you provide a query to the model, but do you also
+> apply parser on that query?
+>
+> If yes, then how do you compute the IoU? I mean, the ground truth bounding box
+> refers to a query which could be different with respect to what the parser can
+> extract from the caption. In this case I imagine that the extracted phrase and
+> the query could be linked together by taking into account a sort of similarity
+> measure between the two, for example, the number of words in common.
+>
+> Thank you.
+>
+> Best regards, Luca Parolari
+
 # 18/08/2021 - Call post Ferragosto
 
 **TODO**
