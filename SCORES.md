@@ -17,3 +17,14 @@
 specified
 
 \*\* Accuracy computed with pointing game metric
+
+# Paper Features
+
+| Paper                              | RoI Generator               | Num Boxes | Object Detector                                         | Settings     | Train                                    | Inference  |
+| ---------------------------------- | --------------------------- | --------- | ------------------------------------------------------- | ------------ | ---------------------------------------- | ---------- |
+| Align2Ground                       | n/a                         | 30        | Faster-RCNN                                             | weakly       | sentence (chunked for internal features) | query + gt |
+| Localziation w\o Training Examples | n/a                         | n/a       | Variants of Faster R-CNN, WideResNet18, YOLO9000, Color | unsupervised | n/a                                      | sentence   |
+| Grounding with Lingustic Features  | n/a                         | n/a       | VGG-16 pre-trained on ImageNet                          | weakly       | sentence (parsed for relations)          | query + gt |
+| KAC net                            | Selective Search, EdgeBoxes | 100       | VGG net over Fast-RCNN                                  | weakly       | query                                    | query + gt |
+| ARN for REG                        | EdgeBoxes                   | 100       | ResNet, Faster R-CNN                                    | weakly       | query + attributes                       | query + gt |
+| Multi-level Multimodal             | n/a                         | n/a       | VGG                                                     | fully        | query + gt                               | query + gt |
