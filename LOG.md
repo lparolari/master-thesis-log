@@ -71,6 +71,28 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+# 23/08/2021 - Slide aggiornamenti e dati raccolti
+
+**[Model \& Problems](https://docs.google.com/presentation/d/1l0T89Npld8Cpz1LPsOjGjTczWLhyxMgxjDGm2HCgnqU/edit)**
+
+- descrizione baseline
+- problema training decrescente
+- risolto, ma performance basse
+- espressività del modello
+- problema di masking
+- problema bounding box
+  - rumore? 100 vs 70 vs 50 vs 30 vs 20 vs 10
+  - performance sul test set e alcune considerazioni
+  - esempi sui dati (iou rispetto al numero di box, nella top-5 ce n'è una con
+    iou >= 0.5, focus su bb molto piccole, errori)
+  - upperbound accuracy
+  - raccolta dati sui paper (RoI generator, n box, object detector, settings,
+    input train, input test)
+
+**Approfondimenti**
+
+- https://datascience.stackexchange.com/questions/54548/is-faster-rcnn-the-same-thing-as-vgg-16-resnet-50-etc-or-not
+
 # 20/08/2021 - Loss + approfondimenti
 
 **Loss**
