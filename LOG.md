@@ -72,6 +72,51 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+# 30/08/2021 - Studio frequenza classi e altri esperimenti
+
+- Analisi delle frequenze delle classi, vedere
+  [freq_analysis.ipynb](resources/freq_analysis/freq_analysis.ipynb) e relativa
+  [cartella](resources/freq_analysis)
+
+- Completate le slide con grafici e dati
+
+- `torch.masked_fill` passa il gradiente? No. Proof:
+  [torch_maskedfill_grad.py](model/torch_maskedfill_grad.py)
+
+# 27/08/2021 - Classes frequency
+
+**Classes frequency**
+
+- Handle object-detector class
+- Add ground-truth bounding box index in order to retrieve it's class
+- Add the "classes-frequency" mode
+
+**Results on our model**
+
+| Dataset   | Accuracy | P. Accuracy |
+| --------- | -------- | ----------- |
+| ReferIt   | 12.661   | 46.876      |
+| Flickr30k | 13.102   | 62.315      |
+
+**Matching IoU**
+
+??
+
+```
+DEBUG:root:IoU(phrases_2_crd, boxes) = tensor([[0.6571]])
+DEBUG:root:IoU(phrases_2_crd, boxes) = tensor([[0.7402]])
+DEBUG:root:IoU(phrases_2_crd, boxes) = tensor([[0.7402]])
+DEBUG:root:IoU(phrases_2_crd, boxes) = tensor([[0.7205]])
+DEBUG:root:IoU(phrases_2_crd, boxes) = tensor([[0.5796]])
+DEBUG:root:IoU(phrases_2_crd, boxes) = tensor([[0.7979]])
+DEBUG:root:IoU(phrases_2_crd, boxes) = tensor([[0.7372]])
+DEBUG:root:IoU(phrases_2_crd, boxes) = tensor([[0.6355]])
+DEBUG:root:IoU(phrases_2_crd, boxes) = tensor([[0.8326]])
+DEBUG:root:IoU(phrases_2_crd, boxes) = tensor([[0.6038]])
+DEBUG:root:IoU(phrases_2_crd, boxes) = tensor([[0.6038]])
+DEBUG:root:IoU(phrases_2_crd, boxes) = tensor([[0.2199]])
+```
+
 # 23/08/2021 - Slide aggiornamenti e dati raccolti
 
 **[Model \& Problems](https://docs.google.com/presentation/d/1l0T89Npld8Cpz1LPsOjGjTczWLhyxMgxjDGm2HCgnqU/edit)**
