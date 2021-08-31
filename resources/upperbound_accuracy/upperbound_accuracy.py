@@ -84,10 +84,18 @@ if __name__ == "__main__":
         description="Find upperbound accuracy given a number of predicted boxes.")
     parser.add_argument("--data-dir", type=pathlib.Path,
                         required=True, help="Path to pickle files")
+    parser.add_argument("--remove-background-boxes", action="store_true", required=False, default=False,
+                        help="Skip bounding box annotated with class `__background__`")
 
     args = parser.parse_args()
 
     data_dir = args.data_dir
+    remove_background_boxes = args.remove_background_boxes
+
+    logging.info(f"Program started, could take a while...")
+    logging.info(
+        f"data_dir={data_dir}, remove_background_boxes={remove_background_boxes}")
+
     ks = [(i + 1) * 10 for i in range(10)]
 
     files = os.listdir(data_dir)
@@ -101,11 +109,13 @@ if __name__ == "__main__":
 
     index = list(map(lambda x: x.split("_")[0], files))
     index = list(set(index))
+    index = sorted(index)
 
     n_index = len(index)
 
     total_match = [0] * len(ks)
     total_examples = [0] * len(ks)
+    total_backgrounds = [0] * len(ks)
 
     try:
         for counter, idx in enumerate(index):
@@ -121,6 +131,12 @@ if __name__ == "__main__":
             assert not len(
                 image_file_with_idx) > 1, "Found number more than one image file"
 
+            if len(caption_files_with_idx) == 0:
+                print()
+                print(
+                    f"Skipping {image_file_with_idx[0]}, found {len(caption_files_with_idx)} caption files.")
+                continue
+
             img_data = load_pickle(os.path.join(
                 data_dir, image_file_with_idx[0]))
             caption_data_list = [load_pickle(os.path.join(data_dir, filename))[
@@ -134,6 +150,8 @@ if __name__ == "__main__":
 
             boxes = np.array(img_data["pred_boxes"])
             boxes_gt = np.array(caption_data_list)
+            pred_cls_prob = np.array(img_data["pred_cls_prob"])
+            is_background = np.argmax(pred_cls_prob, axis=-1) == 0
 
             # ---
 
@@ -144,12 +162,15 @@ if __name__ == "__main__":
             except IndexError:
                 print()
                 print(
-                    f"Oh god, got IndexError for example with index {idx}. Continuing...")
+                    f"Oh god, got IndexError for example with index {idx}. "
+                    f"img_file={image_file_with_idx}, caption_files={caption_files_with_idx}. "
+                    f"Continuing...")
                 continue
 
             n_boxes = boxes_xywh.shape[0]
             n_gt = boxes_gt_xywh.shape[0]
 
+            # compute iou between boxes ang gt
             iou = np.zeros((n_boxes, n_gt))  # [n_boxes, n_gt]
 
             for i in range(n_boxes):
@@ -166,25 +187,48 @@ if __name__ == "__main__":
             for h in range(len(ks)):
                 k = ks[h]  # get number of available bounding box
 
-                ok = iou[..., :k] > 0.5
+                pred_cls_prob_k = pred_cls_prob[:k]
+                is_background_k = is_background[:k]
+                iou_k = iou[..., :k]
+
+                if remove_background_boxes:
+                    mask = np.expand_dims(is_background_k, 0)
+                    mask = np.repeat(mask, iou_k.shape[0], axis=0)
+
+                    iou_k_masked = np.ma.array(iou_k, mask=mask)
+                    iou_k_masked = np.ma.filled(iou_k_masked, fill_value=0)
+                else:
+                    iou_k_masked = iou_k
+
+                ok = iou_k_masked > 0.5
                 ok = np.any(ok, axis=-1)
 
                 assert ok.ndim == 1
 
                 n_match = ok.sum()
                 n_examples = len(ok)
+                n_backgrounds = is_background_k.sum()
 
                 total_match[h] += n_match
                 total_examples[h] += n_examples
+                total_backgrounds[h] += n_backgrounds
     finally:
         accuracy = [total_match[i] / total_examples[i]
                     * 100 for i in range(len(ks))]
+        backgrounds = np.array(total_backgrounds) / \
+            (np.array(ks) * n_index) * 100
+
+        print()
 
         logging.info(f"total_match={total_match}")
         logging.info(f"total_examples={total_examples}")
+        logging.info(f"total_backgrounds={total_backgrounds}")
         logging.info(f"accuracy={accuracy}")
 
-        print()
+        print(
+            f"Scanned {n_index} images for a total of {total_examples[-1]} queries.")
+
         for i in range(len(ks)):
             print(
-                f"With {ks[i]} bounding box the upperbound accuracy is {accuracy[i]:4f}")
+                f"With {ks[i]} bounding box the upperbound accuracy is {accuracy[i]:4f} %" +
+                (f", on average we removed {backgrounds[i]:4f} % background boxes." if remove_background_boxes else ""))
