@@ -74,6 +74,68 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+# 31/08/2021 - Classe `__background__`
+
+**Upperbound accuracy togliendo le bounding box etichettate con classe
+`__background__`**
+
+_Flickr30k_
+
+```
+INFO:root:data_dir=/home/lparolar/Projects/weakvtg/data/flickr30k_raw/preprocessed, remove_background_boxes=True
+INFO:root:total_match=[245865, 335812, 368660, 382224, 389094, 393617, 396717, 399087, 401087, 402575]
+INFO:root:total_examples=[456140, 456140, 456140, 456140, 456140, 456140, 456140, 456140, 456140, 456140]
+INFO:root:total_backgrounds=[3953, 68601, 213937, 391291, 576492, 763107, 950855, 1138431, 1325879, 1512887]
+INFO:root:accuracy=[53.9012145393958, 73.6203797079844, 80.82167755513659, 83.79532599640461, 85.30144253957118, 86.29302407155699, 86.97263997895382, 87.49221730170562, 87.93067917744553, 88.25689481299601]
+
+Progress: [--->                ] 23 % (7627)
+Skipping 2652311904_img.pickle, found 0 caption files.
+Progress: [---------->         ] 55 % (17655)
+Skipping 3923857105_img.pickle, found 0 caption files.
+Progress: [------------->      ] 74 % (23534)
+Skipping 4797050581_img.pickle, found 0 caption files.
+Progress: [------------------> ] 99 % (31782)
+Scanned 31783 images for a total of 456140 queries.
+With 10 bounding box the upperbound accuracy is 53.901215 %, on average we removed 1.243747 % background boxes.
+With 20 bounding box the upperbound accuracy is 73.620380 %, on average we removed 10.792090 % background boxes.
+With 30 bounding box the upperbound accuracy is 80.821678 %, on average we removed 22.437257 % background boxes.
+With 40 bounding box the upperbound accuracy is 83.795326 %, on average we removed 30.778325 % background boxes.
+With 50 bounding box the upperbound accuracy is 85.301443 %, on average we removed 36.276752 % background boxes.
+With 60 bounding box the upperbound accuracy is 86.293024 %, on average we removed 40.016518 % background boxes.
+With 70 bounding box the upperbound accuracy is 86.972640 %, on average we removed 42.738706 % background boxes.
+With 80 bounding box the upperbound accuracy is 87.492217 %, on average we removed 44.773582 % background boxes.
+With 90 bounding box the upperbound accuracy is 87.930679 %, on average we removed 46.351788 % background boxes.
+With 100 bounding box the upperbound accuracy is 88.256895 %, on average we removed 47.600510 % background boxes.
+
+```
+
+_ReferIt_
+
+```
+INFO:root:data_dir=/home/lparolar/Projects/weakvtg/data/referit_raw/preprocessed, remove_background_boxes=True
+INFO:root:total_match=[66238, 89916, 99121, 102680, 104408, 105556, 106403, 107116, 107707, 108193]
+INFO:root:total_examples=[130355, 130355, 130355, 130355, 130355, 130355, 130355, 130355, 130355, 130355]
+INFO:root:total_backgrounds=[7602, 60068, 158424, 276134, 399607, 524615, 649710, 774619, 898456, 1021602]
+INFO:root:accuracy=[50.81354761996087, 68.9777914157493, 76.03927735798396, 78.76951401940853, 80.09512485136742, 80.97579686241417, 81.6255609681255, 82.17252886348817, 82.62590617927967, 82.99873422576809]
+
+Scanned 19995 images for a total of 130355 queries.
+With 10 bounding box the upperbound accuracy is 50.813548 %, on average we removed 3.801950 % background boxes.
+With 20 bounding box the upperbound accuracy is 68.977791 %, on average we removed 15.020755 % background boxes.
+With 30 bounding box the upperbound accuracy is 76.039277 %, on average we removed 26.410603 % background boxes.
+With 40 bounding box the upperbound accuracy is 78.769514 %, on average we removed 34.525381 % background boxes.
+With 50 bounding box the upperbound accuracy is 80.095125 %, on average we removed 39.970693 % background boxes.
+With 60 bounding box the upperbound accuracy is 80.975797 %, on average we removed 43.728849 % background boxes.
+With 70 bounding box the upperbound accuracy is 81.625561 %, on average we removed 46.419462 % background boxes.
+With 80 bounding box the upperbound accuracy is 82.172529 %, on average we removed 48.425794 % background boxes.
+With 90 bounding box the upperbound accuracy is 82.625906 %, on average we removed 49.926704 % background boxes.
+With 100 bounding box the upperbound accuracy is 82.998734 %, on average we removed 51.092873 % background boxes.
+```
+
+Secondo i risultati ottenuti, può valere la pena provare a togliere le bounding
+box che fanno rumore (si rimanda ai risultati del 30/08/2021 e alle
+[slide](https://docs.google.com/presentation/d/1l0T89Npld8Cpz1LPsOjGjTczWLhyxMgxjDGm2HCgnqU/edit?usp=sharing)),
+i.e., con classe `__background__`.
+
 # 30/08/2021 - Studio frequenza classi e altri esperimenti
 
 - Analisi delle frequenze delle classi, vedere
