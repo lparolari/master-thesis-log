@@ -5,6 +5,8 @@
 <details>
 <summary>Table of Contents</summary>
 
+- [30/08/2021 - Studio frequenza classi e altri esperimenti](#30082021---studio-frequenza-classi-e-altri-esperimenti)
+- [27/08/2021 - Classes frequency](#27082021---classes-frequency)
 - [23/08/2021 - Slide aggiornamenti e dati raccolti](#23082021---slide-aggiornamenti-e-dati-raccolti)
 - [20/08/2021 - Loss + approfondimenti](#20082021---loss--approfondimenti)
 - [18/08/2021 - Call post Ferragosto](#18082021---call-post-ferragosto)
