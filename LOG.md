@@ -75,6 +75,117 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+# 06/09/2021 - Implementazione similarità classi
+
+Implementata la similarità tra classi delle bounding box e frase.
+
+# 03/09/2021 - Introduzione delle classi
+
+**Roadmap**
+
+- ottenere l'embedding delle classi (eventualmente, processare quelle out of
+  vocabulary - per ora rimpiazziamo la rappresentazione un vettore inizializzato
+  a random)
+
+- calcolare la similarità tra la classe e la query (relativi embedding)
+
+- aggiustare le varie dimensioni e pesare gli score
+
+La parte critica è il calcolo di un embedding significativo dalla query:
+inizialmente possiamo provare la media di tutte le parole, ma la cosa migliore
+sarebbe trovare "l'head" della query con un parser e usare il suo embedding.
+
+**Analisi sulle classi**
+
+Ci sono 295 classi out-of-vocabulary.
+
+Nel dataset (training) ci sono 8315 bounding box ground truth etichettate con
+classi out-of-vocabulary.\
+Il modello predice 8445 bounding box etichettate con classi out-of-vocabulary.\
+La differenza del valore assoluto tra la frequenza delle classi predette e
+quella delle ground truth è 2948 su un totale di 427226 query
+
+<details>
+<summary>Classi out-of-vocabulary</summary>
+
+```
+alarm clock, ceiling fan, tail fin, birthday cake, stop sign,stopsign,
+microwave,microwave oven, skateboard ramp, refrigerator,fridge, knee pads,
+tennis court, tea pot, television,tv, garage door, sailboat,sail boat,
+racket,racquet, rock wall, headboard,head board, tea kettle, tennis
+racket,tennis racquet, train station, tennis player, toilet brush, pepper
+shaker, hair dryer, toilet seat, skateboard,skate board, floor lamp, french
+fries, christmas tree, living room, teddy bear, baseball field, ski boot, shower
+curtain, polar bear, hot dog,hotdog, surfboard,surf board, dirt bike, tail wing,
+area rug, bow tie, fire extinguisher, tail feathers, beach chair, fire
+hydrant,hydrant, weather vane, soccer ball, head band, bath tub, coffee table,
+traffic light, parking meter, wet suit, teddy bears, suitcase,suit case, tank
+top, shin guard, wii remote, pizza slice, home plate, ski boots, snow suit,
+banana slice, stuffed animals, train platform, tissue box, cutting board,
+license plate, ski pole, clock tower, toilet tank, palm trees, skate park,
+computer monitor, flip flop, remote control, paper towels, train tracks,
+donut,doughnut, soccer player, toilet bowl, lounge chair, sidewalk,side walk,
+stove top,stovetop, tomato slice, window sill, toilet lid, "pitchers mound",
+palm tree, banana bunch, tennis shoe, giraffe head, baseball player, water
+bottle, tennis ball, cell phone, computer mouse, ski pants, clock face, fire
+escape, police officer, trash can, front window, office chair, door knob, banana
+peel, baseball game, cabinet door, traffic cone, nightstand,night stand, suit
+jacket, train engine, wrist band, toilet paper, street sign, computer screen,
+wine glass, train car, donuts,doughnuts, tennis match, railroad tracks, stuffed
+bear, snow pants, neck tie, baseball bat, safety cone, paper towel, back wheel,
+soccer field, throw pillow, oven door, lamp shade, pine tree, lamp
+post,lamppost, station wagon, signal light, american flag, baseball cap, front
+legs, life jacket, water tank, gas station, entertainment center, stuffed
+animal, display case, front wheel, coffee pot, cowboy hat, table cloth, fire
+truck,firetruck, game controller, sweat band, coin slot, pillow case, coffee
+cup, counter top, baseball uniform, book shelf, facial hair, end table, shin
+guards, head light, tennis net, trash bag, ski poles, parking lot, gas tank,
+soap dispenser, life vest, train front, exhaust pipe, light fixture, power
+lines, roman numerals, picnic table, wine bottle, tree trunk, motor bike,
+traffic sign, little girl, passenger car, brake light, roman numeral, shower
+head, handle bars, cardboard box, mountain range, eye glasses, salt shaker, knee
+pad, shower door, bathing suit, manhole cover, door handle, picture frame, hour
+hand, dvd player, ski slope, french fry, landing gear, coffee maker, light
+switch, tv stand, air vent, steering wheel, baseball glove, power pole, dirt
+road, telephone pole, jet engine, tee shirt, face mask, bathroom sink, laptop
+computer, windshield wipers, hill side, tail light,taillight, snow board, stop
+light, ball cap, traffic signal, soda can, ski lift, tennis shoes, swim trunks,
+butter knife, train cars, pine trees, park bench, second floor, hand towel, flip
+flops, back pack, ski tracks, baseball players, stone wall, dress shirt, ski
+goggles, power line, train track, air conditioner, baseball mitt, mouse pad,
+garbage can, taxi cab, control panel, clock hand, brick wall, grass field,
+utility pole, mountain top, hot dogs,hotdogs, bed frame, tail lights, traffic
+lights, candle holder, guard rail, tree branches, trash bin, side mirror, light
+pole, street lamp, paper plate, fence post, door frame, tshirt,t-shirt,t shirt,
+wire fence, side window, table lamp, pony tail, ocean water, flower pot, tree
+line, sign post, ski suit, passenger train, "catchers mitt", electrical outlet,
+bike rack, windshield wiper, bus stop, police car, name tag, computer keyboard,
+glass door, wine glasses, young man, light post, ski jacket, streetlight,street
+light, beer bottle, wrist watch, tile floor, tree branch, towel rack
+```
+
+</details>
+
+# 02/09/2021 (x) - Call con i prof
+
+- Provare a sostituire LSTM con FFNN
+
+- Problema principale: allineamento tra le due modalità (testo e immagini),
+  bisogna sicuramente utilizzare informazione aggiuntiva
+
+- Utilizzare le classi come negli altri paper per calcolare un peso e scalare le
+  similarità
+
+# 01/09/2021 - Problema analisi frequenze
+
+Analisi delle frequenze deve comparare le freq delle classi con 100 bb e le freq
+delle classi senza background. Precedentemente, quest'ultimo era stato
+implementato facendo in modo di ricavare la classe delle gt e poi rimuovere
+background.
+
+Rigenerati i grafici di analisi e completate le slide per la riunione del
+02/09/2021.
+
 # 31/08/2021 - Classe `__background__`
 
 **Upperbound accuracy togliendo le bounding box etichettate con classe
@@ -96,7 +207,7 @@ Skipping 3923857105_img.pickle, found 0 caption files.
 Progress: [------------->      ] 74 % (23534)
 Skipping 4797050581_img.pickle, found 0 caption files.
 Progress: [------------------> ] 99 % (31782)
-Scanned 31783 images for a total of 456140 queries.
+Scanned 31783 images for a total of ca queries.
 With 10 bounding box the upperbound accuracy is 53.901215 %, on average we removed 1.243747 % background boxes.
 With 20 bounding box the upperbound accuracy is 73.620380 %, on average we removed 10.792090 % background boxes.
 With 30 bounding box the upperbound accuracy is 80.821678 %, on average we removed 22.437257 % background boxes.
