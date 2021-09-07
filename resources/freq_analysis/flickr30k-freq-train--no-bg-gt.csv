@@ -1,0 +1,1136 @@
+class,pred,gt
+__background__,8,0
+goal,12,54
+bathroom,7,24
+macaroni,2,0
+umpire,21,36
+toothpick,1,0
+ceiling fan,1,0
+calculator,0,1
+catcher,30,87
+toilet,26,49
+batter,25,52
+stop sign/stopsign,0,3
+cone,189,71
+microwave/microwave oven,25,15
+dugout,17,8
+kettle,12,2
+kitchen,83,294
+refrigerator/fridge,149,108
+ostrich,2,0
+bathtub,21,22
+blinds,93,20
+court,179,365
+urinal,1,0
+knee pads,5,3
+bed,264,676
+giraffe,5,11
+helmet,2109,1469
+giraffes,2,0
+tennis court,16,19
+motorcycle,970,1497
+laptop,362,483
+tea pot,0,1
+horse,1223,1653
+television/tv,202,192
+shorts,3697,2415
+manhole,11,1
+dishwasher,21,1
+jeans,4818,2219
+sail,42,51
+monitor,113,144
+man,41710,78250
+shirt,29515,22585
+car,2260,1872
+cat,171,264
+garage door,11,14
+bus,286,705
+radiator,1,0
+tights,13,19
+sailboat/sail boat,8,14
+racket/racquet,169,334
+plate,582,597
+beach,817,1780
+trolley,1,13
+ocean,266,165
+headboard/head board,8,0
+tea kettle,0,4
+wetsuit,58,159
+tennis racket/tennis racquet,4,28
+sink,75,109
+train,310,505
+keyboard,219,179
+sky,3948,1838
+train station,12,16
+stereo,5,0
+bats,4,0
+lighter,1,0
+pepper shaker,3,0
+gazebo,1,2
+hair dryer,2,12
+elephant,137,409
+toilet seat,5,1
+zebra,7,16
+skateboard/skate board,902,1034
+floor lamp,2,0
+french fries,3,0
+woman,22893,37751
+player,1073,1738
+tower,129,109
+bicycle,375,537
+magazines,8,0
+christmas tree,8,34
+umbrella,1058,1107
+cow,505,608
+pants,5455,2633
+bike,2416,3221
+field,1194,1992
+living room,0,4
+latch,4,0
+bedroom,2,4
+castle,4,6
+table,3212,4756
+swan,11,12
+blender,15,27
+orange,7,11
+teddy bear,45,63
+net,148,206
+meter,19,8
+runway,2,2
+screen,182,282
+dog,5316,9989
+clock,133,59
+hair,20271,4628
+skirt,1004,546
+frisbee,378,788
+parasail,2,1
+desk,92,132
+pizza,126,160
+mouse,53,20
+sign,3832,2099
+airplane,3,9
+jersey,349,219
+reigns,1,1
+hot dog/hotdog,20,32
+surfboard/surf board,509,948
+couch,236,683
+glass,612,553
+snowboard,111,211
+girl,5272,7886
+plane,129,303
+elephants,1,18
+oven,49,82
+dirt bike,18,26
+bear,180,547
+washer,6,3
+date,13,0
+bow tie,10,19
+cows,30,55
+fire extinguisher,2,1
+wallet,19,5
+tail feathers,2,0
+truck,941,1311
+boat,1189,2070
+tablet,7,18
+ceiling,369,177
+chandelier,11,6
+sheep,198,239
+glasses,2455,1428
+kite,178,459
+salad,10,5
+pillow,401,119
+fire hydrant/hydrant,106,60
+mug,50,35
+tarmac,1,2
+computer,86,101
+swimsuit,69,33
+tomato,12,9
+tire,1173,90
+cauliflower,5,1
+fireplace,23,23
+snow,1798,2133
+building,5628,5397
+sandwich,28,36
+bird,456,711
+jacket,7659,6185
+chair,2025,1402
+water,7348,7674
+cats,3,0
+soccer ball,66,143
+horses,92,452
+barn,11,8
+engine,9,14
+cake,145,345
+head,14896,3110
+skier,53,175
+bowl,591,550
+stove,102,115
+tongue,133,143
+coffee table,4,3
+floor,2122,2885
+uniform,595,513
+ottoman,6,1
+broccoli,10,2
+mound,32,30
+pitcher,17,51
+food,329,461
+traffic light,60,16
+parking meter,20,11
+bananas,96,86
+mountain,745,502
+cage,30,114
+hedge,48,26
+motorcycles,22,133
+wet suit,0,8
+monitors,6,6
+suitcase/suit case,337,389
+drawers,11,0
+grass,4908,4949
+apple,64,64
+lamp,195,52
+goggles,183,79
+boy,7232,12019
+ramp,418,500
+burner,13,0
+lamb,13,4
+cup,571,448
+tank top,240,300
+boats,43,109
+hat,8654,5513
+soup,1,7
+fence,1957,2048
+necklace,587,139
+visor,60,46
+coffee,3,13
+bottle,1273,805
+stool,82,41
+shoe,6214,533
+surfer,60,173
+stop,6,4
+backpack,561,385
+shin guard,2,0
+wall,9376,7905
+home plate,2,15
+van,150,245
+packet,2,0
+wristband,111,21
+tracks,177,212
+mitt,13,27
+dome,16,11
+snowboarder,74,132
+faucet,59,3
+room,151,827
+fork,37,19
+bench,1451,2310
+tie,556,227
+stuffed animals,7,20
+cupcake,6,19
+curtain,468,234
+ear,2889,110
+bread,43,65
+scissors,71,86
+vase,121,142
+smoke,55,95
+skylight,2,0
+tail,472,60
+cutting board,36,54
+wave,836,352
+windshield,177,74
+apples,50,32
+mirror,343,202
+license plate,105,16
+tree,4606,1521
+wheel,2604,249
+ski pole,43,39
+freezer,1,0
+luggage,50,42
+skateboarder,14,19
+road,1601,1728
+bat,209,525
+neck,41,10
+cliff,39,23
+tub,52,63
+sprinkles,3,1
+dresser,23,7
+street,2216,3429
+wing,137,45
+suit,372,681
+palm trees,3,18
+door,1327,491
+propeller,5,4
+keys,34,9
+skate park,4,17
+platform,138,127
+pot,356,261
+towel,296,144
+flip flop,33,2
+eggs,1,0
+shed,14,0
+moped,2,0
+sand,948,1329
+face,3634,802
+carts,1,1
+squash,19,11
+pillows,14,7
+glove,1067,543
+rug,117,73
+watch,1060,78
+dogs,105,702
+scoreboard,23,9
+basket,464,388
+poster,205,125
+duck,40,46
+horns,17,12
+bears,6,16
+jeep,10,14
+painting,187,256
+lighthouse,5,13
+remote control,1,5
+toaster,7,2
+vegetables,86,62
+surfboards,4,6
+ducks,1,15
+carrots,17,17
+market,35,229
+paper towels,10,5
+island,12,3
+smile,14,1
+balloons,67,141
+stroller,98,276
+napkin,102,36
+towels,5,0
+papers,36,23
+person,6695,5131
+child,865,1319
+headband,245,152
+pool,347,608
+plant,389,72
+harbor,0,1
+counter,342,385
+hand,9143,3533
+house,330,266
+donut/doughnut,85,186
+knot,1,0
+soccer player,3,7
+bottles,73,66
+coat,571,651
+trees,2150,1423
+bun,3,0
+toilet bowl,2,0
+trunk,241,113
+station,25,18
+bikini,149,127
+goatee,25,7
+nose,1557,211
+moon,4,6
+river,21,46
+racer,0,8
+picture,687,236
+shaker,13,0
+sidewalk/side walk,4039,3383
+shutters,3,2
+stove top/stovetop,3,1
+church,4,13
+lampshade,10,0
+map,49,78
+shop,6,6
+platter,4,0
+airport,11,45
+hoodie,300,340
+oranges,43,26
+woods,6,28
+enclosure,0,9
+skatepark,0,6
+vases,4,4
+city,19,160
+park,180,354
+mailbox,33,11
+balloon,192,164
+billboard,15,22
+forehead,11,7
+ship,24,50
+cookie,14,10
+seaweed,5,4
+sofa,11,4
+tractor,28,44
+bull,90,172
+graffiti,321,209
+policeman,2,3
+pens,2,0
+window sill,5,5
+suspenders,5,2
+easel,8,10
+tray,137,163
+straw,22,31
+collar,715,274
+shower,1,0
+bag,3244,1629
+scooter,128,197
+comforter,13,19
+outlet,51,1
+valley,3,6
+flag,574,406
+jockey,15,62
+gravel,35,2
+mouth,1468,1007
+window,5623,1345
+bridge,212,343
+corn,14,22
+mountains,201,242
+beer,29,48
+palm tree,48,10
+crowd,273,1243
+skis,55,101
+phone,528,642
+ground,4850,7547
+carpet,113,150
+eye,883,31
+urn,2,0
+beak,49,48
+mattress,7,17
+baseball player,2,0
+wine,10,2
+water bottle,27,18
+archway,43,48
+candle,64,40
+tennis ball,21,24
+dress,2450,2263
+column,104,13
+cell phone,76,85
+cap,701,314
+carriage,38,111
+snout,52,13
+cabinets,28,7
+lemons,5,9
+grill,182,235
+umbrellas,27,98
+meat,54,64
+wagon,39,131
+ipod,5,0
+bookshelf,12,10
+cart,435,878
+roof,708,230
+hay,88,101
+seat,188,178
+mane,24,13
+bikes,53,131
+drawer,42,0
+game,59,188
+boys,35,226
+rider,45,186
+fire escape,4,0
+slope,8,13
+pumpkin,41,53
+pan,161,215
+chopsticks,2,15
+hill,602,338
+cleat,20,2
+costume,83,206
+cabin,17,30
+police officer,3,5
+ears,105,28
+egg,0,2
+trash can,271,68
+horn,54,20
+arrow,20,13
+toothbrush,112,211
+carrot,19,23
+banana,43,72
+planes,1,10
+garden,23,68
+forest,39,85
+dashboard,4,2
+statue,316,711
+saucer,2,3
+people,9330,33149
+silverware,1,3
+fruit,123,152
+drain,15,1
+jet,0,5
+speaker,114,11
+eyes,333,91
+lid,83,44
+soap,1,1
+rocks,765,614
+banana peel,4,15
+spoon,49,61
+pineapple,13,2
+traffic cone,0,1
+teapot,2,2
+taxi,28,44
+chimney,50,0
+lake,0,12
+ball,2118,2710
+wrist band,2,0
+fruits,3,4
+pad,25,11
+dispenser,7,5
+bridle,1,0
+cones,8,22
+headlight,160,16
+skater,11,20
+toilet paper,22,6
+skyscraper,8,0
+telephone,15,3
+ox,0,4
+sock,500,29
+paddle,39,51
+dishes,0,5
+hills,9,7
+headlights,12,3
+card,23,7
+napkins,8,0
+bush,396,89
+rice,2,0
+spokes,17,2
+flowers,724,350
+bucket,600,439
+rock,1623,864
+pole,2154,729
+store,327,687
+juice,7,6
+knobs,2,1
+mustard,2,0
+ski,64,39
+stands,91,115
+cabinet,117,23
+dirt,590,531
+goats,0,8
+wine glass,2,6
+spectators,30,54
+crate,78,56
+kids,92,605
+shade,42,11
+feeder,10,12
+cellphone,16,13
+pepper,1,0
+blanket,517,598
+sunglasses,1811,1006
+train car,16,10
+magnet,9,0
+donuts/doughnuts,34,46
+sweater,564,419
+signal,7,1
+advertisement,22,11
+log,164,198
+vent,77,6
+whiskers,4,0
+arch,23,10
+tent,440,501
+motorbike,0,11
+magnets,2,0
+night,5,5
+wool,6,10
+vest,577,417
+moustache,1,3
+bib,38,24
+frame,177,89
+tank,42,24
+undershirt,5,0
+icons,5,0
+beams,7,0
+baseball bat,2,7
+can,250,91
+container,283,143
+flower,478,161
+vehicle,98,169
+tomatoes,24,18
+nostril,8,0
+suv,11,4
+buildings,138,133
+canopy,47,24
+flame,31,89
+kid,40,60
+baseball,83,192
+belt,490,55
+rainbow,0,5
+lemon,3,1
+tag,214,57
+books,62,21
+monument,22,15
+men,807,3098
+shadow,1887,276
+bicycles,8,12
+cars,56,98
+lamp shade,14,0
+bouquet,15,12
+toothpaste,7,1
+potato,1,0
+hook,5,1
+switch,6,0
+lamp post/lamppost,31,6
+desert,2,12
+knob,77,1
+chairs,66,149
+feathers,68,27
+hole,48,6
+kites,1,17
+boots,240,217
+baby,673,1023
+biker,1,7
+gate,60,22
+headphones,37,42
+goat,19,37
+waves,120,41
+bumper,29,2
+logo,956,155
+curtains,23,12
+box,986,528
+baseball cap,5,2
+controller,47,46
+awning,166,58
+path,121,188
+life jacket,2,12
+purse,383,196
+pigeon,75,25
+toddler,8,38
+beard,893,280
+thumb,18,12
+board,314,377
+parade,0,17
+robe,65,76
+newspaper,216,213
+wires,63,34
+camera,600,645
+deck,64,137
+watermelon,45,9
+clouds,424,54
+deer,4,10
+motorcyclist,0,5
+kneepad,0,5
+sneakers,5,0
+women,343,1480
+onions,17,5
+eyebrow,4,0
+gas station,0,6
+girls,132,765
+trash,35,19
+knife,87,66
+tags,3,0
+light,1421,226
+outfit,78,187
+groom,6,7
+frosting,2,14
+forks,1,0
+stuffed animal,24,24
+ladder,118,135
+shoes,1618,527
+bracelet,330,36
+teeth,150,88
+display case,6,6
+cushion,34,8
+post,308,74
+tablecloth,53,107
+skiers,3,10
+cloud,436,25
+hands,143,200
+produce,8,22
+beam,9,0
+ketchup,2,4
+paw,277,26
+dish,12,1
+raft,48,181
+crosswalk,35,41
+cattle,1,4
+players,76,514
+group,33,371
+track,57,85
+cowboy hat,0,5
+eyeglasses,1,5
+handle,506,240
+shakers,0,2
+remote,18,17
+snowsuit,0,5
+bushes,125,44
+leg,1137,195
+eagle,0,6
+fire truck/firetruck,5,9
+game controller,0,1
+backsplash,5,0
+trains,0,1
+shore,78,38
+signs,6,6
+bell,12,5
+sack,6,7
+drawing,32,58
+toy,217,316
+legs,216,108
+pavement,49,63
+wheels,88,35
+driver,7,9
+numbers,17,1
+pen,50,63
+cabbage,4,0
+trucks,3,1
+saddle,43,33
+goose,2,12
+label,63,29
+boulder,10,4
+pajamas,44,67
+wrist,104,15
+shelf,326,194
+cross,2,2
+lot,4,8
+air,55,66
+officer,22,32
+cheese,5,8
+lady,5,7
+kickstand,2,0
+bags,52,84
+stand,82,118
+netting,2,14
+lettuce,22,16
+lime,0,1
+animals,14,87
+boot,265,59
+railing,538,715
+steps,173,140
+trashcan,10,0
+tusk,3,1
+walkway,88,78
+cockpit,2,5
+animal,143,318
+boardwalk,0,6
+bookcase,12,14
+trash bag,0,2
+ski poles,2,7
+parking lot,10,22
+fan,35,22
+base,145,85
+soap dispenser,8,0
+banner,204,250
+life vest,13,5
+word,35,14
+cab,17,3
+liquid,7,8
+exhaust pipe,6,0
+sneaker,0,1
+light fixture,1,0
+power lines,0,2
+curb,234,57
+scene,29,75
+buttons,12,2
+sticker,178,31
+pizzas,2,2
+paper,587,550
+feet,106,31
+stairs,316,377
+triangle,8,0
+plants,155,135
+rope,406,348
+beans,16,1
+letters,321,175
+soda,4,2
+menu,32,30
+finger,103,43
+candles,8,22
+picnic table,2,8
+wine bottle,3,2
+pencil,5,1
+tree trunk,29,21
+nail,6,9
+mantle,3,0
+line,667,104
+audience,3,1
+arm,1112,547
+dock,88,114
+doorway,64,62
+worker,1,8
+crane,26,24
+grate,50,11
+plates,44,33
+background,257,201
+peel,6,0
+string,33,46
+armrest,18,0
+shower head,1,0
+leash,59,107
+stones,3,0
+handle bars,4,1
+front,17,7
+scarf,643,363
+band,135,42
+tennis,1,4
+pile,17,29
+foot,471,72
+houses,13,12
+windows,184,61
+restaurant,60,196
+booth,6,34
+fingers,57,45
+bleachers,33,56
+rail,92,175
+pastry,2,0
+canoe,17,16
+sun,83,106
+salt shaker,3,0
+number,508,171
+fish,88,121
+knee pad,32,6
+fur,32,15
+rod,9,0
+branches,66,22
+birds,31,66
+printer,17,7
+sunset,4,3
+median,2,0
+shutter,21,13
+slice,3,0
+heater,2,0
+bathing suit,25,14
+rack,79,47
+book,697,775
+blade,15,0
+manhole cover,16,0
+overhang,3,0
+door handle,6,0
+couple,93,371
+picture frame,8,0
+chicken,21,25
+planter,52,14
+seats,30,22
+bowls,6,2
+top,307,289
+landing gear,1,0
+coffee maker,10,7
+computers,0,6
+light switch,37,0
+jar,63,40
+overalls,8,9
+garage,4,8
+writing,466,165
+doors,17,20
+stadium,69,111
+placemat,4,6
+sled,13,25
+mast,1,0
+pond,12,17
+steering wheel,7,10
+baseball glove,2,7
+watermark,25,0
+pie,6,4
+mushroom,2,3
+handles,11,2
+fender,4,0
+strawberry,5,1
+mask,48,55
+children,264,1119
+art,2,5
+rim,15,7
+branch,96,62
+display,41,116
+photo,28,66
+toys,9,23
+handlebars,9,13
+trailer,23,45
+sandal,558,43
+skull,7,1
+pipe,119,42
+office,1,13
+chest,8,15
+lamps,0,4
+horizon,0,1
+calendar,11,1
+foam,4,0
+stone,17,13
+bars,12,11
+button,216,21
+poles,14,28
+heart,29,7
+hose,92,85
+potatoes,27,14
+rain,14,25
+magazine,70,46
+chain,95,47
+design,186,78
+pictures,14,10
+pillar,163,43
+drink,13,17
+barrier,18,15
+boxes,89,60
+chocolate,1,0
+chef,4,20
+icing,0,8
+wipers,5,0
+circle,144,114
+bin,73,42
+tiles,35,5
+steam,16,16
+lettering,18,5
+spire,3,0
+sheet,38,49
+slab,12,9
+spatula,4,0
+tail light/taillight,9,1
+wire,29,23
+pier,71,87
+trunks,4,5
+bolt,31,0
+kayak,19,45
+nuts,2,0
+holder,21,3
+barrel,114,110
+fans,4,9
+beanie,11,19
+stem,2,12
+lines,159,61
+sweatshirt,80,106
+handbag,21,20
+mulch,2,8
+socks,173,77
+shelves,14,11
+ski lift,12,15
+cord,155,52
+vegetable,3,6
+apron,138,161
+blind,4,0
+bracelets,19,8
+stickers,2,3
+traffic,1,11
+swim trunks,11,14
+hillside,2,0
+sandals,318,77
+concrete,55,16
+lips,34,25
+words,7,16
+leaves,401,155
+cooler,35,30
+sheets,3,10
+figurine,10,30
+stack,16,25
+motor,10,5
+spectator,11,1
+flip flops,30,10
+quilt,3,2
+calf,7,0
+grapes,17,12
+skin,0,1
+bow,27,31
+controls,1,4
+ribbon,49,24
+cover,62,28
+tarp,172,107
+notebook,25,26
+mustache,97,33
+closet,5,1
+statues,1,7
+bank,2,4
+butter,1,2
+knee,24,4
+wood,244,144
+laptops,0,19
+cuff,49,5
+hubcap,4,0
+wings,12,11
+structure,68,111
+balls,6,36
+tunnel,21,12
+globe,10,8
+utensil,2,0
+dumpster,15,18
+cd,1,0
+wrapper,4,18
+folder,4,0
+pocket,34,2
+posts,13,6
+power line,2,0
+wake,15,1
+roses,5,2
+reflection,314,79
+air conditioner,12,0
+barricade,2,2
+garbage can,14,5
+buckle,23,6
+footprints,17,0
+lights,146,112
+bracket,2,4
+plug,1,0
+ring,81,31
+twigs,5,1
+playground,26,101
+stump,24,32
+brick wall,2,3
+screw,1,0
+leaf,190,13
+ledge,53,40
+clothes,95,64
+plumbing,1,0
+blouse,5,2
+patch,84,14
+scaffolding,34,43
+rose,12,12
+skillet,6,17
+cable,4,0
+gloves,78,63
+bark,7,0
+decoration,15,12
+tables,0,19
+palm,1,0
+wii,2,0
+shrub,1,0
+hoof,27,0
+celery,0,1
+beads,42,23
+plaque,12,0
+cloth,181,118
+spot,37,6
+plastic,34,39
+case,68,76
+pony,0,2
+hot dogs/hotdogs,14,23
+stripe,193,49
+scale,6,3
+block,124,50
+body,3,16
+wallpaper,2,0
+sculpture,49,77
+surface,3,3
+lift,10,1
+bottom,17,2
+cleats,22,1
+roll,0,2
+clothing,31,6
+doll,9,24
+strings,24,23
+paint,30,16
+candle holder,4,1
+guard rail,2,4
+cyclist,4,22
+ripples,2,0
+waist,3,0
+onion,4,5
+side mirror,3,1
+brush,44,90
+handlebar,35,38
+artwork,5,0
+reflector,3,0
+figure,1,8
+tile,31,0
+bricks,38,15
+stick,223,373
+patio,7,28
+weeds,12,0
+back,68,41
+sausage,3,3
+paws,7,13
+harness,31,23
+monkey,16,21
+stripes,77,44
+ponytail,95,29
+strap,235,44
+carton,0,1
+chin,17,0
+name,25,3
+earring,270,24
+area,0,1
+tshirt/t-shirt/t shirt,29,33
+lanyard,44,29
+brick,52,3
+hallway,6,3
+cucumber,7,0
+fern,2,0
+windowsill,1,4
+pipes,16,4
+package,6,9
+wheelchair,19,37
+chips,3,7
+tattoo,135,106
+stairway,0,6
+machine,194,328
+radio,12,0
+overpass,1,0
+mat,65,38
+tube,13,8
+dial,2,2
+splash,5,7
+lantern,4,5
+tongs,7,6
+trail,3,4
+bandana,66,62
+antelope,1,10
+tents,1,10
+tires,23,8
+mannequin,7,34
+mushrooms,0,3
+strawberries,5,6
+piece,1,1
+oar,37,37
+bike rack,2,0
+arms,28,92
+fin,3,0
+shadows,29,8
+hood,348,129
+windshield wiper,1,0
+letter,66,7
+dot,16,0
+bus stop,38,65
+railings,3,2
+mud,4,0
+claws,1,0
+crown,37,29
+name tag,17,9
+entrance,6,3
+staircase,13,28
+peak,1,0
+asphalt,1,1
+columns,7,2
+sleeve,420,85
+pack,2,1
+cheek,1,0
+baskets,3,12
+land,10,6
+blocks,3,15
+pedal,0,4
+panel,2,7
+balcony,78,47
+yellow,2,3
+crumbs,2,0
+emblem,5,0
+object,127,99
+bar,53,83
+cardboard,4,0
+light post,1,0
+streetlight/street light,38,14
+alley,6,4
+cords,2,8
+image,3,10
+jug,18,21
+antenna,8,0
+puppy,0,3
+berries,0,2
+diamond,2,0
+pans,2,2
+fountain,49,88
+bride,133,225
+spray,3,3
+peppers,8,0
+cement,3,5
+flags,17,43
+trough,3,10
+objects,1,0
+pots,5,0
+border,1,0
+baseboard,2,0
+beer bottle,0,3
+items,3,1
+donkey,0,8
+containers,13,13
+device,12,15
+parachute,1,16
+hut,17,28
+butterfly,8,13
+twig,2,0
+ivy,5,2
+furniture,7,2
+lion,4,14
+vehicles,0,17
+shoreline,4,0
+stream,1,4
+lock,27,0
+microphone,389,420
+coaster,0,1
+star,70,25
+text,4,2
+feather,3,8
+spots,2,0
+buoy,17,3
