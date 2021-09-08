@@ -5,6 +5,11 @@
 <details>
 <summary>Table of Contents</summary>
 
+- [07/09/2021 (x) - Accuracy su referit 25%](#07092021-x---accuracy-su-referit-25)
+- [06/09/2021 - Implementazione similarità classi](#06092021---implementazione-similarit%C3%A0-classi)
+- [03/09/2021 - Introduzione delle classi](#03092021---introduzione-delle-classi)
+- [02/09/2021 (x) - Call con i prof](#02092021-x---call-con-i-prof)
+- [01/09/2021 - Problema analisi frequenze](#01092021---problema-analisi-frequenze)
 - [31/08/2021 - Classe `__background__`](#31082021---classe-__background__)
 - [30/08/2021 - Studio frequenza classi e altri esperimenti](#30082021---studio-frequenza-classi-e-altri-esperimenti)
 - [27/08/2021 - Classes frequency](#27082021---classes-frequency)
