@@ -75,6 +75,20 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+# 07/09/2021 (x) - Accuracy su referit 25%
+
+- Fixato errore di implementazione del vocabolario delle classi: non veniva
+  passato alla net di embedding
+
+- Fixata attivazione della funzione di similarità: al posto di `(x + 1) / 2`
+  applichiamo la relu, ovvero threshold sui valori negativi e lasciamo da 0 a 1
+  i positivi
+
+Un primo training mostra come sul validation, alla prima epoca, l'accuracy
+raggiunta sia 25.7%, con trend crescente.
+
+Setting valido per ulteriori esperimenti.
+
 # 06/09/2021 - Implementazione similarità classi
 
 Implementata la similarità tra classi delle bounding box e frase.
