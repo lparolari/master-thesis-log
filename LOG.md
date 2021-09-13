@@ -5,6 +5,8 @@
 <details>
 <summary>Table of Contents</summary>
 
+- [13/09/2021 - Dottorato e correzione del problema su flickr con aggregazione delle frasi](#13092021---dottorato-e-correzione-del-problema-su-flickr-con-aggregazione-delle-frasi)
+- [09/09/2021 - Implementata aggregazione delle frasi w2v-max](#09092021---implementata-aggregazione-delle-frasi-w2v-max)
 - [07/09/2021 (x) - Accuracy su referit 25%](#07092021-x---accuracy-su-referit-25)
 - [06/09/2021 - Implementazione similarità classi](#06092021---implementazione-similarit%C3%A0-classi)
 - [03/09/2021 - Introduzione delle classi](#03092021---introduzione-delle-classi)
