@@ -80,6 +80,34 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+# 13/09/2021 - Dottorato e correzione del problema su flickr con aggregazione delle frasi
+
+La nuova strategia di aggregazione delle parole tramite max anziché mean
+performa male su flickr30k. Secondo le nostre aspettative avrebbe dovuto andare
+meglio per via dell'eliminazione del rumore dalle frasi lunghe di flickr. Invece
+la strategia va meglio solo per referit.
+
+Abbiamo ipotizzato che il problema possa essere che vengono selezionate parole
+poco sensate che hanno similarità molto alta con le classi delle bb, oppure che
+gli embedding delle parole out of vocab inizializzati a random creino problemi.
+
+Ad ogni modo, per indagare entrambi i problemi abbiamo implementato una
+procedura che trova le frequenze delle parole aggregate con similarità maggiore
+rispetto alle classi delle bounding box.
+
+Tecnicamente questo ci dovrebbe spiegare il comportamento della nuova strategia:
+se ci sono molto parole poco sensate significa che la similarità max la
+ottengono le parole inutili e bisogna pensare a come pesare questa similarità,
+se invece ci sono molte oov allora l'embedding inizializzato a random va
+aggiustato.
+
+Nota: ci sono 295 classi out of vocab, ~8300 bounding box con classi out of
+vocab.
+
+# 09/09/2021 - Implementata aggregazione delle frasi w2v-max
+
+Si veda paper Phrase Localization Without Paired Training Examples.
+
 # 07/09/2021 (x) - Accuracy su referit 25%
 
 - Fixato errore di implementazione del vocabolario delle classi: non veniva
