@@ -5,6 +5,8 @@
 <details>
 <summary>Table of Contents</summary>
 
+- [15/09/2021 - Implementato w2v e lanciati i training](#15092021---implementato-w2v-e-lanciati-i-training)
+- [14/09/2021 - Cambiare glove con w2v embedding?](#14092021---cambiare-glove-con-w2v-embedding)
 - [13/09/2021 - Dottorato e correzione del problema su flickr con aggregazione delle frasi](#13092021---dottorato-e-correzione-del-problema-su-flickr-con-aggregazione-delle-frasi)
 - [09/09/2021 - Implementata aggregazione delle frasi w2v-max](#09092021---implementata-aggregazione-delle-frasi-w2v-max)
 - [07/09/2021 (x) - Accuracy su referit 25%](#07092021-x---accuracy-su-referit-25)
