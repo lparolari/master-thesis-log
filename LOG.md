@@ -82,6 +82,8 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+# 15/09/2021 - Implementato w2v e lanciati i training
+
 # 14/09/2021 - Cambiare glove con w2v embedding?
 
 **Word embedding**
