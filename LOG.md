@@ -82,6 +82,25 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+# 14/09/2021 - Cambiare glove con w2v embedding?
+
+**Word embedding**
+
+Analizzando le frequenze delle parole e delle classi abbiamo capito che
+probabilmente è l'embedding che fa la differenza. Noi non alleniamo nulla,
+quindi gli errori sono proprio dovuti all'embedding. Il paper seguito usa w2v,
+proviamo a integrarlo anche noi.
+
+**Idee da appunti (anche vecchi)**
+
+- Similarità classe-parola + similarità tra feature bounding box
+
+- Vedere le classi delle bounidn gbox piccole
+
+- Scalare gli score per la similarità classe-parola solo nella loss e non nel
+  modello: non è necessaria l'info della classe a tempo di inferenza (si cambia
+  il training drasticamente)
+
 # 13/09/2021 - Dottorato e correzione del problema su flickr con aggregazione delle frasi
 
 La nuova strategia di aggregazione delle parole tramite max anziché mean
