@@ -5,6 +5,10 @@
 <details>
 <summary>Table of Contents</summary>
 
+- [24/09/2021 - Max-class concept sim](#24092021---max-class-concept-sim)
+- [22/09/2021 - Rimossa frase negativa in favore di concept direction](#22092021---rimossa-frase-negativa-in-favore-di-concept-direction)
+- [20/09/2021 - Proportional concept similarity activation e threshold](#20092021---proportional-concept-similarity-activation-e-threshold)
+- [17/09/2021 - Filtro noun phrases con spacy](#17092021---filtro-noun-phrases-con-spacy)
 - [15/09/2021 - Implementato w2v e lanciati i training](#15092021---implementato-w2v-e-lanciati-i-training)
 - [14/09/2021 - Cambiare glove con w2v embedding?](#14092021---cambiare-glove-con-w2v-embedding)
 - [13/09/2021 - Dottorato e correzione del problema su flickr con aggregazione delle frasi](#13092021---dottorato-e-correzione-del-problema-su-flickr-con-aggregazione-delle-frasi)
