@@ -84,6 +84,16 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+# 24/09/2021 - Max-class concept sim
+
+Mascherati tutti i valori che non sono della classe principale
+
+# 22/09/2021 - Rimossa frase negativa in favore di concept direction
+
+# 20/09/2021 - Proportional concept similarity activation e threshold
+
+# 17/09/2021 - Filtro noun phrases con spacy
+
 # 15/09/2021 - Implementato w2v e lanciati i training
 
 # 14/09/2021 - Cambiare glove con w2v embedding?
