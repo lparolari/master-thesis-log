@@ -88,6 +88,38 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+# 30/09/2021 (x) - Riunione e nuove idee
+
+**ESPERIMENTI / COSE DA FARE**
+
+1. [ ] Freezare e sistemare tutti gli esperimenti come baseline: dobbiamo avere
+       `no-prior`, `no-prior + freq`, `prior`, `prior + freq`
+2. [ ] Aggiungere parametro per spegnere/accedendere l'utilizzo della frequenza
+3. [ ] Implementare la loss per ortogonalità, ovvero `-pos + neg^2`, lanciare
+       run senza freq sia moltiplicando che non
+4. [ ] Aggiungere lo spell checker (vedere codice di Davide)
+5. [ ] Verificare lowercase nella net delle parole e rimuovere in caso
+6. [ ] ~Cambiare L1 con L2 per testo e immagini~
+7. [ ] Verificare se c'è L1 su testo
+8. [ ] Fare una media pesata del prior (aggiungere parametro weight) con formula
+       `(prior_w * prior + prediction) / 2`, esperimento su flicrk
+
+**PROBLEMA**: il parser che estrae le noun phrase sovrascrive la key `phrases`
+nel dizionario del batch e all'LSTM arriva la noun phrase invece della frase
+normale, questo potrebbe essere un problema...
+
+**IDEA**: nella concept similarity possiamo aggiungere informazione:
+
+- noun phrase <--> label
+- aggettivi <--> attributi
+
+**IDEA**: calcolare la similarità sulle 2048 features (escludendo le spaziali) e
+poi identificare la posizione sulle restanti 5
+
+**IDEA**: prendere il modello max-class e provare a fare la valutazione
+generando la union box delle bb con la stessa classe (come paper Training w\o
+Paired Example) oppure con top-K (più facile).
+
 # 29/09/2021 - Preparazione presentazione: risultati
 
 **Titolo tesi**
