@@ -5,6 +5,9 @@
 <details>
 <summary>Table of Contents</summary>
 
+- [30/09/2021 (x) - Riunione e nuove idee](#30092021-x---riunione-e-nuove-idee)
+- [29/09/2021 - Preparazione presentazione: risultati](#29092021---preparazione-presentazione-risultati)
+- [28/09/2021 - Pesare nella loss la freq delle classi](#28092021---pesare-nella-loss-la-freq-delle-classi)
 - [24/09/2021 - Max-class concept sim](#24092021---max-class-concept-sim)
 - [22/09/2021 - Rimossa frase negativa in favore di concept direction](#22092021---rimossa-frase-negativa-in-favore-di-concept-direction)
 - [20/09/2021 - Proportional concept similarity activation e threshold](#20092021---proportional-concept-similarity-activation-e-threshold)
