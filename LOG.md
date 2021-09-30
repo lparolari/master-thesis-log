@@ -94,13 +94,13 @@
 
 1. [ ] Freezare e sistemare tutti gli esperimenti come baseline: dobbiamo avere
        `no-prior`, `no-prior + freq`, `prior`, `prior + freq`
-2. [ ] Aggiungere parametro per spegnere/accedendere l'utilizzo della frequenza
-3. [ ] Implementare la loss per ortogonalità, ovvero `-pos + neg^2`, lanciare
+2. [x] Aggiungere parametro per spegnere/accedendere l'utilizzo della frequenza
+3. [x] Implementare la loss per ortogonalità, ovvero `-pos + neg^2`, lanciare
        run senza freq sia moltiplicando che non
-4. [ ] Aggiungere lo spell checker (vedere codice di Davide)
-5. [ ] Verificare lowercase nella net delle parole e rimuovere in caso
+4. [x] Aggiungere lo spell checker (vedere codice di Davide)
+5. [x] Verificare lowercase nella net delle parole e rimuovere in caso
 6. [ ] ~Cambiare L1 con L2 per testo e immagini~
-7. [ ] Verificare se c'è L1 su testo
+7. [x] Verificare se c'è L1 su testo
 8. [ ] Fare una media pesata del prior (aggiungere parametro weight) con formula
        `(prior_w * prior + prediction) / 2`, esperimento su flicrk
 
@@ -119,6 +119,21 @@ poi identificare la posizione sulle restanti 5
 **IDEA**: prendere il modello max-class e provare a fare la valutazione
 generando la union box delle bb con la stessa classe (come paper Training w\o
 Paired Example) oppure con top-K (più facile).
+
+**FREEZE EXPERIMENTS**
+
+_Flickr30k_
+
+| Id                                                         | Prior   | Freq | Acc      | P. Acc |
+| ---------------------------------------------------------- | ------- | ---- | -------- | ------ |
+| [159](https://wandb.ai/vtkel-solver/weakvtg/runs/15au9y8l) | product | yes  | 39.3     | 73.3   |
+| [161](https://wandb.ai/vtkel-solver/weakvtg/runs/1z1i03zt) | product | no   | **39.4** | 73.3   |
+| [158](https://wandb.ai/vtkel-solver/weakvtg/runs/e2iwtjmq) | 1       | yes  | 28.5     | 61.4   |
+|                                                            | 1       | no   |          |        |
+
+_ReferIt_
+
+TODO
 
 # 29/09/2021 - Preparazione presentazione: risultati
 
