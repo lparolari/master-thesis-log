@@ -88,6 +88,74 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+# 29/09/2021 - Preparazione presentazione: risultati
+
+**Titolo tesi**
+
+- Leveraging on Concept Similarity for Weakly Supervised Phrase Grounding
+- Weakly Supervised Visual-Textual Grounding with Concept Similarity
+
+**Struttura**
+
+- Introduction
+
+  - Phrase Grounding
+  - One Stage vs Two Stage
+  - Fully/Weakly/Self/Un-Supervised
+
+- Related works
+
+- Model
+
+  - Visual Branch
+  - Textual Branch
+  - Concept Branch
+  - Loss
+  - Training and Inference
+
+- Experiments
+
+  - Evaluation Metrics
+  - Datasets (Flickr30k, ReferIt)
+  - Experiments Setup
+  - Results (Flickr30k, ReferIt)
+
+- Conclusion
+
+Dove vanno messe?
+
+- Proposal generator
+- Object detector
+- Word embedding (GloVe, w2v)
+
+---
+
+Flickr30k
+
+| Approach                           | Acc. (%) | P. Acc (%) |
+| ---------------------------------- | -------- | ---------- |
+| Align2Ground                       | 11.5     | 71.0       |
+| KAC Net                            | 37.7     | -          |
+| Localziation w\o Training Examples | 50.5     | -          |
+| **Ours**                           |          |            |
+| max-class                          | 38.4     | 75.6       |
+| prop                               | 40.5     | 74.5       |
+| prop, freq                         | **42.7** | 75.2       |
+
+ReferIt
+
+| Approach                           | Acc. (%) | P. Acc (%) |
+| ---------------------------------- | -------- | ---------- |
+| Align2Ground                       | -        | -          |
+| KAC Net                            | 15.83    | -          |
+| Localziation w\o Training Examples | 26.48    | -          |
+| **Ours**                           |          |            |
+| max-class                          | 31.7     | 58.6       |
+| prop                               | **32.0** | 58.5       |
+| prop, freq                         | 29.1     | 57.8       |
+
+# 28/09/2021 - Pesare nella loss la freq delle classi
+
 # 24/09/2021 - Max-class concept sim
 
 Mascherati tutti i valori che non sono della classe principale
