@@ -91,6 +91,248 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+# 17/10/2021 - Attributi
+
+**Concat per similarità**
+
+sim(a, b) + sim(c, d) = sim([a, c], [b, d]) \
+sim(a, b) + sim(c, d) = sim([a, b], [c, d])
+
+DA NORMALIZZARE, ALTRIMENTI NON TORNA!!
+
+```py
+>>> a = torch.tensor([1, 2, 3], dtype=torch.float32)
+>>> b = torch.tensor([4, 5, 6], dtype=torch.float32)
+>>> c = torch.tensor([7, 8, 9], dtype=torch.float32)
+>>> d = torch.tensor([10, 11, 12], dtype=torch.float32)
+>>>
+>>> ac = torch.cat((a, c))
+>>> ab = torch.cat((a, b))
+>>> bd = torch.cat((b, d))
+>>> cd = torch.cat((c, d))
+>>>
+>>> sim_a_b = torch.cosine_similarity(a, b, dim=-1)
+>>> sim_c_d = torch.cosine_similarity(c, d, dim=-1)
+>>> sim_ac_bd = torch.cosine_similarity(ac, bd, dim=-1)
+>>> sim_ab_cd = torch.cosine_similarity(ab, cd, dim=-1)
+>>>
+>>> print("sim(a, b) + sim(c, d) = sim(ac, bd) ==>", torch.equal(sim_a_b + sim_c_d, sim_ac_bd))
+False
+>>> print("sim(a, b) + sim(c, d) = sim(ab, cd) ==>", torch.equal(sim_a_b + sim_c_d, sim_ab_cd))
+False
+```
+
+**Similarità attributo**
+
+Il modello applica la similarità come
+
+```
+predictions = lam * predictions + (1 - lam) * sim(classe, concetto)
+```
+
+potremmo aggiungere, in seguito a quanto riportato sopra, questo
+
+```
+predictions = rho * predictions + (1 - rho) * sim(attributo, aggettivo)
+```
+
+- Se non c'è l'attributo sulla box (i.e., prob attr < 0.2) allora la
+  sim(attributo, aggettivo) è 0.
+
+- Se non c'è l'aggettivo nella frase (i.e., spacy non trova nulla) allora la
+  sim(attributo, aggettivo) è 0.
+
+In entrambi i casi, l'unico problema è che la "potenza" di predizione del
+modello viene scalata. (PROBLEMA)
+
+NOTA: in alcuni casi si ottiene `nan` per via di divisione per zero o altro
+(vedere sezione _Problema_ sotto)
+
+**"Direzione" nella loss**
+
+Ragionando sull'attrazione/repulsione delle feature, sarebbe utile potenziare
+l'attrazione nel caso di concetto+attributo corretti e viceversa, attenendosi
+alla seguente tabella
+
+```
+| concetto  |  -  |  -  |  +  |  +  |
+| attributo |  -  |  +  |  -  |  +  |
+| --------- | --- | --- | --- | --- |
+|           |  -  |  -  |  +  |  +  |
+|           |  -  |     |     |  +  |
+```
+
+Il risultato prende la forma di `f(x) = arctan x`, con x che si muove sulle 4
+combinazioni.
+
+Se x è discretizzata come in tabella allora è possibile simulare l'andamento
+risultato modificando `f` come `f(x) = arctan (x * tan(1) / 2) = 1`. (questo ci
+permette di avere `f(2) = 1`).
+
+Esempio:
+
+```
+f(2) = 1
+f(1) = 0.66
+f(0) = 0
+f(-1) = -0.66
+f(-2) = -1
+```
+
+Altrimenti c'è l'opzione retta che passa per (-2,-1) e (2,1): `f(x) = x/2`.
+
+**Estrazione attributo**
+
+NOTA:
+
+Sul paper bottom-up attention dell'obj detector si legge
+
+> To aid the learning of good feature representations, we add an additional
+> training output for predicting attribute classes (in addition to object
+> classes). To predict attributes for region i, we concatenate the mean pooled
+> convolutional feature vi with a learned embedding of the ground-truth object
+> class, and feed this into an additional output layer defining a softmax
+> distribution over each attribute class plus a ‘no attributes’ class
+
+Mi sembra di capire poi, leggendo sotto, che la threshold a 0.2 è utilizzata per
+altri scopi, non per gli attributi:
+
+> "To select salient image regions, a class detection confidence threshold of
+> 0.2 is used, allowing the number of regions per image k to vary with the
+> complexity of the image,"
+
+Controllando l'out dei file per la key "pred_attr_prob" si ha una lista [100,
+401], i.e. per ogni bb ci sono 401 attributi (400 + background come per le
+classi)
+
+```py
+>>> x = [...]  # Ctrl+C Ctrl+V dei dati della key `pred_attr_prob` del file pickle
+>>> len(x)
+401
+```
+
+Conclusione: anche per gli attr. c'è la classe background da ignorare. (con il
+debugger è evidente la sua presenza)
+
+ESTRAZIONE ATTRIBUTO:
+
+- Maschera per ignorare background (ed eventualmente altri)
+- Argmax sugli attributi (valutare altre strategie)
+
+Output:
+
+- un attributo per ogni bb dove la maschera è True
+- non esiste il caso zero attributi ==> se maschera True faccio argmax e quindi
+  almeno 1 esiste!
+
+IDEA: Si potrebbe valutare di aggregare tutti gli attributi in uno generico, ma
+non so se ha molto senso...
+
+**Estrazione aggettivo**
+
+- Per ogni frase, spacy con filtro su POS == ADJ ==> lista di aggettivi (anche
+  vuota!)
+- La di aggettivi è joinata e rappresentata come se fosse una frase (problema:
+  `" ".join([]) = ""`)
+  - Si potrebbe effettivamente creare una maschera che mette un flag quando
+    succede questo...
+  - Attualmente il problema è che quando succede, ottengo un tensore con una
+    certa dimensione a zero `[2, 1, 0]` dove `[b, n_ph, attr_len]`. Ciò funziona
+    fino a quando non si fanno cose tipo `attr.sum() / attr_mask.sum()` perché
+    entrambi come risultato della sum restituiscono `0`
+- Da qui in poi è possibile far funzionare tutto come per la concept similarity
+  (a meno dei problemi evidenziati):
+  - Calcolo similarità tra tutti gli aggettivi e tutti gli attributi delle box
+  - Scelgo l'aggettivo con similarità max wrt attributi
+  - Calcolo cosine sim tra attr e adj
+
+**Problema**
+
+Quando non ci sono aggettivi, l'aggregatuion strategy con mean non funziona e
+restituisce nan per via di una divisione per zero.
+
+Si potrebbe provare con
+
+```py
+if 0 not in box_attribute.size() and 0 not in adjective.size():
+    attribute_similarity = compute_attribute_similarity()
+else:
+    attribute_similarity = torch.zeros_like(positive_concept_similarity)
+```
+
+Anche questo però è scomodo secondo me.
+
+Bisogna fare un if e non eseguire nemmeno l'apply della attribute sim con la
+media? A questo punto mi sembra l'unica soluzione.
+
+Oppure, cosa forse migliore, si utilizza una maschera che copre i casi
+evidenziati.
+
+**Problema pt. 2**
+
+Union box potrebbe essere poco discriminativo se aggiungiamo gli attributi.
+
+**DOPO CALL**
+
+- Evitare il prior nel modello, troppo complicato per ora.
+- Aggiungere gli attributi nella loss con la direzione utilizzando la tabella
+  riportata di seguito. La tabella può essere semplificata tramite una formula
+  assumendo in input A e B due tensori formati da 0 e 1 per direzione concetto e
+  direzione attributo, come `(A + B - B*(1-A)) - 1`.
+- Ignorare la bb indice zero negli attributi, è un errore dell'object detector e
+  considerare gli attributi presenti quando >= 0.2.
+
+Tabella per aggiungere attributi nella loss :
+
+```
+concetto=1, attributo=1 -> avvicina
+concetto=1, attributo=0 -> nulla
+concetto=0, attributo=1 -> allontana
+concetto=0, attributo=0 -> allontana
+```
+
+# 14/10/2021 - Nuove baselines
+
+**With prior**
+
+Baseline = prior mean, loss orthogonal, full phrase, spell correction
+
+| Experiment                                     | Baseline | Outcome | Gain\*\* (%) |
+| ---------------------------------------------- | -------- | ------- | ------------ |
+| (192) no image projection net (lstm=2053 feat) | 39.4     | 38.4    | -2.5         |
+| (194) loss othogonal + scale by freq           | 39.4     | 41.7    | 5.8          |
+| (195)\* concept sim weight = 0.4               | 39.4     | 39.3    | -0.2         |
+| (196)\* concept sim weight = 0.6               | 39.4     | 39.1    | -0.7         |
+| (198)\* concept sim weight = 0.3               | 39.4     | 38.8    | -1.5         |
+| (199)\* concept sim weight = 0.7               | 39.4     | 39.3    | -0.2         |
+
+**Without prior**
+
+Baseline = no prior, loss orthogonal, full phrase, spell correction
+
+| Experiment                                     | Baseline | Outcome | Gain\*\* (%) |
+| ---------------------------------------------- | -------- | ------- | ------------ |
+| (191) no image projection net (lstm=2053 feat) | 34.1     | 14.0    | -58.9        |
+| (193) loss othogonal + scale by freq           | 34.1     | 34.7    | 1.7          |
+
+\*: pochissime epoche di training \
+\*\*: Gain = (Outcome - Baseline) / Baseline \* 100
+
+TODO: raccogliere baselines e risultati
+
+# 13/10/2021 - Problema sulla similarità degli embeddings
+
+|                            | w2v    | glove  |
+| -------------------------- | ------ | ------ |
+| sim("skateboarder", "boy") | 0.3863 | 0.2955 |
+| sim("boy", "woman")        | 0.5976 | 0.6260 |
+| sim("boy", "person")       | 0.3373 | 0.4035 |
+| sim("boy", "people")       | 0.2337 | 0.3307 |
+| sim("man", "woman")        | 0.7664 | 0.7402 |
+| sim("man", "people")       | 0.3391 | 0.4899 |
+| sim("man", "person")       | 0.5342 | 0.5557 |
+| sim("person", "people")    | 0.5083 | 0.6294 |
+
 # 30/09/2021 (x) - Riunione e nuove idee
 
 **ESPERIMENTI / COSE DA FARE**
