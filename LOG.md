@@ -5,6 +5,9 @@
 <details>
 <summary>Table of Contents</summary>
 
+- [17/10/2021 - Attributi](#17102021---attributi)
+- [14/10/2021 - Nuove baselines](#14102021---nuove-baselines)
+- [13/10/2021 - Problema sulla similarità degli embeddings](#13102021---problema-sulla-similarit%C3%A0-degli-embeddings)
 - [30/09/2021 (x) - Riunione e nuove idee](#30092021-x---riunione-e-nuove-idee)
 - [29/09/2021 - Preparazione presentazione: risultati](#29092021---preparazione-presentazione-risultati)
 - [28/09/2021 - Pesare nella loss la freq delle classi](#28092021---pesare-nella-loss-la-freq-delle-classi)
