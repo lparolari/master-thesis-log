@@ -18,6 +18,25 @@ specified
 
 \*\* Accuracy computed with pointing game metric
 
+TODO:
+
+- Top-down Neural Attention by Excitation Backprop: principalmente MSCOCO,
+  PASCAL VOC07 and ImageNet, ma mostrano anche dei risultati su Flickr30k (weak
+  supervised localization)
+
+- From Captions to Visual Concepts and Back: sempre MS COCO, da capire bene se è
+  nel nostro setting
+
+TODO
+
+- Aggiungere contrastive learning (weakly)
+
+- Aggiungere Grounding referring expressions in images by variational context
+  (solo unsupervised)
+
+- Aggiungere Weakly Supervised Phrase Localization with Multi-Scale Anchored
+  Transformer Network
+
 # Paper Features
 
 | Paper                              | RoI Generator               | Num Boxes | Object Detector                                         | Settings     | Train                                    | Inference  |
