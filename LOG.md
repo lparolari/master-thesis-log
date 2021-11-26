@@ -670,6 +670,23 @@ With 100 bounding box the upperbound accuracy is 88.256895 %, on average we remo
 
 ```
 
+| Change | Gain |
+| ------ | ---- |
+| -5.1   | -5.4 |
+| -5.2   | -5.5 |
+| -5.2   | -5.6 |
+| -5.1   | -5.5 |
+| -4.9   | -5.3 |
+| -4.5   | -5.0 |
+| -3.7   | -4.2 |
+| -2.5   | -3.0 |
+| -0.9   | -1.2 |
+| 0      | 0    |
+
+MEAN GAIN = -4.10205172145765 \
+MIN GAIN = 0 \
+MAX GAIN = -5.60949298813377 \
+
 _ReferIt_
 
 ```
@@ -691,6 +708,23 @@ With 80 bounding box the upperbound accuracy is 82.172529 %, on average we remov
 With 90 bounding box the upperbound accuracy is 82.625906 %, on average we removed 49.926704 % background boxes.
 With 100 bounding box the upperbound accuracy is 82.998734 %, on average we removed 51.092873 % background boxes.
 ```
+
+| Change | Gain |
+| ------ | ---- |
+| 8.4    | -9.1 |
+| 8.3    | -9.1 |
+| 8.1    | -8.9 |
+| 7.9    | -8.8 |
+| 7.6    | -8.5 |
+| 6.7    | -7.7 |
+| 5.4    | -6.4 |
+| 3.7    | -4.6 |
+| 1.6    | -2.2 |
+| 0.2    | -0.3 |
+
+MEAN GAIN = -6.61420361289034 \
+MIN GAIN = -0.392156862745104 \
+MAX GAIN = -9.19037199124727 \
 
 Secondo i risultati ottenuti, può valere la pena provare a togliere le bounding
 box che fanno rumore (si rimanda ai risultati del 30/08/2021 e alle
